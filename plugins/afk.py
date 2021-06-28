@@ -321,11 +321,24 @@ async def handle_afk_outgoing(message: Message) -> None:
     # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def teste_(_, c_q: CallbackQuery):
+        allow = bool(
+            c_q.from_user
+            and (
+                c_q.from_user.id in Config.OWNER_ID
+                or c_q.from_user.id in Config.SUDO_USERS
+            )
+        )
+        if allow:
+            try:
         await c_q.answer(
-                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled ",
+                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
+                  f"Teste {_parse_arg(not Config.ALLOW_ALL_PMS)}",
                   show_alert=True,
                 )
+        allow_private=False,
         return teste_
+    
+    def _apple_arg(arg: bool) -> str:
 
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
