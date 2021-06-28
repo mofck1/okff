@@ -332,7 +332,7 @@ async def handle_afk_outgoing(message: Message) -> None:
             try:
         await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
-                  f"Teste {_parse_arg(not Config.ALLOW_ALL_PMS)}",
+                  f"Teste {_apple_arg(not Config.ALLOW_ALL_PMS)}",
                   show_alert=True,
                 )
         allow_private=False,
