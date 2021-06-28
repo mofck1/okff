@@ -264,12 +264,46 @@ class _afk_:
     def afk_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🍏 Twapple", url="https://t.me/twapple"),
+                InlineKeyboardButton(text="🍏 Status", callback_data="status_afk"),
                 InlineKeyboardButton(text="▫️ Bio", url=Config.BIO_APPLE),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
+# # # teste # # # 
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
+    async def status_afk_(_, c_q: CallbackQuery):
+    afk_time_ = time_formatter(round(time.time() - TIME))
+        allow = bool(
+            c_q.from_user
+            and (
+                c_q.from_user.id in Config.OWNER_ID
+                or c_q.from_user.id in Config.SUDO_USERS
+            )
+        )
+        if allow:
+            start = datetime.now()
+            try:
+                await c_q.edit_message_text(
+                    reply_markup=_afk_.afk_buttons(),
+                    disable_web_page_preview=True,
+                )
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+            except BadRequest:
+                pass
+            status = "LAST SEEN: {afk_time_} \n"
+        teste += f"▫️ ANTISPAM : {_apple_op(Config.ANTISPAM_SENTRY)}\n"
+        teste += f"Appppple: @applled"
 
+        if allow:
+            await c_q.answer(status.time_formatter(round(time.time() - TIME, + teste, show_alert=True)
+        else:
+            await c_q.answer(teste, show_alert=True)
+        await asyncio.sleep(0.5)
+        
+        def _apple_op(arg: bool) -> str:
+    return " ✅ " if arg else " ❌ "
+# # # teste # # #
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
 async def handle_afk_outgoing(message: Message) -> None:
