@@ -138,6 +138,9 @@ async def respostas(message: Message) -> None:
     user_dict = await message.client.get_user_dict(user_id)
     afk_time = time_formatter(round(time.time() - TIME))
     coro_list = []
+
+    client = message.client
+    chat_id = message.chat.id
     if user_id in USERS:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             match = _TELE_REGEX.search(REASON)
@@ -145,8 +148,9 @@ async def respostas(message: Message) -> None:
                 type_, media_ = await _afk_.check_media_link(match.group(0))
                 if type_ == "url_gif":
                     await send_inline_afk(message)
-                elif type_ == "url_image":
-                    await send_inline_afk_(message)
+                else:
+                    if type_ == "url_image":
+                        await send_inline_afk_(message)
             else:
                 coro_list.append(
                     await _send_inline_afk(message)
@@ -160,10 +164,12 @@ async def respostas(message: Message) -> None:
         match = _TELE_REGEX.search(REASON)
         if match:
             type_, media_ = await _afk_.check_media_link(match.group(0))
-            if type_ == "url_image":
-                await send_inline_afk_(message)
-            elif type_ == "url_gif":
-                await send_inline_afk(message)
+            if not type_ == "url_gif":
+                if type_ == "url_image":
+                    await send_inline_afk_(message)
+            else:
+                if type_ == "url_gif":
+                    await send_inline_afk(message)
         else:
                 coro_list.append(
                     await _send_inline_afk(message)
@@ -317,14 +323,9 @@ async def handle_afk_outgoing(message: Message) -> None:
     # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def status_afk_(_, c_q: CallbackQuery):
-        allow = bool(
-            c_q.from_user
-            and (
-                c_q.from_user.id in Config.OWNER_ID
-                or c_q.from_user.id in Config.SUDO_USERS
+        if c_q.from_user and (
+           c_q.from_user.id in Config.OWNER_ID
             )
-        )
-            try:
                 await c_q.edit_message_text(
                     reply_markup=_afk_.afk_buttons(),
                     disable_web_page_preview=True,
