@@ -55,7 +55,7 @@ OCUPADOM = (
 async def escolhas(message: Message):
     """ Motivos para o Modo Ausente """
     await message.edit("`Entendi, Mestre. Aguarde...`", log=__name__)
-    LOG.info("Modo Ausente - Ativando..")
+#   LOG.info("Modo Ausente - Ativando..")
     if "a" in message.flags:
             await message.edit(
                 f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
