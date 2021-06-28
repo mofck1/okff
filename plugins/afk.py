@@ -341,9 +341,8 @@ async def handle_afk_outgoing(message: Message) -> None:
                 await asyncio.sleep(e.x)
             except BadRequest:
                 pass        
-                  user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"LAST SEEN: {afk_time_}\nDev: {user_dict['flname']} ",
+                    f"LAST SEEN: {afk_time_}\nDev: @applled ",
                     show_alert=True,
                 )
 
