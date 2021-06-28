@@ -326,7 +326,7 @@ async def handle_afk_outgoing(message: Message) -> None:
         user_id = c_q.from_user.id
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
             await c_q.answer(
-                  f"LAST SEEN: {afk_time_}\nDev: @applled ",
+                  f"LAST SEEN: {afk_time}\nDev: @applled ",
                   show_alert=True,
                 )
         return teste_
