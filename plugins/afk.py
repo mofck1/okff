@@ -326,14 +326,18 @@ async def handle_afk_outgoing(message: Message) -> None:
            or c_q.from_user.id in Config.SUDO_USERS
                ):
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
+            else:
             await c_q.answer(
-                  f"**LAST SEEN:**\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled ",
+                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled ",
                   show_alert=True,
                 )
         return teste_
 
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
+    "As moscas não se arriscariam\nà ir a Roma de boca fechada,\npois morreriam de fome.",
+    "Fazer alguém, sem olhar o bem que tem.",
+    "Quem ri por último come mais chocolate.",
 )
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
