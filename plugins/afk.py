@@ -154,8 +154,9 @@ async def respostas(message: Message) -> None:
             else:
                 coro_list.append(
                     await _send_inline_afk(message)
-                    
+                )
         if chat.type == "private":
+
             USERS[user_id][0] += 1
         else:
             USERS[user_id][1] += 1
