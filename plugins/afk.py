@@ -324,7 +324,7 @@ async def handle_afk_outgoing(message: Message) -> None:
         if c_q.from_user and (
            c_q.from_user.id in Config.OWNER_ID
            or c_q.from_user.id in Config.SUDO_USERS
-               )
+               ): # tem que ter isso mesmo.
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
     else:
             await c_q.answer(
