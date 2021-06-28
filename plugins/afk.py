@@ -334,7 +334,7 @@ async def handle_afk_outgoing(message: Message) -> None:
         return teste_
     
     def _apple_arg(arg: bool) -> str:
-    return " ✅ " if arg else " ❌ "
+ 
 
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
