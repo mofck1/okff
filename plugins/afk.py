@@ -272,7 +272,6 @@ class _afk_:
 # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def status_afk_(_, c_q: CallbackQuery):
-    afk_time_ = time_formatter(round(time.time() - TIME))
         allow = bool(
             c_q.from_user
             and (
