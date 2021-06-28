@@ -330,12 +330,12 @@ async def handle_afk_outgoing(message: Message) -> None:
                ):
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
             await c_q.answer(
-                  f"**LAST SEEN:**\n{afk_time}\nPense: {random.choice(frase)}\nDev: @applled ",
+                  f"**LAST SEEN:**\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled ",
                   show_alert=True,
                 )
         return teste_
 
-frase = (
+FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
 )
 AFK_REASONS = (
