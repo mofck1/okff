@@ -170,11 +170,12 @@ async def respostas(message: Message) -> None:
                 if type_ == "url_gif":
                     await send_inline_afk(message)
         else:
-
-            coro_list.append(
-                await _send_inline_afk(message)
-            )
-
+                coro_list.append(
+                    await _send_inline_afk(message)
+                )
+                # coro_list.append(
+                    # message.reply(_afk_._out_str())
+                # )
         if chat.type == "private":
             USERS[user_id] = [1, 0, user_dict["mention"]]
         else:
