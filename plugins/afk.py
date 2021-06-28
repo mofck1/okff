@@ -324,9 +324,9 @@ async def handle_afk_outgoing(message: Message) -> None:
         if c_q.from_user and (
            c_q.from_user.id in Config.OWNER_ID
            or c_q.from_user.id in Config.SUDO_USERS
-               ):
+               )
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
-            else:
+    else:
             await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled ",
                   show_alert=True,
