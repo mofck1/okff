@@ -340,9 +340,15 @@ async def handle_afk_outgoing(message: Message) -> None:
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except BadRequest:
-                pass
-            status = "LAST SEEN: {afk_time_} \n"
-        teste = f"Appppple: @applled"
+                pass        
+                  user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
+                await c_q.answer(
+                    f"LAST SEEN: {afk_time_}\nDev: {user_dict['flname']} ",
+                    show_alert=True,
+                )
+
+        return status_afk_
+        
     
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
