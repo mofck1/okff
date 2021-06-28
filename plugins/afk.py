@@ -296,8 +296,6 @@ class _afk_:
 
         if allow:
             await c_q.answer(status.time_formatter(round(time.time() - TIME, + teste, show_alert=True)
-        else:
-        await asyncio.sleep(0.5)
         
         def _apple_op(arg: bool) -> str:
     return " ✅ " if arg else " ❌ "
