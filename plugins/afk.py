@@ -325,7 +325,8 @@ async def handle_afk_outgoing(message: Message) -> None:
     async def status_afk_(_, c_q: CallbackQuery):
         if c_q.from_user and (
            c_q.from_user.id in Config.OWNER_ID
-            )
+               ):
+#               try:
                 await c_q.edit_message_text(
                     reply_markup=_afk_.afk_buttons(),
                     disable_web_page_preview=True,
