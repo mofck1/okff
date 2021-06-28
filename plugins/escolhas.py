@@ -20,20 +20,20 @@ OCUPADO = (
         "Working on something.",
 )
 # Ações - Media dos Motivos 
-ASSISTINDO = (
-        "APPLE",
-        "ORANGE",
-        "MANGO",
+ASSISTINDOM = (
+        "https://telegra.ph/file/b66924aeae0d3485c28ac.mp4", #Criar novos layouts
+        "https://telegra.ph/file/b66924aeae0d3485c28ac.mp4",
+        "https://telegra.ph/file/b66924aeae0d3485c28ac.mp4",
 )
-DORMINDO = (
-        "APPLE",
-        "ORANGE",
-        "MANGO",
+DORMINDOM = (
+        "https://telegra.ph/file/670badca8c8af12118f26.mp4", #Add mais depois, estão repetidos
+        "https://telegra.ph/file/670badca8c8af12118f26.mp4",
+        "https://telegra.ph/file/670badca8c8af12118f26.mp4",
 )
-OCUPADO = (
-        "APPLE",
-        "ORANGE",
-        "MANGO",
+OCUPADOM = (
+        "https://telegra.ph/file/4fee33246f1b8dc90eb39.mp4",
+        "https://telegra.ph/file/4fee33246f1b8dc90eb39.mp4",
+        "https://telegra.ph/file/4fee33246f1b8dc90eb39.mp4",
 )
 
 @userge.on_cmd(
@@ -58,14 +58,14 @@ async def escolhas(message: Message):
     LOG.info("Modo Ausente - Ativando..")
     if "assistindo" in message.flags:
             await message.edit(
-                "`Teste`",
+                "!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
                 del_in=3,
     if "dormindo" in message.flags:
             await message.edit(
-                "`Teste`",
+                "!afk {random.choice(DORMINDO)} | {random.choice(DORMINDOM)}",
                 del_in=3,
     if "ocupado" in message.flags:
             await message.edit(
-                "`Teste`",
+                "!afk {random.choice(OCUPADO)} | {random.choice(OCUPADOM)}",
                 del_in=3,
             )
