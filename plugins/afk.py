@@ -323,7 +323,9 @@ async def handle_afk_outgoing(message: Message) -> None:
     # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def teste_(_, c_q: CallbackQuery):
-        user_id = c_q.from_user.id
+        if c_q.from_user and (
+           c_q.from_user.id in Config.OWNER_ID
+               ):
  #          await c_q.answer("LAST SEEN: {afk_time_}\nDev: @applled ")
             await c_q.answer(
                   f"LAST SEEN: {afk_time}\nDev: @applled ",
