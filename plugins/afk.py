@@ -272,7 +272,7 @@ class _afk_:
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
 async def logs(message: Message) -> None:
-    """Status detalhado e atualizado sobre seu modo ausente"""
+    """ Status detalhado e atualizado sobre seu modo ausente """
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
@@ -320,9 +320,6 @@ async def logs(message: Message) -> None:
     )
     await asyncio.gather(*coro_list)
 
-
 AFK_REASONS = (
-    "⚡️ **Auto Reply** ⒶⒻⓀ ╰• SNOOZE \n🕑 **Last Check:**   10 years ago\n▫️ **Status**:  Zzzz [\u200c](https://telegra.ph/file/3e4a8e757b9059de07d89.gif)",
-    "⚡️ **Auto Reply** ⒶⒻⓀ ╰• SNOOZE \n🕑 **Last Check:**   15 years ago\n▫️ **Status**:  Zzzz [\u200c](https://telegra.ph/file/f68688e04a8713174bb7d.gif)",
-    "⚡️ **Auto Reply** ⒶⒻⓀ ╰• SNOOZE \n🕑 **Last Check:**   Unlimited time ago\n▫️ **Status**:  Zzzz [\u200c](https://telegra.ph/file/885d526a6d02910e436ef.gif)",
+    "Não estou.",
 )
