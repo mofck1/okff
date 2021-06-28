@@ -4,6 +4,22 @@ import asyncio
 import random
 from userge import Message, userge
 
+# Motivos 
+ASSISTINDO = (
+        "Watching, I'll be back soon.",
+        "Just check my @twapple",
+)
+DORMINDO = (
+        "I just zzz...",
+        "Zzz..",
+        "I'm tired, see ya!",
+)
+OCUPADO = (
+        "BUSY!",
+        "I can't talk right now, sorry.",
+        "Working on something.",
+)
+# Ações - Media dos Motivos 
 ASSISTINDO = (
         "APPLE",
         "ORANGE",
