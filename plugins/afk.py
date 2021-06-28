@@ -330,17 +330,11 @@ async def handle_afk_outgoing(message: Message) -> None:
                 or c_q.from_user.id in Config.SUDO_USERS
             )
         )
-        if allow:
-            start = datetime.now()
             try:
                 await c_q.edit_message_text(
                     reply_markup=_afk_.afk_buttons(),
                     disable_web_page_preview=True,
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except BadRequest:
-                pass        
+                )      
                 await c_q.answer(
                     f"LAST SEEN: {afk_time_}\nDev: @applled ",
                     show_alert=True,
