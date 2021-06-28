@@ -3,6 +3,7 @@
 import asyncio
 import time
 from random import randint
+import random
 from re import compile as comp_regex
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
