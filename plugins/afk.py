@@ -343,11 +343,6 @@ async def handle_afk_outgoing(message: Message) -> None:
                 pass
             status = "LAST SEEN: {afk_time_} \n"
         teste = f"Appppple: @applled"
-
-        if allow:
-            await c_q.answer(status.time_formatter(round(time.time() - TIME, teste, show_alert=True)
-
-# # # teste # # #
     
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
