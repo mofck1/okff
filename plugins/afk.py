@@ -271,12 +271,12 @@ class _afk_:
 
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
-async def logs(message: Message) -> None:
-    """ Status detalhado e atualizado sobre seu modo ausente """
+async def handle_afk_outgoing(message: Message) -> None:
+    """handle outgoing messages when you afk"""
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`Não estou mais ausente!`", log=__name__)
+    replied: Message = await message.reply("`I'm no longer AFK!`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ""
@@ -292,19 +292,19 @@ async def logs(message: Message) -> None:
                 g_count += gcount
         coro_list.append(
             replied.edit(
-                f"`💬 Na sua Inbox: {p_count + g_count} mensagens. "
-                f"▫️ Confira os detalhes no log.`\n\n💤 **Ausente por** : __{afk_time}__",
-                del_in=1,
+                f"`You recieved {p_count + g_count} messages while you were away. "
+                f"Check log for more details.`\n\n**AFK time** : __{afk_time}__",
+                del_in=3,
             )
         )
         out_str = (
-            f"📂 Mensagens na Inbox[:](https://telegra.ph/file/7c1ba52391b7ffcc3e891.png) **{p_count + g_count}** \n▫️ Em contato: **{len(USERS)}** desgraçado(s) "
-            + f"\n▫️ **Ausente por** : __{afk_time}__\n\n"
+            f"You've recieved **{p_count + g_count}** messages "
+            + f"from **{len(USERS)}** users while you were away!\n\n**AFK time** : __{afk_time}__\n"
         )
         if p_count:
-            out_str += f"\n**{p_count} Mensagens Privadas:**\n\n{p_msg}"
+            out_str += f"\n**{p_count} Private Messages:**\n\n{p_msg}"
         if g_count:
-            out_str += f"\n**{g_count} Mensagens em Grupo:**\n\n{g_msg}"
+            out_str += f"\n**{g_count} Group Messages:**\n\n{g_msg}"
         coro_list.append(CHANNEL.log(out_str))
         USERS.clear()
     else:
@@ -321,5 +321,5 @@ async def logs(message: Message) -> None:
     await asyncio.gather(*coro_list)
 
 AFK_REASONS = (
-    "Não estou.",
+    "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
 )
