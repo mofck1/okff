@@ -37,16 +37,16 @@ OCUPADOM = (
 )
 
 @userge.on_cmd(
-    "escolhas",
+    "fui",
     about={
         "header": "Zoeira pra saber quais chances com a Purple",
         "flags": {
-            "-assistindo": "Ativa o afk com uma escolha aleatória já definida do motivo",
-            "-dormindo": "--- ",
-            "-ocupado": "--- ",
+            "-a": "Ativa o afk com uma escolha aleatória já definida do motivo",
+            "-d": "Dormindo.. ",
+            "-o": "Ocupado... ",
         },
-        "como usar": "{tr}escolhas -flag",
-        "exemplo": "{tr}escolhas -assistindo",
+        "como usar": "{tr}fui -flag",
+        "exemplo": "{tr}fui -a",
     },
     del_pre=True,
     allow_channels=False,
@@ -56,16 +56,18 @@ async def escolhas(message: Message):
     """ Motivos para o Modo Ausente """
     await message.edit("`Entendi, Mestre. Aguarde...`", log=__name__)
     LOG.info("Modo Ausente - Ativando..")
-    if "assistindo" in message.flags:
+    if "a" in message.flags:
             await message.edit(
-                "!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
-                del_in=3,
-    if "dormindo" in message.flags:
+                f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
+                del_in=1,
+            )
+    if "d" in message.flags:
             await message.edit(
-                "!afk {random.choice(DORMINDO)} | {random.choice(DORMINDOM)}",
-                del_in=3,
-    if "ocupado" in message.flags:
+                f"!afk {random.choice(DORMINDO)} | {random.choice(DORMINDOM)}",
+                del_in=1,
+            )
+    if "o" in message.flags:
             await message.edit(
-                "!afk {random.choice(OCUPADO)} | {random.choice(OCUPADOM)}",
-                del_in=3,
+                f"!afk {random.choice(OCUPADO)} | {random.choice(OCUPADOM)}",
+                del_in=1
             )
