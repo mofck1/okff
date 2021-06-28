@@ -328,7 +328,6 @@ async def handle_afk_outgoing(message: Message) -> None:
                 or c_q.from_user.id in Config.SUDO_USERS
             )
         )
-    else:
         await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
                   f"Teste {_apple_arg(not Config.ALLOW_ALL_PMS)}",
