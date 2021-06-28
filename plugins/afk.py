@@ -291,14 +291,11 @@ class _afk_:
             except BadRequest:
                 pass
             status = "LAST SEEN: {afk_time_} \n"
-        teste += f"▫️ ANTISPAM : {_apple_op(Config.ANTISPAM_SENTRY)}\n"
-        teste += f"Appppple: @applled"
+        teste = f"Appppple: @applled"
 
         if allow:
-            await c_q.answer(status.time_formatter(round(time.time() - TIME, + teste, show_alert=True)
-        
-        def _apple_op(arg: bool) -> str:
-    return " ✅ " if arg else " ❌ "
+            await c_q.answer(status.time_formatter(round(time.time() - TIME, teste, show_alert=True)
+
 # # # teste # # #
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
