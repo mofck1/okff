@@ -269,34 +269,6 @@ class _afk_:
             ],
         ]
         return InlineKeyboardMarkup(buttons)
-# # # teste # # # 
-    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
-    async def status_afk_(_, c_q: CallbackQuery):
-        allow = bool(
-            c_q.from_user
-            and (
-                c_q.from_user.id in Config.OWNER_ID
-                or c_q.from_user.id in Config.SUDO_USERS
-            )
-        )
-        if allow:
-            start = datetime.now()
-            try:
-                await c_q.edit_message_text(
-                    reply_markup=_afk_.afk_buttons(),
-                    disable_web_page_preview=True,
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except BadRequest:
-                pass
-            status = "LAST SEEN: {afk_time_} \n"
-        teste = f"Appppple: @applled"
-
-        if allow:
-            await c_q.answer(status.time_formatter(round(time.time() - TIME, teste, show_alert=True)
-
-# # # teste # # #
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
 async def handle_afk_outgoing(message: Message) -> None:
@@ -348,6 +320,35 @@ async def handle_afk_outgoing(message: Message) -> None:
     )
     await asyncio.gather(*coro_list)
 
+    # # # teste # # # 
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
+    async def status_afk_(_, c_q: CallbackQuery):
+        allow = bool(
+            c_q.from_user
+            and (
+                c_q.from_user.id in Config.OWNER_ID
+                or c_q.from_user.id in Config.SUDO_USERS
+            )
+        )
+        if allow:
+            start = datetime.now()
+            try:
+                await c_q.edit_message_text(
+                    reply_markup=_afk_.afk_buttons(),
+                    disable_web_page_preview=True,
+                )
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+            except BadRequest:
+                pass
+            status = "LAST SEEN: {afk_time_} \n"
+        teste = f"Appppple: @applled"
+
+        if allow:
+            await c_q.answer(status.time_formatter(round(time.time() - TIME, teste, show_alert=True)
+
+# # # teste # # #
+    
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
 )
