@@ -172,9 +172,7 @@ async def respostas(message: Message) -> None:
                 coro_list.append(
                     await _send_inline_afk(message)
                 )
-                # coro_list.append(
-                    # message.reply(_afk_._out_str())
-                # )
+
         if chat.type == "private":
             USERS[user_id] = [1, 0, user_dict["mention"]]
         else:
@@ -322,12 +320,11 @@ async def handle_afk_outgoing(message: Message) -> None:
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def teste_(_, c_q: CallbackQuery):
         allow = bool(
-            c_q.from_user
+            if c_q.from_user
             and (
                 c_q.from_user.id in Config.OWNER_ID
                 or c_q.from_user.id in Config.SUDO_USERS
-            )
-        )
+                ):
         await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
                   f"Teste {_apple_arg(not Config.ALLOW_ALL_PMS)}",
