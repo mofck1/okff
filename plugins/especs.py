@@ -1,7 +1,3 @@
-@register(outgoing=True, pattern=r"^.specs(?: |)([\S]*)(?: |)([\s\S]*)")
-
-
-import re
 import json
 from requests import get
 from bs4 import BeautifulSoup
