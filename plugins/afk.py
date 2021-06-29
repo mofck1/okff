@@ -342,7 +342,7 @@ FRASE_AFK = (
     "As moscas não se arriscariam\nà ir a Roma de boca fechada,\npois morreriam de fome.",
     "Fazer alguém, sem olhar o bem que tem.",
     "Quem ri por último come mais chocolate.",
-    
+)
 BIO_AFK = (
     "Hi,human!\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯...", # Adicionar mais coisas
 )
