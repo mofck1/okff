@@ -6,7 +6,11 @@ from random import randint
 import random
 from re import compile as comp_regex
 
-from userge.plugins.orange.afk_inline import send_inline_afk, send_inline_afk_, _send_inline_afk
+from userge.plugins.orange.afk_inline import (
+    send_inline_afk,
+    send_inline_afk_,
+    _send_inline_afk,
+)
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
