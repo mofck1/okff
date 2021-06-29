@@ -1,10 +1,12 @@
+""" Trabalhar no port do módulo """
+
 
 import os
 import time
 
 import requests
 import ujson
-from pyrogram.errors import AboutTooLong, FloodWait
+from pyrogram.errors import AboutTooLong, FloodWait, YouBlockedUser
 
 from userge import Config, Message, get_collection, userge
 
@@ -15,13 +17,12 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userge import DOWN_PATH, bot
 from userge.events import register
 
-
-@userge.on_cmd("musica", about={"header": "Teste de Port",},
+@userge.on_cmd("sfy", about={"header": "Teste de Port",},
     del_pre=True,
     allow_channels=False,
 )
 
-async def _(event):
+async def _(message: Message):
     if event.fwd_from:
         return
     chat = "@SpotifyNowBot"
