@@ -320,24 +320,22 @@ async def handle_afk_outgoing(message: Message) -> None:
 
     # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
-    async def status_afk_(_, c_q: CallbackQuery):
-        if c_q.from_user and (
-           c_q.from_user.id in Config.OWNER_ID
-               ):
+    async def teste_(c_q: CallbackQuery):
+        user_id = c_q.from_user.id
         await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
                   show_alert=True,
                 )
-        allow_private=False,
-        return teste_
         
-     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
-    async def _teste(_, c_q: CallbackQuery):
-        await callback_query.edit_message_text(
-            f"🍎 AppleBot",
-            show_alert=True,
-        )
-        return _teste
+            return teste_
+        
+#     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
+#    async def _teste(_, c_q: CallbackQuery):
+#        await callback_query.edit_message_text(
+#            f"🍎 AppleBot",
+#           show_alert=True,
+#        )
+#        return _teste
  
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
