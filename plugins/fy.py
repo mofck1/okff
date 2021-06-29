@@ -3,7 +3,7 @@ from asyncio.exceptions import TimeoutError
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userge import CMD_HELP, DOWN_PATH, bot
+from userge import DOWN_PATH, bot
 from userge.events import register
 
 
@@ -50,10 +50,3 @@ async def _(event):
     await event.delete()
     return os.remove(downloaded_file_name)
 
-  CMD_HELP.update(
-    {
-        "spotnow": ">`.spotnow`"
-        "\n**Uso:** Mostre o que você está ouvindo no spotify."
-        "\n@SpotifyNowBot"
-    }
-)
