@@ -331,7 +331,7 @@ async def handle_afk_outgoing(message: Message) -> None:
 #        allow_private=False,
 #        return teste_
         
-     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple"))
+     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
     async def _teste(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
             " 🍎 AppleBot",
