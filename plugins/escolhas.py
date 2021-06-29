@@ -39,11 +39,11 @@ OCUPADOM = (
 @userge.on_cmd(
     "fui",
     about={
-        "header": "Zoeira pra saber quais chances com a Purple",
+        "header": "Modo Ausente já definido os status/medias",
         "flags": {
-            "-a": "Ativa o afk com uma escolha aleatória já definida do motivo",
-            "-d": "Dormindo.. ",
-            "-o": "Ocupado... ",
+            "-a": "Assistindo...",
+            "-d": "Dormindo...",
+            "-o": "Ocupado....",
         },
         "como usar": "{tr}fui -flag",
         "exemplo": "{tr}fui -a",
