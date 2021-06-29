@@ -262,8 +262,8 @@ class _afk_:
     def afk_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🍏 PRIVATE", callback_data="status_afk"),
-                InlineKeyboardButton(text="▫️ RANDOM", callback_data="teste_apple"),
+                InlineKeyboardButton(text="🍏 STATUS", callback_data="status_afk"),
+                InlineKeyboardButton(text="▫️ BIO", callback_data="status_apple"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
@@ -274,7 +274,7 @@ async def handle_afk_outgoing(message: Message) -> None:
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`I'm no longer AFK!`", log=__name__)
+    replied: Message = await message.reply("`Nao estou mais ausente!`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ""
@@ -323,24 +323,28 @@ async def handle_afk_outgoing(message: Message) -> None:
     async def status_afk_(_, c_q: CallbackQuery):
         user_id = c_q.from_user.id
         await c_q.answer(
-                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
+                  f"🍏 @applled 𝐒𝐓𝐀𝐓𝐔𝐒:\n\n𝐈𝐧𝐬𝐩𝐢𝐫𝐚çã𝐨:\n ╰• {random.choice(FRASE_AFK)}\n",
                   show_alert=True,
                 )
         return status_afk_
         
-#     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
-#    async def _teste(_, c_q: CallbackQuery):
-#        await callback_query.edit_message_text(
-#            f"🍎 AppleBot",
-#           show_alert=True,
-#        )
-#        return _teste
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_apple$"))
+    async def _status_afk(_, c_q: CallbackQuery):
+        user_id = c_q.from_user.id
+        await c_q.answer(
+                  f"🍎 @applled 𝐁𝐈𝐎/Projetcs:\n\n𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n{random.choice(BIO_AFK)}\n",
+                  show_alert=True,
+                )
+        return _status_afk
  
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
     "As moscas não se arriscariam\nà ir a Roma de boca fechada,\npois morreriam de fome.",
     "Fazer alguém, sem olhar o bem que tem.",
     "Quem ri por último come mais chocolate.",
+    
+BIO_AFK = (
+    "Hi,human!\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯...", # Adicionar mais coisas
 )
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
