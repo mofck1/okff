@@ -2,7 +2,7 @@ import json
 from requests import get
 from bs4 import BeautifulSoup
 import asyncio
-from userbot.events import register
+from userge.events import register
 
 
 @userge.on_cmd(
