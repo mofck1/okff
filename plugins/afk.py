@@ -6,6 +6,7 @@ from random import randint
 import random
 from re import compile as comp_regex
 
+from userge.plugins.orange.afk_inline import *
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
@@ -102,36 +103,6 @@ async def ausente(message: Message) -> None:
     ),
     allow_via_bot=False,
 )
-
-async def send_inline_afk(message: Message):
-    bot = await userge.bot.get_me()
-    x = await userge.get_inline_bot_results(bot.username, "afk")
-    await userge.send_inline_bot_result(
-        chat_id=message.chat.id, query_id=x.query_id, result_id=x.results[0].id
-    )
-    
-async def send_inline_afk_(message: Message):
-    bot_ = await userge.bot.get_me()
-    x_ = await userge.get_inline_bot_results(bot_.username, "afk_")
-    await userge.send_inline_bot_result(
-        chat_id=message.chat.id, query_id=x_.query_id, result_id=x_.results[0].id
-    )
-    
-async def _send_inline_afk(message: Message):
-    _bot = await userge.bot.get_me()
-    _x = await userge.get_inline_bot_results(_bot.username, "_afk")
-    await userge.send_inline_bot_result(
-        chat_id=message.chat.id, query_id=_x.query_id, result_id=_x.results[0].id
-    )
-    
-async def _send_inline_afk_(message: Message):
-    _bot_ = await userge.bot.get_me()
-    _x_ = await userge.get_inline_bot_results(_bot_.username, "test")
-    await userge.send_inline_bot_result(
-        chat_id=message.chat.id, query_id=_x_.query_id, result_id=_x_.results[0].id
-    )
-    
-
 async def respostas(message: Message) -> None:
     """Configurações das mensagens automáticas"""
     if not message.from_user:
@@ -148,15 +119,13 @@ async def respostas(message: Message) -> None:
                 type_, media_ = await _afk_.check_media_link(match.group(0))
                 if type_ == "url_gif":
                     await send_inline_afk(message)
-                else:
-                    if type_ == "url_image":
-                        await send_inline_afk_(message)
+                if type_ == "url_image":
+                    await send_inline_afk_(message)
             else:
                 coro_list.append(
                     await _send_inline_afk(message)
                 )
         if chat.type == "private":
-
             USERS[user_id][0] += 1
         else:
             USERS[user_id][1] += 1
@@ -164,17 +133,14 @@ async def respostas(message: Message) -> None:
         match = _TELE_REGEX.search(REASON)
         if match:
             type_, media_ = await _afk_.check_media_link(match.group(0))
-            if not type_ == "url_gif":
-                if type_ == "url_image":
-                    await send_inline_afk_(message)
-            else:
-                if type_ == "url_gif":
-                    await send_inline_afk(message)
+            if type_ == "url_image":
+                await send_inline_afk_(message)
+            elif type_ == "url_gif":
+                await send_inline_afk(message)
         else:
-                coro_list.append(
-                    await _send_inline_afk(message)
-                )
-
+            coro_list.append(
+                await _send_inline_afk(message)
+            )
         if chat.type == "private":
             USERS[user_id] = [1, 0, user_dict["mention"]]
         else:
