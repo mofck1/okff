@@ -6,8 +6,10 @@ from random import randint
 import random
 from re import compile as comp_regex
 
+
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
+from pyrogram import StopPropagation, filters
 
 from userge import Config, Message, filters, get_collection, userge
 from userge.utils import time_formatter
@@ -261,7 +263,7 @@ class _afk_:
         buttons = [
             [
                 InlineKeyboardButton(text="🍏 Status", callback_data="status_afk"),
-                InlineKeyboardButton(text="▫️ Bio", url=Config.BIO_APPLE),
+                InlineKeyboardButton(text="▫️ Bio", callback_data="teste_apple"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
@@ -319,22 +321,25 @@ async def handle_afk_outgoing(message: Message) -> None:
     # # # teste # # # 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
     async def teste_(_, c_q: CallbackQuery):
-        allow = bool(
             if c_q.from_user and (
                 c_q.from_user.id
                 in Config.OWNER_ID
             ):
         await c_q.answer(
                   f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
-                  f"Teste {_apple_arg(not Config.ALLOW_ALL_PMS)}",
                   show_alert=True,
                 )
         allow_private=False,
         return teste_
-    
-    def _apple_arg(arg: bool) -> str:
+        
+     @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple"))
+    async def _teste(callback_query: CallbackQuery):
+        await callback_query.edit_message_text(
+            " 🍎 AppleBot",
+            show_alert=True,
+        )
+        return _teste
  
-
 FRASE_AFK = (
     "Se você perdeu a batalha,\nimagna a guerra que tem mais pessoas!",
     "As moscas não se arriscariam\nà ir a Roma de boca fechada,\npois morreriam de fome.",
