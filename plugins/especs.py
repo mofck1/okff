@@ -2,9 +2,8 @@ import json
 from requests import get
 from bs4 import BeautifulSoup
 import asyncio
-from userge.events import register
-
-
+from userge import Message, userge, register
+ 
 @userge.on_cmd(
     "aparelho",
     about={
