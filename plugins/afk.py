@@ -332,7 +332,7 @@ async def handle_afk_outgoing(message: Message) -> None:
     async def _status_afk(_, c_q: CallbackQuery):
         user_id = c_q.from_user.id
         await c_q.answer(
-                  f"🍎 @applled 𝐁𝐈𝐎/Projetcs:\n\n𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n{random.choice(BIO_AFK)}\n",
+                  f"🍎 @applled 𝐁𝐈𝐎/Projects:\n\n𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n{random.choice(BIO_AFK)}\n",
                   show_alert=True,
                 )
         return _status_afk
