@@ -262,8 +262,8 @@ class _afk_:
     def afk_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🍏 Status", callback_data="status_afk"),
-                InlineKeyboardButton(text="▫️ Bio", callback_data="teste_apple"),
+                InlineKeyboardButton(text="🍏 PRIVATE", callback_data="status_afk"),
+                InlineKeyboardButton(text="▫️ RANDOM", callback_data="teste_apple"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
@@ -319,22 +319,22 @@ async def handle_afk_outgoing(message: Message) -> None:
     await asyncio.gather(*coro_list)
 
     # # # teste # # # 
-#    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
-#    async def status_afk_(_, c_q: CallbackQuery):
-#        if c_q.from_user and (
-#           c_q.from_user.id in Config.OWNER_ID
-#               ):
-#        await c_q.answer(
-#                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
-#                  show_alert=True,
-#                )
-#        allow_private=False,
-#        return teste_
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^status_afk$"))
+    async def status_afk_(_, c_q: CallbackQuery):
+        if c_q.from_user and (
+           c_q.from_user.id in Config.OWNER_ID
+               ):
+        await c_q.answer(
+                  f"LAST SEEN:\n{afk_time}\nPense: {random.choice(FRASE_AFK)}\nDev: @applled\n",
+                  show_alert=True,
+                )
+        allow_private=False,
+        return teste_
         
      @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
-    async def _teste(callback_query: CallbackQuery):
+    async def _teste(_, c_q: CallbackQuery):
         await callback_query.edit_message_text(
-            " 🍎 AppleBot",
+            f"🍎 AppleBot",
             show_alert=True,
         )
         return _teste
