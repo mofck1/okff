@@ -25,7 +25,7 @@ NETFLIX = (
 
 LOKI = (
         "__Hell ya, new episode! Bye!__",
-        "__Come on...",
+        "__Come on...__",
 )
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
