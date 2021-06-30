@@ -185,7 +185,7 @@ class _afk_:
         _r = REASON.split(" | ", maxsplit=1)
         _STATUS = _r[0]
         out_str = (
-            f"🌐 **AUTO REPLY** ⒶⒻⓀ **Premium**\n ╰•  **Last Seen:** {_afk_time} ago\n\n"
+            f"🌐 **AUTO REPLY** ⒶⒻⓀ \n ╰•  **Last Seen:** {_afk_time} ago\n      ➖➖➖➖➖➖\n"
             f"🏷 **What's happening?**\n {_STATUS}"
         )
         return out_str
@@ -193,7 +193,7 @@ class _afk_:
     def _out_str() -> str:
         afk_time_ = time_formatter(round(time.time() - TIME))
         out_str = (
-            f"🌐 **AUTO REPLY** ⒶⒻⓀ **Premium**\n ╰•  **Last Seen:** {afk_time_} ago\n\n"
+            f"🌐 **AUTO REPLY** ⒶⒻⓀ \n ╰•  **Last Seen:** {afk_time_} ago\n      ➖➖➖➖➖➖\n"
             f"🏷 **What's happening?**\n <code>{REASON}</code>"
         )
         return out_str
@@ -228,8 +228,8 @@ class _afk_:
     def afk_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="🍏 STATUS", callback_data="status_afk"),
-                InlineKeyboardButton(text="▫️ BIO", callback_data="status_apple"),
+                InlineKeyboardButton(text="⚡️ STATUS", callback_data="status_afk"),
+                InlineKeyboardButton(text="Более", callback_data="status_apple"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
@@ -240,7 +240,7 @@ async def logs(message: Message) -> None:
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`Nao estou mais ausente!`", log=__name__)
+    replied: Message = await message.reply("`Não estou mais ausente!`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ""
@@ -289,7 +289,7 @@ async def logs(message: Message) -> None:
     async def status_afk_(_, c_q: CallbackQuery):
         user_id = c_q.from_user.id
         await c_q.answer(
-                  f"🍏 @applled 𝐒𝐓𝐀𝐓𝐔𝐒:\n\n𝐈𝐧𝐬𝐩𝐢𝐫𝐚çã𝐨:\n ╰• {random.choice(FRASE_AFK)}\n",
+                  f"🍏 @applled 𝐒𝐓𝐀𝐓𝐔𝐒:\n\n𝐂𝐡𝐚𝐩𝐨𝐥𝐢𝐧 𝐝𝐢𝐬𝐬𝐞:\n ╰• {random.choice(FRASE_AFK)}\n",
                   show_alert=True,
                 )
         return status_afk_
@@ -298,7 +298,7 @@ async def logs(message: Message) -> None:
     async def _status_afk(_, c_q: CallbackQuery):
         user_id = c_q.from_user.id
         await c_q.answer(
-                  f"🍎 @applled 𝐁𝐈𝐎/Projects:\n\n𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n{random.choice(BIO_AFK)}\n",
+                  f"🍎 @applled 𝐁𝐈𝐎/Projects:\nТак вам любопытно\n\nHi, human!\n{random.choice(BIO_AFK)}\n",
                   show_alert=True,
                 )
         return _status_afk
@@ -310,7 +310,7 @@ FRASE_AFK = (
     "Quem ri por último come mais chocolate.",
 )
 BIO_AFK = (
-    "Hi,human!\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯...", # Adicionar mais coisas
+    "𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯...", # Adicionar mais coisas
 )
 AFK_REASONS = (
     "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
