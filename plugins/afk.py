@@ -157,9 +157,9 @@ async def respostas(message: Message) -> None:
             CHANNEL.log(
                 "#GRUPO\n"
                 f"{user_dict['mention']} mencionou você no grupo: [{chat.title}](http://t.me/{chat.username})\n\n"
-                f"  ➖➖➖➖➖➖"
+                f"  ➖➖➖➖➖➖\n"
                 f"  💬 __{message.text}__\n\n"
-                f"  ➖➖➖➖➖➖"
+                f"  ➖➖➖➖➖➖\n"
                 f"🔗 [Link](https://t.me/c/{str(chat.id)[4:]}/{message.message_id}) da mensagem."
             )
         )
@@ -185,16 +185,16 @@ class _afk_:
         _r = REASON.split(" | ", maxsplit=1)
         _STATUS = _r[0]
         out_str = (
-            f"🌐 **AUTO REPLY** ⒶⒻⓀ \n ╰•  **Last Seen:** {_afk_time} ago\n\n"
-            f"🏷 **I'm not here because:**\n {_STATUS}"
+            f"🌐 **AUTO REPLY** ⒶⒻⓀ **Premium**\n ╰•  **Last Seen:** {_afk_time} ago\n\n"
+            f"🏷 **What's happening?**\n {_STATUS}"
         )
         return out_str
         
     def _out_str() -> str:
         afk_time_ = time_formatter(round(time.time() - TIME))
         out_str = (
-            f"🌐 **AUTO REPLY** ⒶⒻⓀ \n ╰•  **Last Seen:** {afk_time_} ago\n\n"
-            f"🏷 **I'm not here because:**\n {REASON}"
+            f"🌐 **AUTO REPLY** ⒶⒻⓀ **Premium**\n ╰•  **Last Seen:** {afk_time_} ago\n\n"
+            f"🏷 **What's happening?**\n <code>{REASON}</code>"
         )
         return out_str
     
@@ -235,8 +235,8 @@ class _afk_:
         return InlineKeyboardMarkup(buttons)
 
 @userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
-async def handle_afk_outgoing(message: Message) -> None:
-    """handle outgoing messages when you afk"""
+async def logs(message: Message) -> None:
+    """Detalhes - Log do Modo Ausente"""
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
@@ -256,19 +256,19 @@ async def handle_afk_outgoing(message: Message) -> None:
                 g_count += gcount
         coro_list.append(
             replied.edit(
-                f"`You recieved {p_count + g_count} messages while you were away. "
-                f"Check log for more details.`\n\n**AFK time** : __{afk_time}__",
-                del_in=3,
+                f"`💬 Na sua Inbox: {p_count + g_count} mensagens. "
+                f"▫️ Confira os detalhes no log.`\n\n💤 **Ausente por** : __{afk_time}__",
+                del_in=1,
             )
         )
         out_str = (
-            f"You've recieved **{p_count + g_count}** messages "
-            + f"from **{len(USERS)}** users while you were away!\n\n**AFK time** : __{afk_time}__\n"
+            f"📂 Mensagens na Inbox[:](https://telegra.ph/file/7c1ba52391b7ffcc3e891.png) **{p_count + g_count}** \n▫️ Em contato: **{len(USERS)}** desgraçado(s) "
+            + f"\n▫️ **Ausente por** : __{afk_time}__\n\n"
         )
         if p_count:
-            out_str += f"\n**{p_count} Private Messages:**\n\n{p_msg}"
+            out_str += f"\n**{p_count} Mensagens Privadas:**\n\n{p_msg}"
         if g_count:
-            out_str += f"\n**{g_count} Group Messages:**\n\n{g_msg}"
+            out_str += f"\n**{g_count} Mensagens em Grupo:**\n\n{g_msg}"
         coro_list.append(CHANNEL.log(out_str))
         USERS.clear()
     else:
