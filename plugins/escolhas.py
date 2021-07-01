@@ -18,6 +18,7 @@ OCUPADO = (
         "BUSY!",
         "I can't talk right now, sorry.",
         "Working on something.",
+        "Na here...",
 )
 NETFLIX = (
         "__I'm watching on Netflix.__",
@@ -29,7 +30,7 @@ LOKI = (
 )
 #Temporário
 SPOTIFY = (
-        "A good Applaylist is coming ;)\n🎧 https://bit.ly/applefy ",
+        "A good Applaylist is coming 😊\n🎧 https://bit.ly/applefy ",
 )
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
