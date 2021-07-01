@@ -30,7 +30,7 @@ LOKI = (
 )
 #Temporário
 SPOTIFY = (
-        "𝙰 𝚐𝚘𝚘𝚍 𝙰𝚙𝚙𝚕𝚊𝚢𝚕𝚒𝚜𝚝 𝚒𝚜 𝚌𝚘𝚖𝚒𝚗𝚐 😊\n🎧 https://bit.ly/applefy ",
+        "𝙽𝚊 𝚑𝚎𝚛𝚎!\n𝙰 𝚐𝚘𝚘𝚍 𝙰𝚙𝚙𝚕𝚊𝚢𝚕𝚒𝚜𝚝 𝚒𝚜 𝚌𝚘𝚖𝚒𝚗𝚐 😊\n🎧 https://bit.ly/applefy ",
 )
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
@@ -38,10 +38,13 @@ ASSISTINDOM = (
         "https://telegra.ph/file/63d10879759183c8eac04.gif",
         "https://telegra.ph/file/19ef9c3c7f1fee430ec9d.gif",
 )
+#Add mais depois
 DORMINDOM = (
-        "https://telegra.ph/file/4f9f9530d28c18f268b14.gif", #Add mais depois, estão repetidos
-        "https://telegra.ph/file/318741f0d846727bdab7e.gif",
+        "https://telegra.ph/file/f59e0827bcb5c20011f7a.gif",
+        "https://telegra.ph/file/4f9f9530d28c18f268b14.gif", 
         "https://telegra.ph/file/885d526a6d02910e436ef.gif",
+        "https://telegra.ph/file/05baca30ed2ca52f0007f.gif",
+        "https://telegra.ph/file/c2c84b023322fb234c206.gif",
 )
 OCUPADOM = (
         "https://telegra.ph/file/832926949334124fb23c9.gif",
@@ -49,6 +52,9 @@ OCUPADOM = (
         "https://telegra.ph/file/6656a3c04a3626e862b7c.gif",
         "https://telegra.ph/file/140d286c155894093c250.gif",
         "https://telegra.ph/file/b2fda41d76cd798d4c368.gif",
+        "https://telegra.ph/file/5eb616e8afe7a13fb401a.gif",
+        "https://telegra.ph/file/c8689ace95f6a885066cd.gif",
+        "https://telegra.ph/file/09211972875f5b340a8f3.gif,"
 )
 NETFLIXM = (
         "https://telegra.ph/file/d616384d44d96c7e912f7.gif",
@@ -83,7 +89,7 @@ SPOTIFYM = (
 
 async def escolhas(message: Message):
     """ Motivos para o Modo Ausente """
-    await message.edit("`E𝙴𝚗𝚝𝚎𝚗𝚍𝚒, 𝙼𝚎𝚜𝚝𝚛𝚎. 𝙰𝚐𝚞𝚊𝚛𝚍𝚎...\𝚗𝙼𝚘𝚍𝚘 𝙰𝚞𝚜𝚎𝚗𝚝𝚎 𝚙𝚛é-𝚍𝚎𝚏𝚒𝚗𝚒𝚍𝚘 𝚊𝚝𝚒𝚟𝚊𝚍𝚘 ✅`", log=__name__)
+    await message.edit("`𝙴𝚗𝚝𝚎𝚗𝚍𝚒, 𝙼𝚎𝚜𝚝𝚛𝚎. 𝙰𝚐𝚞𝚊𝚛𝚍𝚎...\𝚗𝙼𝚘𝚍𝚘 𝙰𝚞𝚜𝚎𝚗𝚝𝚎 𝚙𝚛é-𝚍𝚎𝚏𝚒𝚗𝚒𝚍𝚘 𝚊𝚝𝚒𝚟𝚊𝚍𝚘 ✅`", log=__name__)
     if "a" in message.flags:
             await message.edit(
                 f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
