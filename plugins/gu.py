@@ -6,7 +6,6 @@ CHANNEL = userge.getCLogger(__name__)
 
 
 @userge.on_cmd("gugu", about="Testes")
-""" Teste """
 async def test_cmd(message: Message):
    LOG.info("Seu teste foi iniciado, aguarde...")  
    await message.edit("Testando...", del_in=10)   
