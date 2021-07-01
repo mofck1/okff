@@ -6,27 +6,27 @@ from userge import Message, userge
 
 # Motivos 
 ASSISTINDO = (
-        "Watching, I'll be back soon.",
-        "Just check my @twapple",
+        "𝚆𝚊𝚝𝚌𝚑𝚒𝚗𝚐, 𝙸'𝚕𝚕 𝚋𝚎 𝚋𝚊𝚌𝚔 𝚜𝚘𝚘𝚗.",
+        "𝙹𝚞𝚜𝚝 𝚌𝚑𝚎𝚌𝚔 𝚖𝚢 @𝚝𝚠𝚊𝚙𝚙𝚕𝚎",
 )
 DORMINDO = (
-        "I just zzz...",
-        "Zzz..",
-        "I'm tired, see ya!",
+        "𝙸 𝚓𝚞𝚜𝚝 𝚣𝚣𝚣...",
+        "𝚣𝚣𝚣...",
+        "𝙸'𝚖 𝚝𝚒𝚛𝚎𝚍, 𝚜𝚎𝚎 𝚢𝚊!",
 )
 OCUPADO = (
-        "BUSY!",
-        "I can't talk right now, sorry.",
-        "Working on something.",
-        "Na here...",
+        "𝙱𝚄𝚂𝚈!",
+        "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠, 𝚜𝚘𝚛𝚛𝚢.",
+        "𝚆𝚘𝚛𝚔𝚒𝚗𝚐 𝚘𝚗 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐.",
+        "𝙽𝚊 𝚑𝚎𝚛𝚎...",
 )
 NETFLIX = (
-        "__I'm watching on Netflix.__",
+        "𝙸'𝚖 𝚠𝚊𝚝𝚌𝚑𝚒𝚗𝚐 𝚘𝚗 𝙽𝚎𝚝𝚏𝚕𝚒𝚡.",
 )
 
 LOKI = (
-        "__Hell ya, new episode! Bye!__",
-        "__Come on...__",
+        "𝙷𝚎𝚕𝚕 𝚢𝚊, 𝚗𝚎𝚠 𝚎𝚙𝚒𝚜𝚘𝚍𝚎! 𝙱𝚢𝚎!",
+        "𝙲𝚘𝚖𝚎 𝚘𝚗...",
 )
 #Temporário
 SPOTIFY = (
@@ -83,7 +83,7 @@ SPOTIFYM = (
 
 async def escolhas(message: Message):
     """ Motivos para o Modo Ausente """
-    await message.edit("`Entendi, Mestre. Aguarde...\nModo Ausente pré-definido ativado ✅`", log=__name__)
+    await message.edit("`E𝙴𝚗𝚝𝚎𝚗𝚍𝚒, 𝙼𝚎𝚜𝚝𝚛𝚎. 𝙰𝚐𝚞𝚊𝚛𝚍𝚎...\𝚗𝙼𝚘𝚍𝚘 𝙰𝚞𝚜𝚎𝚗𝚝𝚎 𝚙𝚛é-𝚍𝚎𝚏𝚒𝚗𝚒𝚍𝚘 𝚊𝚝𝚒𝚟𝚊𝚍𝚘 ✅`", log=__name__)
     if "a" in message.flags:
             await message.edit(
                 f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
