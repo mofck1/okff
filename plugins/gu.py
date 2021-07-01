@@ -22,25 +22,5 @@ async def gugu_(message: Message):
    await message.client.send_photo(
    chat_id=message.chat.id, photo=applebot_pic, reply_to_message_id=reply_id
    )
-      
-                owner = [
-                    [
-                        InlineKeyboardButton(
-                            text="⚡️ Py 3.9.2 • Pyro 1.2.8", callback_data="info_btn"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="❎ UPDATE", callback_data="settings_btn"
-                        ),
-                        InlineKeyboardButton(text="🍏 INSPIRED", url=Config.MEUTG_REPO),
-                    ],
-                ]
-                results.append(
-                    InlineQueryResultPhoto(
-                        photo_url="https://telegra.ph/file/a47baf0bfed24400c0089.png",
-                        caption="Humm... ",
-                        reply_markup=InlineKeyboardMarkup(owner),
-                    )
-                ) 
+ 
     
