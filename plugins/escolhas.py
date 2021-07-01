@@ -27,6 +27,10 @@ LOKI = (
         "__Hell ya, new episode! Bye!__",
         "__Come on...__",
 )
+#Temporário
+SPOTIFY = (
+        "A good [Applaylist](https://bit.ly/applefy) is coming ;)",
+)
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
         "https://telegra.ph/file/4fbbf7cd9953f017a0502.gif", #Criar novos layouts
@@ -48,10 +52,14 @@ OCUPADOM = (
 NETFLIXM = (
         "https://telegra.ph/file/d616384d44d96c7e912f7.gif",
 )
-
+#Temporário
 LOKIM = (
-        "https://telegra.ph/file/b3236ef409f6d8bc69b1b.gif", #Temporário
+        "https://telegra.ph/file/b3236ef409f6d8bc69b1b.gif", 
         "https://telegra.ph/file/c058c117801315f5af8f1.gif",
+)
+#Temporário
+SPOTIFYM = (
+        "https://i.imgur.com/XTLlQeq.gif",
 )
 @userge.on_cmd(
     "fui",
@@ -63,6 +71,7 @@ LOKIM = (
             "-o": "Ocupado....",
             "-n": "Netflix...",
             "-l": "Loki...",
+            "-s": "Spotify...",
         },
         "como usar": "{tr}fui -flag",
         "exemplo": "{tr}fui -a",
@@ -73,8 +82,7 @@ LOKIM = (
 
 async def escolhas(message: Message):
     """ Motivos para o Modo Ausente """
-    await message.edit("`Entendi, Mestre. Aguarde...`", log=__name__)
-#   LOG.info("Modo Ausente - Ativando..")
+    await message.edit("`Entendi, Mestre. Aguarde...\nModo Ausente pré-definido ativado ✅`", log=__name__)
     if "a" in message.flags:
             await message.edit(
                 f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
@@ -98,5 +106,10 @@ async def escolhas(message: Message):
     if "l" in message.flags:
             await message.edit(
                 f"!afk {random.choice(LOKI)} | {random.choice(LOKIM)}",
+                del_in=1
+            )
+    if "s" in message.flags:
+            await message.edit(
+                f"!afk {random.choice(SPOTIFY)} | {random.choice(SPOTIFYM)}",
                 del_in=1
             )
