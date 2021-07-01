@@ -29,7 +29,7 @@ LOKI = (
 )
 #Temporário
 SPOTIFY = (
-        "A good [Applaylist](https://bit.ly/applefy) is coming ;)",
+        "A good Applaylist is coming ;)\n🎧 https://bit.ly/applefy ",
 )
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
