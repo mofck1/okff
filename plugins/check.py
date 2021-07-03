@@ -23,6 +23,7 @@ async def apple(message: Message):
     await message.edit("**Checando...**\nAguarde, Mestre...", log=__name__)
     photo = "https://telegra.ph/file/a9730c950f79c1f06a800.gif"
     texto = "__I'm Online..."
-    await userge.send_animation(message.chat.id, photo=photo, caption=texto)
+    await message.client.send_animation(message.chat.id, animation=photo, caption=texto)
+#   await userge.send_photo(message.chat.id, photo=photo, caption=texto)
 
     
