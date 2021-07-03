@@ -24,9 +24,10 @@ LOGGER = userge.getLogger(__name__)
 
 async def apple(message: Message):
     await message.edit("'**Checando...**\n**Aguarde, Mestre... **`'", log=__name__)
+    reply_markup=InlineKeyboardMarkup(buttons)
     photo = "https://telegra.ph/file/c8689ace95f6a885066cd.gif"
     texto = "**APPLEBOT** is **UP AND RUN**\n\nMain: @applled"
-    await userge.send_photo(message.chat.id, photo=photo, caption=texto, reply_markup=InlineKeyboardMarkup(buttons))
+    await userge.send_photo(message.chat.id, photo=photo, caption=texto,)
     buttons = InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("TESTE", url=Config.MEUTG_REPO)],
