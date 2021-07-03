@@ -24,4 +24,4 @@ async def apple(message: Message):
     await message.edit(
         f'**Checando...**\n**Aguarde, Mestre... **`')
     try:
-    await userge.send_photo(online.chat_id,MEDIA_ON,caption=texto)
+    await userge.send_photo(online.chat_id, MEDIA_ON,caption=texto)
