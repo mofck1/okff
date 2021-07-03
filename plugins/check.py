@@ -26,11 +26,11 @@ CHECKS = (
 
 async def _apple(message: Message):
     await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", log=__name__)
-    photo = "{random.choice(CHECKS)}"
+#   photo = "{random.choice(CHECKS)}"
     texto = "__I'm Online, @appled!__"
     await message.client.send_animation(
                          message.chat.id, 
-                         animation=photo, 
+                         animation={random.choice(CHECKS)}, 
                          caption=texto,
                          reply_markup=InlineKeyboardMarkup(
            [
