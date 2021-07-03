@@ -7,7 +7,8 @@ from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
 
 LOGGER = userge.getLogger(__name__)
-CHECK_P = "https://telegra.ph/file/a9730c950f79c1f06a800.gif"
+# CHECK_P = "https://telegra.ph/file/a9730c950f79c1f06a800.gif"
+CHECK_P = str(CHECK_MEDIA) 
 
 @userge.on_cmd(
     "check",
