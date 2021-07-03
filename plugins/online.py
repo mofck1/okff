@@ -1,5 +1,6 @@
 import os
 import asyncio
+from datetime import datetime
 from PIL import Image
 import asyncio
 from userge import Config, Message, userge
@@ -23,15 +24,21 @@ LOGGER = userge.getLogger(__name__)
 )
 
 async def apple(message: Message):
-    await message.edit("'**Checando...**\n**Aguarde, Mestre... **`'", log=__name__)
+    await message.edit("**Checando...**\n**Aguarde, Mestre... **", log=__name__)
     photo = "https://telegra.ph/file/c8689ace95f6a885066cd.gif"
-    texto = "**APPLEBOT** is **UP AND RUN**\n\nMain: @applled"
-    await userge.send_photo(message.chat.id, photo=photo, caption=texto,)
-    buttons = InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("TESTE", url=Config.MEUTG_REPO)],
-                [InlineKeyboardButton("TESTE 2", callback_data="teste_apple")],
-            ]
-        )
-    del_in=20,
+    texto = f"""
+<a href="https://t.me/xapplebot"><b>APPLEBOT</a> IS ON AND UP ✓</b>
+  <b><code>Online Since:{userge.uptime} | <b>Mode: {Bot_Alive._get_mode()}</code></b>
+      ➖➖➖➖➖➖➖
+ ⭕️   <b>Python:</b> <code>v{versions.__python_version__}</code>
+ ⭕️   <b>Pyrogram:</b> <code>v{versions.__pyro_version__}</code>
+ ⭕️   <b>Version:</b> <code>v1.0.Beta</code>
+      ➖➖➖➖➖➖➖
+ 🍎   <b>Main:</b>  <b>@applled</b>
 
+"""
+    await userge.send_photo(message.chat.id, photo=photo, caption=texto,)
+     try:
+          await edit_message_text(
+          Bot_Alive.alive_info(),
+          reply_markup=Bot_Alive.alive_buttons(),
