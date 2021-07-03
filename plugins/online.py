@@ -61,17 +61,4 @@ async def apple(message: Message):
 
 """
     await userge.send_photo(message.chat.id, photo=photo, caption=texto,)
-          await edit_message_text(
-          Bot_Alive.alive_info(),
-          reply_markup=Bot_Alive.alive_buttons(),
-    
-              
-    @staticmethod
-    def alive_buttons() -> InlineKeyboardMarkup:
-        buttons = [
-            [
-                InlineKeyboardButton(text="❎ STATUS", callback_data="settings_btn"),
-                InlineKeyboardButton(text="🍎 TEAM", callback_data="info_apple"),
-            ],
-        ]
-        return InlineKeyboardMarkup(buttons)
+
