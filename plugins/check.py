@@ -19,7 +19,7 @@ LOGGER = userge.getLogger(__name__)
     allow_channels=False,
 )
 class Check_Info:
-async def _apple(message: Message):
+async def apple(message: Message):
     await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", log=__name__)
 #   photo = "{random.choice(CHECKS)}"
     texto = "__I'm Online, @appled!__"
