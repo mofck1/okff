@@ -2,7 +2,7 @@ import os
 import asyncio
 from PIL import Image
 import asyncio
-from userge import Message, userge
+from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
 from pyrogram.types import (
     CallbackQuery,
