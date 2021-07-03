@@ -21,8 +21,8 @@ LOGGER = userge.getLogger(__name__)
 
 async def apple(message: Message):
     await message.edit("**Checando...**\nAguarde, Mestre...", log=__name__)
-    photo = "https://telegra.ph/file/a47baf0bfed24400c0089.png"
-    texto = "... "
-    await userge.send_photo(message.chat.id, photo=photo, caption=texto)
+    photo = "https://telegra.ph/file/a9730c950f79c1f06a800.gif"
+    texto = "__I'm Online..."
+    await userge.send_animation(message.chat.id, photo=photo, caption=texto)
 
     
