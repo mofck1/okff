@@ -3,12 +3,18 @@ import asyncio
 from datetime import datetime
 from PIL import Image
 import asyncio
+import random
 from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 LOGGER = userge.getLogger(__name__)
-
+CHECKS = (
+    "https://telegra.ph/file/b2fda41d76cd798d4c368.gif",
+    "https://telegra.ph/file/43901682e8a936d76572e.gif",
+    "https://telegra.ph/file/140d286c155894093c250.gif",
+    "https://telegra.ph/file/ebfb744d7a25736ef09f5.gif",
+    
 @userge.on_cmd(
     "check",
     about={
@@ -20,22 +26,21 @@ LOGGER = userge.getLogger(__name__)
 
 async def _apple(message: Message):
     await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", log=__name__)
-    photo = "https://telegra.ph/file/a9730c950f79c1f06a800.gif"
+    photo = "{random.choice(CHECKS)}"
     texto = "__I'm Online, @appled!__"
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
-                         reply_markup=InlineKeyboardMarkup.(buttons)
-    )
-
-def fuck_buttons() -> InlineKeyboardMarkup:
-        buttons = [
+                         reply_markup=InlineKeyboardMarkup(
+           [
             [
-                InlineKeyboardButton(text="❎ STATUS", callback_data="settings_btn"),
-                InlineKeyboardButton(text="🍎 TEAM", callback_data="info_apple"),
-            ],
+            InlineKeyboardButton("AppleBot para appleeds", url="https://github.com/"),
+                InlineKeyboardButton("Bing ",url=("google.com" "https://apple.com/"),
+                                    
+            ]
         ]
-        return InlineKeyboardMarkup(buttons)
+    ),
+)
     
    #Adicionar outras configurações
