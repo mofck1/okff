@@ -35,11 +35,3 @@ async def apple(message: Message):
         )
     del_in=20,
 
-       @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple$"))
-    async def _teste_apple(_, c_q: CallbackQuery):
-        c_q.from_user.id
-        await c_q.answer(
-            f"𝐀𝐩𝐩𝐥𝐞𝐁𝐨𝐭 𝐓𝐞𝐚𝐦:\n𝚆𝚘𝚛𝚔𝚒𝚗𝚐 𝚘𝚗 𝙱𝚘𝚝\n\n o/",
-            show_alert=True,
-        )
-        return _teste_apple
