@@ -26,14 +26,14 @@ async def _apple(message: Message):
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
-                         reply_markup=_apple.check_buttons()
+                         reply_markup=InlineKeyboardMarkup.(buttons)
     )
 
-        def check_buttons() -> InlineKeyboardMarkup:
+def fuck_buttons() -> InlineKeyboardMarkup:
         buttons = [
             [
-                InlineKeyboardButton(text="TWAPPLE", url="https://t.me/twapple"),
-                InlineKeyboardButton(text="BIO", url=Config.BIO_APPLE),
+                InlineKeyboardButton(text="❎ STATUS", callback_data="settings_btn"),
+                InlineKeyboardButton(text="🍎 TEAM", callback_data="info_apple"),
             ],
         ]
         return InlineKeyboardMarkup(buttons)
