@@ -26,7 +26,7 @@ CHECKS = (
 )
  
 async def apple(message: Message):
-    await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", log=__name__)
+    await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", del_in=10, log=__name__)
     photo = f"""{random.choice(CHECKS)}"""
     texto = "<u>I'm Online</u>, @applled!"
     await message.client.send_animation(
