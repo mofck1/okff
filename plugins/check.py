@@ -6,7 +6,6 @@ import asyncio
 import random
 from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 LOGGER = userge.getLogger(__name__)
 CHECKS = (
