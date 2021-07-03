@@ -23,6 +23,29 @@ LOGGER = userge.getLogger(__name__)
     allow_channels=False,
 )
 
+class Bot_Alive:
+    @staticmethod
+    async def check_media_link(media_link: str):
+        match = _ALIVE_REGEX.search(media_link.strip())
+        if not match:
+            return None, None
+        if match.group(1) == "i.imgur.com":
+            link = match.group(0)
+            link_type = "url_gif" if match.group(3) == "gif" else "url_image"
+        elif match.group(1) == "telegra.ph/file":
+            link = match.group(0)
+            link_type = "url_image"
+        else:
+            link_type = "tg_media"
+            if match.group(2) == "c":
+                chat_id = int("-100" + str(match.group(3)))
+                message_id = match.group(4)
+            else:
+                chat_id = match.group(2)
+                message_id = match.group(3)
+            link = [chat_id, int(message_id)]
+        return link_type, link
+
 async def apple(message: Message):
     await message.edit("**Checando...**\n**Aguarde, Mestre... **", log=__name__)
     photo = "https://telegra.ph/file/c8689ace95f6a885066cd.gif"
