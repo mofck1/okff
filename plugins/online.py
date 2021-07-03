@@ -18,7 +18,8 @@ LOGGER = userge.getLogger(__name__)
 )
 
 async def apple(message: Message):
-    await message.edit("'**Checando...**\n**Aguarde, Mestre... **`'", del_in=2)
+    await message.edit("'**Checando...**\n**Aguarde, Mestre... **`'", log=__name__)
     photo = "https://telegra.ph/file/d50925c35883b16be6cd6.png"
     texto = "**APPLEBOT** is **UP AND RUN**\n\nMain: @applled"
     await userge.send_photo(message.chat.id, photo=photo, caption=texto)
+    del_in=20,
