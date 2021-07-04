@@ -13,22 +13,21 @@ from userge.utils.exceptions import StopConversation
 @userge.on_cmd("fynow", about={
     'header': "Teste @applled",
     'como usar': "{tr}fynow "}, allow_via_bot=False)
-async def bitly(msg: Message):
-    now = "/now"
-    if not now:
-        await msg.err("Algo de errado não está certo.")
-        return
-    try:
+async def fynow_(msg: Message):
         async with userge.conversation("SpotifyNowBot") as conv:
             await conv.send_message("/start")
+            await conv.send_message("/now")
             await conv.get_response(mark_read=True)
             try:
-                msg = await conv.send_message(now)
+                message = await conv.send_message(now)
                 response = await conv.get_response()
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await message.reply("**Por favor desbloqueie** @SpotifyNowBot**.**")
+             
+                await message.edit("**Por favor desbloqueie** @SpotifyNowBot**")
                 return
+                await conv.get_response(mark_read=True)
+ 
             if response.text.startswith("You're"):
                 await message.edit(
                     "**Você não está ouvindo nada no Spotify no momento.**"
