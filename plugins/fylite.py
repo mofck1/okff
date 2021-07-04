@@ -19,11 +19,7 @@ async def fynow_(message: Message):
             try:
 #               message = await conv.send_message()
                 response = await conv.get_response()
-            if response.text.startswith("You're"):
-                await message.edit(
-                    "**Você não está ouvindo nada no Spotify no momento.**"
-                )
-                return
+ 
             media = await message.client.download_media(replied, file_name=Config.DOWN_PATH)
             file_name = await message.client.download_media(response.media, DOWN_PATH)
             
