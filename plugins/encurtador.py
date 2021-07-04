@@ -19,7 +19,7 @@ from userge.utils import get_file_id, rand_array
     allow_channels=False,
 )
  
-    async def is_gd(msg: Message):
+    async def is_gd(message: Message):
     url = msg.input_or_reply_str
     if not url:
         await msg.err("Hello?! Precisa de uma url.")
