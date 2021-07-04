@@ -6,14 +6,13 @@ import time
 
 import requests
 import ujson
-from pyrogram.errors import AboutTooLong, FloodWait, YouBlockedUser
+from pyrogram.errors.exceptions.bad_request_400 import AboutTooLong, FloodWait, YouBlockedUser
 
 from userge import Config, Message, get_collection, userge
 
 from asyncio.exceptions import TimeoutError
 
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-
+from userge import Config, Message, userge
 from userge import DOWN_PATH, bot
 from userge.events import register
 
@@ -22,24 +21,22 @@ from userge.events import register
     allow_channels=False,
 )
 
-async def _(message: Message):
-    if event.fwd_from:
-        return
+async def fy_(message: Message):
     chat = "@SpotifyNowBot"
     now = "/now"
-    await event.edit("**Processando...**")
+    await message.edit("**Processando...**")
     try:
-        async with event.client.conversation(chat) as conv:
+        async with userge.conversation(chat) as conv:
             try:
                 msg = await conv.send_message(now)
                 response = await conv.get_response()
                 """ - don't spam notif - """
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await event.reply("**Por favor desbloqueie** @SpotifyNowBot**.**")
+                await message.reply("**Por favor desbloqueie** @SpotifyNowBot**.**")
                 return
             if response.text.startswith("You're"):
-                await event.edit(
+                await message.edit(
                     "**Você não está ouvindo nada no Spotify no momento.**"
                 )
                 return
@@ -47,16 +44,16 @@ async def _(message: Message):
                 response.media, DOWN_PATH
             )
             link = response.reply_markup.rows[0].buttons[0].url
-            await event.client.send_file(
-                event.chat_id,
+            await message.client.send_file(
+                message.chat_id,
                 downloaded_file_name,
                 force_document=False,
                 caption=f"[Tocar no Spotify]({link})",
             )
             """ - cleanup chat after completed - """
-            await event.client.delete_messages(conv.chat_id, [msg.id, response.id])
+            await message.client.delete_messages(conv.chat_id, [msg.id, response.id])
     except TimeoutError:
-        return await event.edit("**Erro:** @SpotifyNowBot **não está respondendo.**")
-    await event.delete()
+        return await message.edit("**Erro:** @SpotifyNowBot **não está respondendo.**")
+    await message.delete()
     return os.remove(downloaded_file_name)
 
