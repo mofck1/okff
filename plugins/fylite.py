@@ -13,7 +13,7 @@ from userge.utils.exceptions import StopConversation
 @userge.on_cmd("fynow", about={
     'header': "Teste @applled",
     'como usar': "{tr}fynow "}, allow_via_bot=False)
-async def fynow_(msg: Message):
+async def fynow_(message: Message):
         async with userge.conversation("SpotifyNowBot") as conv:
             await conv.send_message("/start")
             await conv.send_message("/now")
