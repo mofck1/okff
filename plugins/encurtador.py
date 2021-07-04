@@ -5,6 +5,9 @@ import asyncio
 import requests
 import json
 from userge import Config, Message, userge
+import gdshortener
+
+from pyrogram.errors import YouBlockedUser
 from userge.utils import get_file_id, rand_array
 
 @userge.on_cmd(
@@ -16,13 +19,19 @@ from userge.utils import get_file_id, rand_array
     allow_channels=False,
 )
  
-async def encurtador(message: Message):
-    if message.forward_message:
+    async def is_gd(msg: Message):
+    url = msg.input_or_reply_str
+    if not url:
+        await msg.err("Hello?! Precisa de uma url.")
         return
-    input_str = message.pattern_match.group(1)
-    encurta_url = "https://da.gd/s?url={}".format(input_str)
-    response_api = requests.get(encurta_url).text
-    if response_api:
-        await userge.client.forward_messages("Gerando {} para {}.".format(response_api, input_str))
+    s = gdshortener.ISGDShortener()
+    try:
+        s_url, stats = s.shorten(url, log_stat=True)
+    except Exception as er:
+        await msg.err(str(er))
     else:
-        await message.edit("Algo não está certo, tente de novo.")
+        await msg.edit(
+            f"**URL Encurtada:**\n`{s_url}`\n\n**Stats:** `{stats}`",
+            disable_web_page_preview=True,
+        )
+    
