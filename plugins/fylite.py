@@ -35,7 +35,7 @@ async def bitly(msg: Message):
                     "**Você não está ouvindo nada no Spotify no momento.**"
                 )
                 return
-            downloaded_file_name = await event.client.download_media(
+            downloaded_file_name = await message.client.download_media(
                 response.media, DOWN_PATH
             )
             link = response.reply_markup.rows[0].buttons[0].url
