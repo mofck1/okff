@@ -32,16 +32,17 @@ async def fynow_(message: Message):
                     "**Você não está ouvindo nada no Spotify no momento.**"
                 )
                 return
-            downloaded_file_name = await message.client.download_media(
+            media = await message.client.download_media(replied, file_name=Config.DOWN_PATH)
+            file_name = await message.client.download_media(
                 response.media, DOWN_PATH
             )
-            link = response.reply_markup.rows[0].buttons[0].url
-            await message.client.send_file(
-                message.chat_id,
-                downloaded_file_name,
-                force_document=False,
-                caption=f"[Tocar no Spotify]({link})",
-            )
+#            link = response.reply_markup.rows[0].buttons[0].url
+#            await message.client.send_file(
+#                message.chat_id,
+#                file_name,
+#                force_document=False,
+#                caption=f"[Tocar no Spotify]({link})",
+#            )
 
             
             
