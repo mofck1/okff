@@ -5,7 +5,6 @@
 from asyncio.exceptions import TimeoutError
 
 from userge import Config, Message, get_collection, userge
-from userge import DOWN_PATH, bot
 from pyrogram.errors import YouBlockedUser
 from userge.utils.exceptions import StopConversation
 
