@@ -43,11 +43,7 @@ async def fynow_(msg: Message):
                 force_document=False,
                 caption=f"[Tocar no Spotify]({link})",
             )
-            await message.client.delete_messages(conv.chat_id, [msg.id, response.id])
-    except TimeoutError:
-        return await message.edit("**Erro:** @SpotifyNowBot **não está respondendo.**")
-    await message.delete()
-    return os.remove(downloaded_file_name)
+
             
             
             
