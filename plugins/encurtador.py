@@ -8,12 +8,12 @@ from userge.utils.exceptions import StopConversation
 
 
 @userge.on_cmd("bitly", about={
-    'header': "Shorten Any Url using bit.ly",
-    'usage': "{tr}bitly [link or reply]"}, allow_via_bot=False)
+    'header': "Encurte qualquer URL usando o bit.ly",
+    'como usar': "{tr}bitly [link ou resposta]"}, allow_via_bot=False)
 async def bitly(msg: Message):
     url = msg.input_or_reply_str
     if not url:
-        await msg.err("need url to shorten")
+        await msg.err("Obrigatório uma URL aqui.")
         return
     try:
         async with userge.conversation("Sl_BitlyBot") as conv:
@@ -23,20 +23,20 @@ async def bitly(msg: Message):
             shorten_url = (
                 await conv.get_response(mark_read=True)
             ).text.split('\n', maxsplit=1)[-1]
-            await msg.edit(f"`{shorten_url}`", disable_web_page_preview=True)
+            await msg.edit(f"Prontinho: {shorten_url}", disable_web_page_preview=True)
     except YouBlockedUser:
-        await msg.edit("unblock **@Sl_BitlyBot** to shorten URLs.")
+        await msg.edit("Desbloqueie o **@Sl_BitlyBot** para encurtar a URL")
     except StopConversation:
-        await msg.err("bot is down")
+        await msg.err("O Bot está morto...")
 
 
 @userge.on_cmd("isgd", about={
-    'header': "Shorten Any Url using is.gd",
-    'usage': "{tr}isgd [link or reply]"})
+    'header': "Encurte qualquer URL usando o is.gd",
+    'como usar': "{tr}isgd [link ou resposta]"})
 async def is_gd(msg: Message):
     url = msg.input_or_reply_str
     if not url:
-        await msg.err("need url to shorten")
+        await msg.err("Obrigatório uma URL aqui.")
         return
     s = gdshortener.ISGDShortener()
     try:
@@ -45,18 +45,18 @@ async def is_gd(msg: Message):
         await msg.err(str(er))
     else:
         await msg.edit(
-            f"**Shortened URL:**\n`{s_url}`\n\n**Stats:** `{stats}`",
+            f"**URL Encurtada:**\n`{s_url}`\n\n**Stats:** `{stats}`",
             disable_web_page_preview=True
         )
 
 
 @userge.on_cmd("statsisgd", about={
-    'header': "Convert is.gd url into original URl.",
-    'usage': "{tr}statsisgd [link or reply]"})
+    'header': "Reverta uma URL is.gd na original URl.",
+    'como usar': "{tr}statsisgd [link ou resposta]"})
 async def stats_is_gd(msg: Message):
     url = msg.input_or_reply_str
     if not url:
-        await msg.err("need url to check stats")
+        await msg.err("Precisa de uma URL para verificar.")
         return
     s = gdshortener.ISGDShortener()
     try:
