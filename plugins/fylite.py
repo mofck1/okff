@@ -18,7 +18,7 @@ async def fynow_(message: Message):
             await conv.send_message("/now")
             await conv.get_response(mark_read=True)
             try:
-                message = await conv.send_message(now)
+#               message = await conv.send_message()
                 response = await conv.get_response()
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
