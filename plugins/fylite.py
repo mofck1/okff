@@ -21,10 +21,10 @@ async def bitly(msg: Message):
     try:
         async with userge.conversation("SpotifyNowBot") as conv:
             await conv.send_message("/start")
+            await conv.get_response(mark_read=True)
             try:
                 msg = await conv.send_message(now)
                 response = await conv.get_response()
-            await conv.get_response(mark_read=True)
                             """ - Applled - """
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
