@@ -15,27 +15,14 @@ async def SpotifyNowBot(message: Message):
     """ Applled """
     spotify = "/start"
     now = "/now"
-    if now:
-        text = now
-    elif spotify:
-        text = now or spotify.text
-    else:
-        await message.err("Ovo!")
-        return
-    await message.delete()
-
-    if "-n" in message.flags:
-        await userge.send_inline_bot_result(
-            chat_id=message.chat.id,
-            query_id=ouvindo.query_id,
-            result_id=ouvindo.results.id,
-            reply_to_message_id=message_id,
-        )
+    async with userge.conversation("SpotifyNowBot") as conv:
+        await conv.send_message("/start")
+        await conv.send_message("/now")
+        await conv.get_response(mark_read=True)
     try:
         ouvindo = await userge.get_inline_bot_results(
-            "SpotifyNowBot", f"{(text)}."
+            "SpotifyNowBot", f"{(now)}."
         )
-        message_id = spotify.message_id if spotify else None
         await userge.send_inline_bot_result(
             chat_id=message.chat.id,
             query_id=ouvindo.query_id,
