@@ -5,7 +5,6 @@
 from asyncio.exceptions import TimeoutError
 
 from userge import Config, Message, get_collection, userge
-from pyrogram.errors import YouBlockedUser
 from userge.utils.exceptions import StopConversation
 
 
@@ -20,29 +19,20 @@ async def fynow_(message: Message):
             try:
 #               message = await conv.send_message()
                 response = await conv.get_response()
-                await bot.send_read_acknowledge(conv.chat_id)
-            except YouBlockedUserError:
-             
-                await message.edit("**Por favor desbloqueie** @SpotifyNowBot**")
-                return
-                await conv.get_response(mark_read=True)
- 
             if response.text.startswith("You're"):
                 await message.edit(
                     "**Você não está ouvindo nada no Spotify no momento.**"
                 )
                 return
             media = await message.client.download_media(replied, file_name=Config.DOWN_PATH)
-            file_name = await message.client.download_media(
-                response.media, DOWN_PATH
+            file_name = await message.client.download_media(response.media, DOWN_PATH)
+            
+            await message.client.send_photo(
+                message.chat_id,
+                file_name=media,
+                force_document=False,
+                caption=f"[Tocar no Spotify]({link})",
             )
-#            link = response.reply_markup.rows[0].buttons[0].url
-#            await message.client.send_file(
-#                message.chat_id,
-#                file_name,
-#                force_document=False,
-#                caption=f"[Tocar no Spotify]({link})",
-#            )
 
             
             
