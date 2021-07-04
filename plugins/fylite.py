@@ -21,9 +21,7 @@ async def fynow_(message: Message):
                 response = await conv.get_response()
  
             media = await message.client.download_media(replied, file_name=Config.DOWN_PATH)
-            file_name = await message.client.download_media(response.media, DOWN_PATH)
-            
-            await message.client.send_photo(
+                await message.client.send_photo(
                 message.chat_id,
                 file_name=media,
                 force_document=False,
