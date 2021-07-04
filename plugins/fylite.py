@@ -25,7 +25,6 @@ async def bitly(msg: Message):
             try:
                 msg = await conv.send_message(now)
                 response = await conv.get_response()
-                            """ - Applled - """
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await message.reply("**Por favor desbloqueie** @SpotifyNowBot**.**")
@@ -45,7 +44,6 @@ async def bitly(msg: Message):
                 force_document=False,
                 caption=f"[Tocar no Spotify]({link})",
             )
-            """ - Limpa o chat após o comando - """
             await message.client.delete_messages(conv.chat_id, [msg.id, response.id])
     except TimeoutError:
         return await message.edit("**Erro:** @SpotifyNowBot **não está respondendo.**")
