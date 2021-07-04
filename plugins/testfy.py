@@ -26,7 +26,6 @@ async def SpotifyNowBot(message: Message):
         await userge.send_inline_bot_result(
             chat_id=message.chat.id,
             query_id=ouvindo.query_id,
-            result_id=ouvindo.results.id,
             reply_to_message_id=message_id,
         )
     except IndexError:
