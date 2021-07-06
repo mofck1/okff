@@ -24,7 +24,7 @@ async def SpotifyNowBot(message: Message):
     now = message.input_str
     fy = await userge.get_inline_bot_results("SpotifyNowBot", f"{deEmojify(now)}"
         )
-        message_id = replied.message_id if replied else None
+#       message_id = replied.message_id if replied else None
         await userge.send_inline_bot_result(
             chat_id=message.chat.id,
             query_id=fy.query_id,
