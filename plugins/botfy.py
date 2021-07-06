@@ -1,6 +1,8 @@
 from userge import Message, userge
 from userge.utils import deEmojify
 import random
+from userge.plugins.utils.afk_inline import *
+
 
 START = (
         "/start",
@@ -22,14 +24,7 @@ async def SpotifyNowBot(message: Message):
     """Base teste @applled"""
     replied = message.reply_to_message
     now = message.input_str
-    fy = await userge.get_inline_bot_results("SpotifyNowBot", f"{deEmojify(now)}"
-        )
-#       message_id = replied.message_id if replied else None
-        await userge.send_inline_bot_result(
-            chat_id=message.chat.id,
-            query_id=fy.query_id,
-            result_id=fy.results[now].id,
-            reply_to_message_id=message_id,
-        )
+    await send_inline_fy(message)
+    )
     except IndexError:
         await message.err("@applled")
