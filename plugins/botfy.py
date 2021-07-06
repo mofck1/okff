@@ -21,10 +21,9 @@ NOW = (
     allow_via_bot=False,
 )
 async def _send_inline_fy(message: Message):
-    """Base teste @applled"""
-    replied = message.reply_to_message
     now = message.input_str
-    await send_inline_fy(message)
+    _bot = await userge.bot.get_me()
+    fy = await userge.get_inline_bot_results("SpotifyNowBot", f"{deEmojify(now)}"
+    await userge.send_inline_bot_result(
+        chat_id=message.chat.id, query_id=_fy.query_id, result_id=_fy.results[0].id
     )
-    except IndexError:
-        await message.err("@applled")
