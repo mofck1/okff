@@ -20,17 +20,16 @@ NOW = (
 )
 async def SpotifyNowBot(message: Message):
     """Base teste @applled"""
-    replied = message.reply_to_message
-    args = message.filtered_input_str
-    if args:
-        text = args
-    elif replied:
-        text = args or replied.text
-    else:
-        await message.err("Vento")
-        return
-    await message.delete()
-
+    replied = "/now" # message.reply_to_message
+#    args = message.filtered_input_str
+#    if args:
+#        text = args
+#    elif replied:
+#        text = args or replied.text
+#    else:
+#        await message.err("Vento")
+#        return
+#    await message.delete()
     if "start" in message.flags:
             await message.edit(
                 f"!botfy {random.choice(START)}",
@@ -44,7 +43,7 @@ async def SpotifyNowBot(message: Message):
 
     try:
         fy = await userge.get_inline_bot_results(
-            "SpotifyNowBot", f"{(text)}."
+            "SpotifyNowBot", f"{(replied)}."
         )
         message_id = replied.message_id if replied else None
         await userge.send_inline_bot_result(
