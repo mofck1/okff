@@ -13,6 +13,7 @@ NOW = (
     about={
         "header": "Teste do Apple",
         "uso": "{tr}botfy now[text | reply to message]\n"
+        "flags": {"-start": "teste", "-now": "teste"},
         "{tr}botfy [flags] [text | reply to message]",
 
     },
@@ -38,19 +39,17 @@ async def SpotifyNowBot(message: Message):
             )
     if "now" in message.flags:
             await message.edit(
-                f"!afk {random.choice(NOW)}",
+                f"!botfy {random.choice(NOW)}",
                 del_in=3,
             )
 
     try:
         stickers = await userge.get_inline_bot_results(
-            "SpotifyNowBot", f"{deEmojify(text)}."
+            "SpotifyNowBot", f"{(text)}."
         )
         message_id = replied.message_id if replied else None
         await userge.send_inline_bot_result(
-            chat_id=message.chat.id,
-            query_id=stickers.query_id,
-            result_id=stickers.results[font_size].id,
+            chat_id=message.chat.id,  
             reply_to_message_id=message_id,
         )
     except IndexError:
