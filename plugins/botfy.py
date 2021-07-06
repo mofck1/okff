@@ -20,7 +20,7 @@ NOW = (
     },
     allow_via_bot=False,
 )
-async def SpotifyNowBot(message: Message):
+async def _send_inline_fy(message: Message):
     """Base teste @applled"""
     replied = message.reply_to_message
     now = message.input_str
