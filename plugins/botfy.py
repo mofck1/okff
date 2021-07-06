@@ -43,12 +43,13 @@ async def SpotifyNowBot(message: Message):
             )
 
     try:
-        stickers = await userge.get_inline_bot_results(
+        fy = await userge.get_inline_bot_results(
             "SpotifyNowBot", f"{(text)}."
         )
         message_id = replied.message_id if replied else None
         await userge.send_inline_bot_result(
-            chat_id=message.chat.id,  
+            chat_id=message.chat.id,
+            result_id=fy.results[now].id,
             reply_to_message_id=message_id,
         )
     except IndexError:
