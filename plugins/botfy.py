@@ -1,5 +1,6 @@
 from userge import Message, userge
 from userge.utils import deEmojify
+import random
 
 START = (
         "/start",
@@ -44,7 +45,7 @@ async def SpotifyNowBot(message: Message):
 
     try:
         fy = await userge.get_inline_bot_results(
-            "SpotifyNowBot", f"{(replied)}."
+            "SpotifyNowBot", f"{random.choice(NOW)}"
         )
         message_id = replied.message_id if replied else None
         await userge.send_inline_bot_result(
