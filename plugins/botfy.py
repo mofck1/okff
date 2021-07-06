@@ -12,10 +12,9 @@ NOW = (
     "botfy",
     about={
         "header": "Teste do Apple",
-        "uso": "{tr}botfy now[text | reply to message]\n"
         "flags": {"-start": "teste", "-now": "teste"},
+        "uso": "{tr}botfy now[text | reply to message]\n"
         "{tr}botfy [flags] [text | reply to message]",
-
     },
     allow_via_bot=False,
 )
