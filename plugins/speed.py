@@ -18,7 +18,7 @@ from userge.utils import humanbytes
 )
 
 async def spee_test(message: Message):
-    ms_g = await edit_or_reply(message, "`Por favor, aguarde... \nCalculando velocidade de conexão com o servidor.`")
+    ms_g = await message.edit(message, "`Por favor, aguarde... \nCalculando velocidade de conexão com o servidor.`")
     s = speedtest.Speedtest()
     s.get_best_server()
     s.download()
