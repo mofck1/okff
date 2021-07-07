@@ -19,12 +19,12 @@ async def gusta(msg: Message):
             await conv.send_message("/start")
             await conv.get_response(mark_read=True)
             await conv.send_message(chat)
-            resultado = (
+            FINAL = (
                 await conv.get_response(mark_read=True)
             )
         await msg.edit(
             f"""𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌
-            **𝙴𝚜𝚝𝚘𝚞 𝚘𝚞𝚟𝚒𝚗𝚍𝚘: [▫️]({resultado})
+            **𝙴𝚜𝚝𝚘𝚞 𝚘𝚞𝚟𝚒𝚗𝚍𝚘: [▫️]({FINAL})
             ⚡️ @applled"""
         ) # Inicio                     
             
