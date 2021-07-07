@@ -21,26 +21,8 @@ async def gusta(msg: Message):
             await conv.send_message(chat)
             resultado = (
                 await conv.get_response(mark_read=True)
-            ) #.text.split('\n', maxsplit=1)[-1]
-            # await msg.edit(f"{resultado}") # Inicio                     
-        await message.client.download_media(
-        message=message.reply_to_message,
-        file_name=Config.DOWN_PATH,
-    )
-        try:
-#        response = upload_file(spot)
-        await message.client.send_file(
-                message=resultado,
-                message.chat_id,
-                file_name=Config.DOWN_PATH,
-                force_document=False,
             )
-    except Exception as t_e:
-        await message.err(t_e)
-        return
-    os.remove(dl_loc)
-    return str(response[0])
-            
+        await msg.edit(f"𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌\n**𝙴𝚜𝚝𝚘𝚞 𝚘𝚞𝚟𝚒𝚗𝚍𝚘:\n[▫️]({resultado})\n⚡️ @applled") # Inicio                     
             
     except YouBlockedUser: # Fim
         await msg.edit("Desbloqueie o **@SpotipieBot**")
