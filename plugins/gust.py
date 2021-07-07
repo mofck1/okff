@@ -22,12 +22,7 @@ async def gusta(msg: Message):
             resultado = (
                 await conv.get_response(mark_read=True)
             ) #.text.split('\n', maxsplit=1)[-1]
-            await msg.edit(f"{resultado}") # Inicio
-                       if response.text.startswith("You're"):
-                await msg.edit(
-                    "**Você não está ouvindo nada no Spotify no momento.**"
-                )
-                return
+            await msg.edit(f"{resultado}") # Inicio                     
             downloaded_file_name = await message.client.download_media(
                 response.media, DOWN_PATH
             )
