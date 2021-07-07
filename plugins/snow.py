@@ -1,5 +1,6 @@
 """ Módulo de testes para o @applled com fins de aprendizado """
 
+import asyncio
 import os
 from pyrogram.errors import YouBlockedUser
 from userge import Config, Message, userge
