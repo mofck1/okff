@@ -13,11 +13,11 @@ from userge.utils.exceptions import StopConversation
 
 async def gusta(msg: Message):
     chat = "/now" # msg.input_or_reply_str
-    chat_id = message.chat.id
+    chat_id = msg.chat.id
     if not chat:
 #        await msg.err("@applled")
 #        return
-        await message.err("@applled") # t
+        await msg.err("@applled") # t
     bot = await userge.bot.get_me()
     x = await userge.get_inline_bot_results(
         bot.username, "{FINAL} 𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌"
@@ -33,7 +33,7 @@ async def gusta(msg: Message):
 #        await msg.edit(
 #            f"𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌\n {FINAL}") 
             await userge.send_inline_bot_result(
-        chat_id=message.chat.id,
+        chat_id=msg.chat.id,
         query_id=x.query_id,
         result_id=x.results[0].id,
     )
