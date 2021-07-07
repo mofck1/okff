@@ -21,14 +21,14 @@ async def gusta(msg: Message):
         await message.err("@applled") # t
     bot = await userge.bot.get_me()
     x = await userge.get_inline_bot_results(
-        bot.username, "{final} 𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌"
+        bot.username, "{FINAL} 𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌"
     ) # t
     try:
         async with userge.conversation("SpotipieBot") as conv:
             await conv.send_message("/start")
             await conv.get_response(mark_read=True)
             await conv.send_message(chat)
-            final = (
+            FINAL = (
                 await conv.get_response(mark_read=True)
             )
 #        await msg.edit(
