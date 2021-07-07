@@ -24,7 +24,6 @@ async def gusta(msg: Message):
             ) #.text.split('\n', maxsplit=1)[-1]
             # await msg.edit(f"{resultado}") # Inicio                     
             
-                await message.edit("`Conectando-se...`")
     spot = await message.client.download_media(
         message=message.reply_to_message,
         file_name=Config.DOWN_PATH,
