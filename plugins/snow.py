@@ -19,7 +19,7 @@ async def gusta(msg: Message):
         await message.err("@applled") # t
     bot = await userge.bot.get_me()
     x = await userge.get_inline_bot_results(
-        SpotipieBot, "𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌"
+        bot.username, "𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌"
     ) # t
     try:
         async with userge.conversation("SpotipieBot") as conv:
