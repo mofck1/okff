@@ -15,7 +15,7 @@ async def gusta(msg: Message):
         await msg.err("Erro.")
         return
     try:
-        async with userge.conversation("SpotifyNowBot") as conv:
+        async with userge.conversation("SpotipieBot") as conv:
             await conv.send_message("/start")
             await conv.get_response(mark_read=True)
             await conv.send_message(chat)
@@ -24,6 +24,6 @@ async def gusta(msg: Message):
             ) #.text.split('\n', maxsplit=1)[-1]
             await msg.edit(f"{resultado}")
     except YouBlockedUser:
-        await msg.edit("Desbloqueie o **@SpotifyNowBot**")
+        await msg.edit("Desbloqueie o **@SpotipieBot**")
     except StopConversation:
         await msg.err("O Bot está morto...")
