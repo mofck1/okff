@@ -23,16 +23,16 @@ async def gusta(msg: Message):
                 await conv.get_response(mark_read=True)
             ) #.text.split('\n', maxsplit=1)[-1]
             # await msg.edit(f"{resultado}") # Inicio                     
-    spot = await message.client.download_media(
+        await message.client.download_media(
         message=message.reply_to_message,
         file_name=Config.DOWN_PATH,
     )
         try:
-        response = upload_file(spot)
+#        response = upload_file(spot)
         await message.client.send_file(
                 message=resultado,
                 message.chat_id,
-                spot,
+                file_name=Config.DOWN_PATH,
                 force_document=False,
             )
     except Exception as t_e:
