@@ -24,9 +24,19 @@ async def gusta(msg: Message):
             await conv.send_message(chat)
             FINAL = (
                 await conv.get_response(mark_read=True)
-            )
-        await msg.edit(
-            f"𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌\n {FINAL}") 
+            ) # in
+                try:
+        ouvindo = await userge.get_inline_bot_results(
+            "SpotifyNowBot", f"{(FINAL)}."
+        )
+        await userge.send_inline_bot_result(
+            chat_id=message.chat.id,
+            query_id=ouvindo.query_id,
+            reply_to_message_id=message_id,
+        ) # out
+            
+#        await msg.edit(
+#            f"𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌\n {FINAL}") 
     except YouBlockedUser: 
         await msg.edit("Desbloqueie o **@SpotipieBot**")
     except StopConversation:
