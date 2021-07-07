@@ -13,6 +13,7 @@ from userge.utils.exceptions import StopConversation
 
 async def gusta(msg: Message):
     chat = "/now" # msg.input_or_reply_str
+    chat_id = message.chat.id
     if not chat:
 #        await msg.err("@applled")
 #        return
