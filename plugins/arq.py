@@ -16,6 +16,7 @@ async def arquivo(msg: Message):
     if not chat:
         await msg.err("@applled")
         return
+    reply_message = await msg.get_reply_message()
     try:
         async with userge.conversation("uploadbot") as conv:
             await conv.send_message("/start")
@@ -24,9 +25,12 @@ async def arquivo(msg: Message):
             UPLOAD = (
                 await conv.get_response(mark_read=True)
             )
-        await msg.edit(
-            f"Teste\n {UPLOAD}") 
+        await msg.edit(f"{UPLOAD}") 
+            await msg.client.forward_messages(chat, reply_message)
+            response = await response
     except YouBlockedUser: 
         await msg.edit("Desbloqueie o **@uploadbot**")
     except StopConversation:
         await msg.err("O Bot está morto...")
+        else:
+            await msg.edit(f"{response.message.message}")
