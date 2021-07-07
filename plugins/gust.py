@@ -1,9 +1,9 @@
 """ Módulo de testes para o @applled com fins de aprendizado """
 
-
+import os
 from pyrogram.errors import YouBlockedUser
-from userge import userge, Message
-from userge.utils.exceptions import StopConversation
+from userge import Config, Message, userge
+from userge.utils.exceptions import StopConversation, progress
 
 
 @userge.on_cmd("gusta", about={
@@ -22,17 +22,25 @@ async def gusta(msg: Message):
             resultado = (
                 await conv.get_response(mark_read=True)
             ) #.text.split('\n', maxsplit=1)[-1]
-            await msg.edit(f"{resultado}") # Inicio                     
-            downloaded_file_name = await message.client.download_media(
-                response.media, DOWN_PATH
-            )
-            link = response.reply_markup.rows[0].buttons[0].url
-            await message.client.send_file(
-                event.chat_id,
-                downloaded_file_name,
-                force_document=False,
-                caption=f"[Tocar no Spotify]({link})",
-            )
+            # await msg.edit(f"{resultado}") # Inicio                     
+            
+                await message.edit("`Conectando-se...`")
+    spot = await message.client.download_media(
+        message=message.reply_to_message,
+        file_name=Config.DOWN_PATH,
+        progress=progress,
+        progress_args=(message, "Aguarde..."),
+    )
+    await message.edit("`Só mais um pouco...`")
+    try:
+        response = upload_file(spot)
+    except Exception as t_e:
+        await message.err(t_e)
+        return
+    os.remove(dl_loc)
+    return str(response[0])
+            
+            
     except YouBlockedUser: # Fim
         await msg.edit("Desbloqueie o **@SpotipieBot**")
     except StopConversation:
