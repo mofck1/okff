@@ -36,7 +36,6 @@ async def gusta(msg: Message):
 #       chat_id=message.chat.id,
         query_id=x.query_id,
         result_id=x.results[0].id,
-        bott=FINAL
     )
     except YouBlockedUser: 
         await msg.edit("Desbloqueie o **@SpotipieBot**")
