@@ -22,7 +22,8 @@ async def arquivo(msg: Message):
             await conv.get_response(mark_read=True)
             await conv.send_message(chat)
             UPLOAD = (
-                await conv.get_response(mark_read=True)           
+                await conv.get_response(mark_read=True)
+            )
         await msg.edit(
             f"Teste\n {UPLOAD}") 
     except YouBlockedUser: 
