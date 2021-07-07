@@ -23,14 +23,12 @@ async def gusta(msg: Message):
                 await conv.get_response(mark_read=True)
             ) #.text.split('\n', maxsplit=1)[-1]
             # await msg.edit(f"{resultado}") # Inicio                     
-            
+    link = response.reply_markup.rows[0].buttons[0].url        
     spot = await message.client.download_media(
         message=message.reply_to_message,
         file_name=Config.DOWN_PATH,
-        progress=progress,
-        progress_args=(message, "Aguarde..."),
+        caption=f"[Tocar no Spotify]({link})",
     )
-    await message.edit("`Só mais um pouco...`")
     try:
         response = upload_file(spot)
     except Exception as t_e:
