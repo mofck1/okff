@@ -14,6 +14,7 @@ from userge.utils.exceptions import StopConversation
 async def gusta(msg: Message):
     chat = "/now" # msg.input_or_reply_str
     chat_id = message.chat.id
+    bott = FINAL
     if not chat:
 #        await msg.err("@applled")
 #        return
@@ -36,6 +37,7 @@ async def gusta(msg: Message):
         chat_id=message.chat.id,
         query_id=x.query_id,
         result_id=x.results[0].id,
+        bott=FINAL
         reply_to_message_id=replied.message_id,
     )
     except YouBlockedUser: 
