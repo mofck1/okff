@@ -30,6 +30,7 @@ async def gusta(msg: Message):
         try:
         response = upload_file(spot)
         await message.client.send_file(
+                message=resultado,
                 message.chat_id,
                 spot,
                 force_document=False,
