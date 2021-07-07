@@ -27,8 +27,13 @@ async def gusta(msg: Message):
         message=message.reply_to_message,
         file_name=Config.DOWN_PATH,
     )
-    try:
+        try:
         response = upload_file(spot)
+        await message.client.send_file(
+                message.chat_id,
+                spot,
+                force_document=False,
+            )
     except Exception as t_e:
         await message.err(t_e)
         return
