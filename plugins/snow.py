@@ -37,7 +37,6 @@ async def gusta(msg: Message):
         query_id=x.query_id,
         result_id=x.results[0].id,
     )
-    else:
     await msg.edit(
         f"{FINAL}") 
     except YouBlockedUser: 
