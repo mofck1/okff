@@ -24,8 +24,7 @@ async def gusta(msg: Message):
             await conv.send_message(chat)
             FINAL = (
                 await conv.get_response(mark_read=True)
-            ) # in
-                try:        
+            )    
         await msg.edit(
             f"𝐒𝐏𝐎𝐓𝐈𝐅𝐘 𝐏𝐑𝐄𝐌𝐈𝐔𝐌\n {FINAL}") 
     except YouBlockedUser: 
