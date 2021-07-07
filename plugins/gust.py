@@ -22,8 +22,23 @@ async def gusta(msg: Message):
             resultado = (
                 await conv.get_response(mark_read=True)
             ) #.text.split('\n', maxsplit=1)[-1]
-            await msg.edit(f"{resultado}")
-    except YouBlockedUser:
+            await msg.edit(f"{resultado}") # Inicio
+                       if response.text.startswith("You're"):
+                await msg.edit(
+                    "**Você não está ouvindo nada no Spotify no momento.**"
+                )
+                return
+            downloaded_file_name = await message.client.download_media(
+                response.media, DOWN_PATH
+            )
+            link = response.reply_markup.rows[0].buttons[0].url
+            await message.client.send_file(
+                event.chat_id,
+                downloaded_file_name,
+                force_document=False,
+                caption=f"[Tocar no Spotify]({link})",
+            )
+    except YouBlockedUser: # Fim
         await msg.edit("Desbloqueie o **@SpotipieBot**")
     except StopConversation:
         await msg.err("O Bot está morto...")
