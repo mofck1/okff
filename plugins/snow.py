@@ -36,7 +36,6 @@ async def gusta(msg: Message):
         result_id=x.results[0].id,
         reply_to_message_id=replied.message_id,
     )
-    await message.delete()
     except YouBlockedUser: 
         await msg.edit("Desbloqueie o **@SpotipieBot**")
     except StopConversation:
