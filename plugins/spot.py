@@ -15,7 +15,7 @@ from userge.core.methods.chats import SendReadAcknowledge
     'como usar': "{tr}spot"},  allow_via_bot=False, allow_channels=False,
               )
 
-async def spott(self, msg: Message):
+async def spott(msg: Message):
     chat = "@spotipiebot"
     now = "/now"
     await msg.edit("**Processando...**")
@@ -25,7 +25,7 @@ async def spott(self, msg: Message):
                 msg = await conv.send_message(now)
                 response = await conv.get_response()
                 """ - don't spam notif - """
-                await self._client.send_read_acknowledge(conv.chat_id)
+                await msg.send_read_acknowledge(conv.chat_id)
             except YouBlockedUser:
                 await message.reply("**Por favor desbloqueie** @spotipiebot**.**")
                 return
