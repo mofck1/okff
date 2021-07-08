@@ -4,7 +4,7 @@
 import asyncio
 import os
 from pyrogram.errors import YouBlockedUser
-from userge import Config, Message, userge, DOWN_PATH
+from userge import Config, Message, userge
 from userge.utils.exceptions import StopConversation
 
 from .conversation import Conversation
