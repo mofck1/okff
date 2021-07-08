@@ -18,7 +18,7 @@ from userge.utils.exceptions import StopConversation
               )
 
 async def citar(msg: Message):
-    if not msg.reply_to_msg_id:
+    if not msg.reply_to_message_id:
        await msg.edit("```Responda a qualquer mensagem.```")
        return
     reply_message = await msg.get_reply_message() 
