@@ -66,7 +66,7 @@ LOKIM = (
 )
 #Temporário
 SPOTIFYM = (
-        "https://i.imgur.com/XTLlQeq.gif",
+        "https://telegra.ph/file/257f9524a6e328753597e.gif",
 )
 @userge.on_cmd(
     "fui",
