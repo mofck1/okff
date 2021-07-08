@@ -34,23 +34,5 @@ async def apple(message: Message):
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
-                         caption=texto
-                         reply_markup=apple.check_buttons(),
-   )
-
-        def check_buttons() -> InlineKeyboardMarkup: # IN
-        checkin = [
-            [
-                InlineKeyboardButton(text="⚡️ STATUS", callback_data="status_check"),
-            ],
-        ]
-        return InlineKeyboardMarkup(checkin)
-
-        @userge.bot.on_callback_query(filters.regex(pattern=r"^status_check$"))
-    async def _status_afk(_, c_q: CallbackQuery):
-        c_q.from_user.id
-        await c_q.answer(
-            f"🍎 @applled",
-            show_alert=True,
-        )
-        return # OUT
+                         caption=texto,
+    )
