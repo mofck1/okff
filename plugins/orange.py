@@ -1,8 +1,12 @@
+""" Módulo de testes para o @applled com fins de aprendizado """
+""" Sua exibição ainda está em testes """
+
+import asyncio
+import os
 from pyrogram.errors import YouBlockedUser
 
-from userge import Message, userge
+from userge import Config, Message, userge
 from userge.utils.exceptions import StopConversation
-
 
 @userge.on_cmd(
     "oran",
