@@ -36,6 +36,4 @@ async def meu_ovo(message: Message):
                 hide_via=True,
             )
             await message.err("List index out of range")
-        else:
-            await message.delete()
-            return
+
