@@ -25,7 +25,7 @@ async def spott(msg: Message):
                 msg = await conv.send_message(now)
                 response = await conv.get_response()
                 """ - don't spam notif - """
-                await bot.send_read_acknowledge(conv.chat_id)
+                await self._client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUser:
                 await message.reply("**Por favor desbloqueie** @spotipiebot**.**")
                 return
