@@ -15,7 +15,7 @@ from userge.core.methods.chats import SendReadAcknowledge
     'como usar': "{tr}spot"},  allow_via_bot=False, allow_channels=False,
               )
 
-async def spott(msg: Message):
+async def spott(self, msg: Message):
     chat = "@spotipiebot"
     now = "/now"
     await msg.edit("**Processando...**")
