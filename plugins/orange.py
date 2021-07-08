@@ -41,7 +41,7 @@ async def orangemd(message: Message):
                 self_mid = True
                 await message.edit(message.filtered_input_str)
         else:
-            fy_list.append(chat.message_id)
+            fy_list.append(message.message_id)
             if message.input_str:
                 self_mid = True
                 await message.edit(message.input_str)
