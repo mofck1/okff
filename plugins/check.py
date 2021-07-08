@@ -27,15 +27,16 @@ CHECKS = (
     allow_channels=False,
 )
 
-class _check_:
 async def apple(message: Message):
     await message.edit("**𝚃𝚎𝚜𝚝𝚎 𝚐𝚎𝚛𝚊𝚍𝚘...**\n𝙰𝚐𝚞𝚊𝚛𝚍𝚎 𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘, 𝙼𝚎𝚜𝚝𝚛𝚎...", del_in=5, log=__name__)
     photo = f"""{random.choice(CHECKS)}"""
-    texto = "<u>I'm Online</u>, @applled!"
+    texto = "<u>Estou Online</u>, @applled!"
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
-                         caption=texto)
+                         caption=texto
+                         reply_markup=apple.check_buttons(),
+   )
 
         def check_buttons() -> InlineKeyboardMarkup: # IN
         checkin = [
