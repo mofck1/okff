@@ -12,10 +12,10 @@ from .send_read_acknowledge import SendReadAcknowledge
 
 @userge.on_cmd("spot", about={
     'header': "Teste do @applled",
-    'como usar': "{tr}spot"}, # allow_via_bot=False, allow_channels=False,
+    'como usar': "{tr}spot"},  allow_via_bot=False, allow_channels=False,
               )
 
-async def gustavo(msg: Message)::
+async def spott(msg: Message)::
     chat = "@spotipiebot"
     now = "/now"
     await msg.edit("**Processando...**")
