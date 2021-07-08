@@ -16,7 +16,7 @@ from userge.core.methods.chats import SendReadAcknowledge
               )
 
 async def spott(msg: Message):
-    chat = "@spotipiebot"
+    chat = "@SpotifyNowBot"
     now = "/now"
     await msg.edit("**Processando...**")
     try:
@@ -27,7 +27,7 @@ async def spott(msg: Message):
                 """ - don't spam notif - """
                 await client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUser:
-                await message.reply("**Por favor desbloqueie** @spotipiebot**.**")
+                await message.reply("**Por favor desbloqueie** @SpotifyNowBot**.**")
                 return
             if response.text.startswith("You're"):
                 await message.edit(
@@ -47,6 +47,6 @@ async def spott(msg: Message):
             """ - cleanup chat after completed - """
             await msg.client.delete_messages(conv.chat_id, [msg.id, response.id])
     except TimeoutError:
-        return await msg.edit("**Erro:** @spotipiebot **não está respondendo.**")
+        return await msg.edit("**Erro:** @SpotifyNowBot **não está respondendo.**")
     await msg.delete()
     return os.remove(downloaded_file_name)
