@@ -3,7 +3,7 @@
 
 import asyncio
 import os
-from pyrogram.errors import YouBlockedUser
+from pyrogram.errors.exceptions.bad_request_400 import YouBlockedUser
 from userge import Config, Message, userge
 from userge.utils.exceptions import StopConversation
 
@@ -26,20 +26,20 @@ async def spott(msg: Message):
                 response = await conv.get_response()
                 """ - don't spam notif - """
                 await bot.send_read_acknowledge(conv.chat_id)
-            except YouBlockedUserError:
-                await msg.reply("**Por favor desbloqueie** @spotipiebot**.**")
+            except YouBlockedUser:
+                await message.reply("**Por favor desbloqueie** @spotipiebot**.**")
                 return
             if response.text.startswith("You're"):
-                await msg.edit(
+                await message.edit(
                     "**Você não está ouvindo nada no Spotify no momento.**"
                 )
                 return
-            downloaded_file_name = await msg.client.download_media(
+            downloaded_file_name = await message.client.download_media(
                 response.media, DOWN_PATH
             )
             link = response.reply_markup.rows[0].buttons[0].url
-            await msg.client.send_file(
-                msg.chat_id,
+            await message.client.send_file(
+                message.chat_id,
                 downloaded_file_name,
                 force_document=False,
                 caption=f"[Tocar no Spotify]({link})",
