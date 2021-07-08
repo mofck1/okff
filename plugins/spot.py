@@ -7,7 +7,7 @@ from pyrogram.errors import YouBlockedUser
 from userge import Config, Message, userge
 from userge.utils.exceptions import StopConversation
 
-from userge.core.methods.chats import conversation 
+from userge.core.methods.chats import Conversation 
 from userge.core.methods.chats import SendReadAcknowledge
 
 @userge.on_cmd("spot", about={
