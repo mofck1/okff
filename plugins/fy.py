@@ -25,11 +25,6 @@ async def meu_ovo(message: Message):
         text = args
     elif replied:
         text = args or replied.text
-    else:
-        await message.err("Vento")
-        return
-    await message.delete()
-    if "-g" in message.flags:
         try:
             stickers = await userge.get_inline_bot_results(
                 "SpotipieBot", f"{deEmojify(text)}"
