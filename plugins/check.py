@@ -7,6 +7,8 @@ import asyncio
 import random
 from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
+from pyrogram import filters
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 LOGGER = userge.getLogger(__name__)
 CHECKS = (
@@ -24,9 +26,10 @@ CHECKS = (
     del_pre=True,
     allow_channels=False,
 )
- 
+
+class _check_:
 async def apple(message: Message):
-    await message.edit("**Iniciando checagem...**\nAguarde o resultado, Mestre...", del_in=10, log=__name__)
+    await message.edit("**𝚃𝚎𝚜𝚝𝚎 𝚐𝚎𝚛𝚊𝚍𝚘...**\n𝙰𝚐𝚞𝚊𝚛𝚍𝚎 𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘, 𝙼𝚎𝚜𝚝𝚛𝚎...", del_in=5, log=__name__)
     photo = f"""{random.choice(CHECKS)}"""
     texto = "<u>I'm Online</u>, @applled!"
     await message.client.send_animation(
@@ -34,4 +37,19 @@ async def apple(message: Message):
                          animation=photo, 
                          caption=texto)
 
-   #Adicionar outras configurações
+        def check_buttons() -> InlineKeyboardMarkup: # IN
+        checkin = [
+            [
+                InlineKeyboardButton(text="⚡️ STATUS", callback_data="status_check"),
+            ],
+        ]
+        return InlineKeyboardMarkup(checkin)
+
+        @userge.bot.on_callback_query(filters.regex(pattern=r"^status_check$"))
+    async def _status_afk(_, c_q: CallbackQuery):
+        c_q.from_user.id
+        await c_q.answer(
+            f"🍎 @applled",
+            show_alert=True,
+        )
+        return # OUT
