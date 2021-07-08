@@ -51,7 +51,7 @@ async def orangemd(message: Message):
         fy_list.append(message.message_id)
     else:
         await message.delete()
-    if not args and len(quote_list) == 0:
+    if not args and len(fy_list) == 0:
         await message.err("ZZZZZZZZZZ !", del_in=5)
         return
     try:
