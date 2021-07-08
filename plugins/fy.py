@@ -37,3 +37,8 @@ async def meu_ovo(message: Message):
                 result_id=stickers.results[0].id,
                 hide_via=True,
             )
+                    except IndexError:
+            await message.err("List index out of range")
+        else:
+            await message.delete()
+            return
