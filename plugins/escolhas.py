@@ -25,7 +25,7 @@ NETFLIX = (
 )
 
 LOKI = (
-        "𝙷𝚎𝚕𝚕 𝚢𝚊, 𝚗𝚎𝚠 𝚎𝚙𝚒𝚜𝚘𝚍𝚎! 𝙱𝚢𝚎!",
+#       "𝙷𝚎𝚕𝚕 𝚢𝚊, 𝚗𝚎𝚠 𝚎𝚙𝚒𝚜𝚘𝚍𝚎! 𝙱𝚢𝚎!",
         "𝙲𝚘𝚖𝚎 𝚘𝚗...",
 )
 #Temporário
@@ -61,12 +61,13 @@ NETFLIXM = (
 )
 #Temporário
 LOKIM = (
-        "https://telegra.ph/file/b3236ef409f6d8bc69b1b.gif", 
-        "https://telegra.ph/file/c058c117801315f5af8f1.gif",
+        "https://telegra.ph/file/71b708eb44b9d2d3c60f6.gif",
+#       "https://telegra.ph/file/b3236ef409f6d8bc69b1b.gif", 
+#       "https://telegra.ph/file/c058c117801315f5af8f1.gif",
 )
 #Temporário
 SPOTIFYM = (
-        "https://telegra.ph/file/257f9524a6e328753597e.gif",
+        "https://telegra.ph/file/16abf23147a363828da13.gif",
 )
 @userge.on_cmd(
     "fui",
