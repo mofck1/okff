@@ -1,4 +1,4 @@
-""" Manter os créditos | @applled """
+""" Manter os créditos | @applled - Módulo que exibe qual música você está ouvindo no Spotify"""
 
 from pyrogram.errors import BadRequest
 from userge import userge, Message
@@ -7,9 +7,11 @@ from userge import userge, Message
 @userge.on_cmd(
     "appl",
     about={
-        "header": "Mais um teste do @applled",
-        "como usar": "{tr}appl [text]",
+        "header": "Módulo criado pelo @applled que exibe qual música você está ouvindo no Spotify",
+        "como usar": "{tr}appl /now",
     },
+    del_pre=True,
+    allow_channels=False,
 )
 async def appl_(message: Message):
     reply = message.reply_to_message
@@ -33,7 +35,8 @@ async def appl_(message: Message):
             chat_id=message.chat.id,
             query_id=x.query_id,
             result_id=x.results[0].id,
-            reply_to_message_id=reply_id
+            reply_to_message_id=reply_id,
+            hide_via=True
         )
     except (IndexError, BadRequest):
         await message.err("Pesquisa sem resultados...", del_in=5)
