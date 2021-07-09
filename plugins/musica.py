@@ -5,10 +5,10 @@ from userge import userge, Message
 
 
 @userge.on_cmd(
-    "citar",
+    "musica",
     about={
         "header": "Módulo criado pelo @applled - uso pessoal",
-        "como usar": "{tr}citar",
+        "como usar": "{tr}musica",
     },
     del_pre=True,
     allow_channels=False,
@@ -27,7 +27,7 @@ async def appled_citar_(message: Message):
         return await message.err("Não encontrei nada.", del_in=5)
 
     x = await userge.get_inline_bot_results(
-            "@QuotLyBot", input_query
+            "@PieRatedBot", input_query
     )
     try:
         await message.delete()
