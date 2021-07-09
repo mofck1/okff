@@ -5,7 +5,7 @@ from userge import userge, Message
 
 
 @userge.on_cmd(
-    "appl",
+    "snow",
     about={
         "header": "Módulo criado pelo @applled que exibe qual música você está ouvindo no Spotify",
         "como usar": "{tr}appl /now",
@@ -13,7 +13,7 @@ from userge import userge, Message
     del_pre=True,
     allow_channels=False,
 )
-async def appl_(message: Message):
+async def appled_(message: Message):
     reply = message.reply_to_message
     reply_id = reply.message_id if reply else None
     if message.input_str:
