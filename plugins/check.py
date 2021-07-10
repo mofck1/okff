@@ -39,8 +39,8 @@ async def apple(message: Message):
                          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Main', url='https://t.me/applled'),
-                    InlineKeyboardButton('Status', url='https://t.me/orapple')
+                    InlineKeyboardButton('NEWS', url='https://t.me/fourplayn'),
+                    InlineKeyboardButton('TWAPPLE', url='https://t.me/tawpple')
                 ]
             ]
         )
