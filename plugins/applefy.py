@@ -12,7 +12,6 @@ from userge import userge, Message
     },
     del_pre=True,
     allow_channels=False,
-    allow_via_bot=False,
 )
 async def appled_(message: Message):
     reply = message.reply_to_message
