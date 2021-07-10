@@ -39,7 +39,7 @@ async def appled_(message: Message):
             hide_via=True
         )
     except (IndexError, BadRequest):
-        await message.err("Pesquisa sem resultados...", del_in=5)
+        await message.err("Você realmente está ouvindo algo no Spotify?\nConfira se você ao menos iniciou a música.", del_in=5)
 
 
 @userge.on_cmd(
