@@ -43,21 +43,7 @@ async def appled_(message: Message):
 
 
 @userge.on_cmd(
-    "now$",
-    about={
-        "header": "Módulo criado pelo @applled - Comando rápido para o Now Playing on Spotify",
-         "flags": {
-          "-n": "Now Playing",
-        },
-        "como usar": "{tr}now",
-    },
-    del_pre=True,
-    allow_channels=False,
+    "now$", about={"header": "Comando rápido para o Now Playing"}, trigger="", allow_via_bot=False
 )
 async def ouvindo_(message: Message):
-    await message.edit("`✅`", del_in=1,)
-    if "n" in message.flags:
-            await message.edit(
-                f"!snow /now",
-                del_in=1,
-            )
+    await message.edit("!snow /now", del_in=1,)
