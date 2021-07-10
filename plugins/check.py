@@ -25,7 +25,7 @@ CHECKS = (
     },
     del_pre=True,
     allow_channels=False,
-    allow_via_bot=False,
+    allow_via_bot=True,
 )
 
 async def apple(message: Message):
