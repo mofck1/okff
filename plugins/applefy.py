@@ -40,3 +40,27 @@ async def appled_(message: Message):
         )
     except (IndexError, BadRequest):
         await message.err("Pesquisa sem resultados...", del_in=5)
+
+
+@userge.on_cmd(
+    "now$",
+    about={
+        "header": "Módulo criado pelo @applled - Comando rápido para o Now Playing on Spotify",
+        "como usar": "{tr}now",
+    },
+    del_pre=True,
+    allow_channels=False,
+)
+async def ouvindo_(message: Message):
+    if "n" in message.flags:
+            await message.edit(
+                f"!snow /now",
+                del_in=1,
+            )
+     if "l" in message.flags:
+            await message.edit(
+                f"!snow /last",
+                del_in=1,
+            )
+
+
