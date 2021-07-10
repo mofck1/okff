@@ -46,6 +46,10 @@ async def appled_(message: Message):
     "now$",
     about={
         "header": "Módulo criado pelo @applled - Comando rápido para o Now Playing on Spotify",
+         "flags": {
+          "-n": "Now Playing",
+          "-l": "NowP do LastFM",
+        },
         "como usar": "{tr}now",
     },
     del_pre=True,
@@ -62,5 +66,3 @@ async def ouvindo_(message: Message):
                 f"!snow /last",
                 del_in=1,
             )
-
-
