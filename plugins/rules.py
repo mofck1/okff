@@ -29,7 +29,7 @@ ANIMTN = (
 )
 
 async def regras(message: Message):
-    await message.edit("**Oh no...", del_in=1, log=__name__)
+#   await message.edit("**Oh no...", del_in=1, log=__name__)
     photo = f"""{random.choice(ANIMTN)}"""
     texto = f"""{random.choice(RULES)}"""
     await message.client.send_animation(
