@@ -15,6 +15,9 @@ LOGGER = userge.getLogger(__name__)
 RULES = (
    "!warn You know the /rules and so do I [🎵](https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
 )
+RULES_FINAL = (
+   "You know the /rules and so do I [🎵](https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
+)
 ANIMTN = (
     "https://telegra.ph/file/7465c70c1cb0f35cc536e.gif",
 )
@@ -31,7 +34,7 @@ ANIMTN = (
 async def regras(message: Message):
     await message.edit(f"{random.choice(RULES)}", del_in=1, log=__name__)
     photo = f"""{random.choice(ANIMTN)}"""
-    texto = f"""{random.choice(RULES)}"""
+    texto = f"""{random.choice(RULES_FINAL)}"""
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
