@@ -16,7 +16,7 @@ RULES = (
    "!warn You know the /rules and so do I [🎵](https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
 )
 RULES_FINAL = (
-   "You know the /rules and so do I [🎵](https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
+   "[𝚈𝚘𝚞 𝚔𝚗𝚘𝚠 𝚝𝚑𝚎 𝚛𝚞𝚕𝚎𝚜 𝚊𝚗𝚍 𝚜𝚘 𝚍𝚘 𝙸](https://www.youtube.com/watch?v=dQw4w9WgXcQ) 🎵",
 )
 ANIMTN = (
     "https://telegra.ph/file/7465c70c1cb0f35cc536e.gif",
