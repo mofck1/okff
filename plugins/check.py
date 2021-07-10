@@ -40,7 +40,7 @@ async def apple(message: Message):
             [
                 [
                     InlineKeyboardButton('NEWS', url='https://t.me/fourplayn'),
-                    InlineKeyboardButton('TWAPPLE', url='https://t.me/tawpple')
+                    InlineKeyboardButton('TWAPPLE', url='https://t.me/twapple')
                 ]
             ]
         )
