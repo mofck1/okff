@@ -35,4 +35,12 @@ async def apple(message: Message):
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
+                         reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('Main', url='https://t.me/applled'),
+                    InlineKeyboardButton('Status', url='https://t.me/orapple')
+                ]
+            ]
+        )
     )
