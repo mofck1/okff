@@ -8,7 +8,7 @@ from userge import userge, Message
     "snow",
     about={
         "header": "Módulo criado pelo @applled que exibe qual música você está ouvindo no Spotify",
-        "como usar": "{tr}appl /now",
+        "como usar": "{tr}snow /now",
     },
     del_pre=True,
     allow_channels=False,
@@ -24,7 +24,7 @@ async def appled_(message: Message):
         elif reply.caption:
             input_query = reply.caption
     if not input_query:
-        return await message.err("Não encontrei nada.", del_in=5)
+        return await message.err("Lembre-se de fazer o comando + /now", del_in=5)
 
     x = await userge.get_inline_bot_results(
             "@spotipiebot", input_query
