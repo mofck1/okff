@@ -40,16 +40,8 @@ async def apple(message: Message):
             [
                 [
                     InlineKeyboardButton('𝙽𝙾𝚃Í𝙲𝙸𝙰𝚂', url='https://t.me/fourplayn'),
-                    InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', callback_data="status_check"),
+                    InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', url='https://t.me/twapple'),
                 ]
             ]
         )
     )
-        @userge.bot.on_callback_query(filters.regex(pattern=r"^status_check$"))
-    async def _status_check(_, c_q: CallbackQuery):
-        c_q.from_user.id
-        await c_q.answer(
-            f"🍎 @applled\n\nLike Tweets\n@twapple",
-            show_alert=True,
-        )
-        return
