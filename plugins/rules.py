@@ -13,7 +13,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 LOGGER = userge.getLogger(__name__)
 
 RULES = (
-   "warn You know the /rules and so do I 🎵",
+   "!warn You know the /rules and so do I 🎵",
 )
 RULES_FINAL = (
    "[𝚈𝚘𝚞 𝚔𝚗𝚘𝚠 𝚝𝚑𝚎 𝚛𝚞𝚕𝚎𝚜 𝚊𝚗𝚍 𝚜𝚘 𝚍𝚘 𝙸](https://www.youtube.com/watch?v=dQw4w9WgXcQ) 🎵",
@@ -23,16 +23,11 @@ ANIMTN = (
 )
 
 @userge.on_cmd(
-    "rules",
-    about={
-        "header": "Módulo teste para o @applled",
-    },
-    del_pre=True,
-    allow_channels=False,
+    "rules$", about={"header": "Módulo teste para o @applled"}, trigger="", allow_via_bot=False
 )
 
 async def regras(message: Message):
-    await message.edit(f"!{random.choice(RULES)}", del_in=5, log=__name__)
+    await message.edit(f"{random.choice(RULES)}", del_in=5, log=__name__)
     photo = f"""{random.choice(ANIMTN)}"""
     texto = f"""{random.choice(RULES_FINAL)}"""
     await message.client.send_animation(
