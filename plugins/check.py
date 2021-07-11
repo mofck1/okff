@@ -1,4 +1,5 @@
 """ Módulo de testes para o @applled com fins de aprendizado  """
+
 import os
 import asyncio
 from datetime import datetime
