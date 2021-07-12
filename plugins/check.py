@@ -40,9 +40,41 @@ async def apple(message: Message):
                          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝙽𝙾𝚃Í𝙲𝙸𝙰𝚂', url='https://t.me/fourplayn'),
+                    InlineKeyboardButton('𝙽𝙾𝚃Í𝙲𝙸𝙰𝚂', callback_data="teste_apple"),
                     InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', url='https://t.me/twapple'),
                 ]
             ]
         )
     )
+
+    
+    
+        @userge.bot.on_callback_query(filters.regex(pattern=r"^teste_apple"))
+    async def age_verification_true(_, c_q: CallbackQuery):
+        u_id = c_q.from_user.id
+        if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
+            return await c_q.answer(
+                "Ok, testado.",
+                show_alert=True,
+            )
+        await c_q.answer("Continuar", show_alert=False)
+        msg = await userge.bot.get_messages("orugugu", 61)
+        f_id = get_file_id(msg)
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="Voltar",
+                    callback_data="teste_apple",
+                )
+            ]
+        ]
+        try:
+            await c_q.edit_message_media(
+                media=InputMediaPhoto(
+                    media=f_id,
+                    caption="Pois é...",
+                ),
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        except MessageNotModified:
+            pass
