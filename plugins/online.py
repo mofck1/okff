@@ -66,7 +66,7 @@ if userge.has_bot:
         except MessageNotModified:
             pass
 
-    @userge.bot.on_callback_query(filters.regex(pattern=r"^runtime_info"))
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^runtime_extra"))
     async def runtime_info_(_, c_q: CallbackQuery):
         u_id = c_q.from_user.id
         if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
