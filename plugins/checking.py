@@ -23,13 +23,103 @@ LOGGER = userge.getLogger(__name__)
     allow_via_bot=True,
 )
 
-async def apple(message: Message):
-    await message.edit("**𝚃𝚎𝚜𝚝𝚎 𝚐𝚎𝚛𝚊𝚍𝚘...**\n𝙰𝚐𝚞𝚊𝚛𝚍𝚎 𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘, 𝙼𝚎𝚜𝚝𝚛𝚎...", del_in=1, log=__name__)
-    texto = "@applled"
-    mediag = await userge.bot.get_messages("orugugu", 61)
-    media_id = get_file_id(mediag)  
+async def checking_teste(msg):
+    if Config.ALLOW_NSFW.lower() == "true":
+        return False
+    bot = await userge.bot.get_me()
+    x = await userge.get_inline_bot_results(bot.username, "checkin_info_")
+    await msg.delete()
     await userge.send_inline_bot_result(
-                         media=media_id,
-                         message.chat.id, 
-                         caption=texto,
+        chat_id=msg.chat.id, query_id=x.query_id, result_id=x.results[0].id
     )
+    return True
+
+if userge.has_bot:
+
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^runtime_info"))
+    async def runtime_info(_, c_q: CallbackQuery):
+        u_id = c_q.from_user.id
+        if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
+            return await c_q.answer(
+                "Given That It's A Stupid-Ass Decision, I've Elected To Ignore It.",
+                show_alert=True,
+            )
+        await c_q.answer("Yes I'm 18+", show_alert=False)
+        msg = await userge.bot.get_messages("orugugu", 60)
+        f_id = get_file_id(msg)
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="Unsure / Change of Decision ❔",
+                    callback_data="chg_of_decision_",
+                )
+            ]
+        ]
+        try:
+            await c_q.edit_message_media(
+                media=InputMediaPhoto(
+                    media=f_id,
+                    caption="Set <code>ALLOW_NSFW</code> = True in Heroku Vars to access this plugin",
+                ),
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        except MessageNotModified:
+            pass
+
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^runtime_info"))
+    async def age_verification_false(_, c_q: CallbackQuery):
+        u_id = c_q.from_user.id
+        if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
+            return await c_q.answer(
+                "Given That It's A Stupid-Ass Decision, I've Elected To Ignore It.",
+                show_alert=True,
+            )
+        await c_q.answer("No I'm Not", show_alert=False)
+        msg = await userge.bot.get_messages("orugu", 59)
+        f_id = get_file_id(msg)
+        img_text = "GO AWAY KID !"
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="Unsure / Change of Decision ❔",
+                    callback_data="chg_of_decision_",
+                )
+            ]
+        ]
+        try:
+            await c_q.edit_message_media(
+                media=InputMediaPhoto(media=f_id, caption=img_text),
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        except MessageNotModified:
+            return
+
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^chg_of_decision_"))
+    async def chg_of_decision_(_, c_q: CallbackQuery):
+        u_id = c_q.from_user.id
+        if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
+            return await c_q.answer(
+                "Given That It's A Stupid-Ass Decision, I've Elected To Ignore It.",
+                show_alert=True,
+            )
+        await c_q.answer("Unsure", show_alert=False)
+        msg = await userge.bot.get_messages("orugu", 52)
+        f_id = get_file_id(msg)
+        img_text = "<b>ARE YOU OLD ENOUGH FOR THIS ?</b>"
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="RUNTIME", callback_data="runtime_info"
+                ),
+                InlineKeyboardButton(
+                    text="STATUS", callback_data="settings_btn"
+                ),
+            ]
+        ]
+        try:
+            await c_q.edit_message_media(
+                media=InputMediaPhoto(media=f_id, caption=img_text),
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        except MessageNotModified:
+            pass
