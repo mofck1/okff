@@ -42,18 +42,18 @@ if userge.has_bot:
         u_id = c_q.from_user.id
         if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
             return await c_q.answer(
-                "Confira os extras",
+                "Carrega as informações...",
                 show_alert=True,
             )
-        await c_q.answer("Extras", show_alert=False)
-        msg = await userge.bot.get_messages("inlineApple", 5)
+        await c_q.answer("Extras", show_alert=True)
+        msg = await userge.bot.get_messages("inlineApple", 6)
         f_id = get_file_id(msg)
         img_text = "𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯..."
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="Voltar",
-                    callback_data="status_afk",
+                    text="Enviar PM",
+                    url='https://t.me/youcantbot'),
                 )
             ]
         ]
