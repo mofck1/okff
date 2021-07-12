@@ -51,10 +51,7 @@ if userge.has_bot:
         img_text = "𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯..."
         buttons = [
             [
-                InlineKeyboardButton(
-                    text="Enviar PM",
-                    url='https://t.me/youcantbot'),
-                )
+                InlineKeyboardButton('Enviar PM', url='https://t.me/youcantbot'),
             ]
         ]
         try:
