@@ -33,7 +33,10 @@ async def apple(message: Message):
     await message.edit("**𝚃𝚎𝚜𝚝𝚎 𝚐𝚎𝚛𝚊𝚍𝚘...**\n𝙰𝚐𝚞𝚊𝚛𝚍𝚎 𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘, 𝙼𝚎𝚜𝚝𝚛𝚎...", del_in=5, log=__name__)
     photo = f"""{random.choice(CHECKS)}"""
     texto = "<u>Estou Online</u>, @applled!"
+#   mediag = await userge.bot.get_messages("orugugu", 61) Testar isso depois
+#   media_id = get_file_id(msg) Testar isso depois
     await message.client.send_animation(
+#                        media=media_id,
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
@@ -46,3 +49,5 @@ async def apple(message: Message):
             ]
         )
     )
+
+    # Testar e acrescentar algumas linhas nas hashtags +
