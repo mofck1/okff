@@ -60,7 +60,7 @@ if userge.has_bot:
         ]
         try:
             await c_q.edit_message_media(
-                media=InputMediaPhoto(media=f_id, caption=texto),
+                media=InputMediaPhoto(media=photo, caption=texto),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         except MessageNotModified:
