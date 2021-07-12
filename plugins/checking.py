@@ -28,7 +28,7 @@ async def apple(message: Message):
     texto = "@applled"
     mediag = await userge.bot.get_messages("orugugu", 61)
     media_id = get_file_id(mediag)  
-    await message.edit_message_media(
+    await userge.send_inline_bot_result(
                          media=media_id,
                          message.chat.id, 
                          caption=texto,
