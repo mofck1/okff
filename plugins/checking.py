@@ -41,11 +41,11 @@ if userge.has_bot:
         u_id = c_q.from_user.id
         if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
             return await c_q.answer(
-                "Given That It's A Stupid-Ass Decision, I've Elected To Ignore It.",
+                "Estou Online e Funcionando!",
                 show_alert=True,
             )
-        await c_q.answer("Yes I'm 18+", show_alert=False)
-        msg = await userge.bot.get_messages("orugugu", 60)
+        await c_q.answer("✅ Estou Online e Funcionando!", show_alert=False)
+        msg = await userge.bot.get_messages("orugugu", 61)
         f_id = get_file_id(msg)
         buttons = [
             [
@@ -103,7 +103,7 @@ if userge.has_bot:
                 show_alert=True,
             )
         await c_q.answer("Unsure", show_alert=False)
-        msg = await userge.bot.get_messages("orugu", 52)
+        msg = await userge.bot.get_messages("orugugu", 52)
         f_id = get_file_id(msg)
         img_text = "<b>ARE YOU OLD ENOUGH FOR THIS ?</b>"
         buttons = [
