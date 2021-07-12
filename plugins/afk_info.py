@@ -17,6 +17,9 @@ LOGGER = userge.getLogger(__name__)
 PLUS = (
     "𝐒𝐓𝐀𝐓𝐔𝐒 𝐏𝐄𝐑𝐒𝐎𝐍𝐀𝐋𝐈𝐙𝐀𝐃𝐎\n\n ╰• 𝙼𝚎𝚗𝚜𝚊𝚐𝚎𝚖 𝚊𝚙𝚊𝚐𝚊𝚍𝚊 𝚊𝚞𝚝𝚘𝚖𝚊𝚝𝚒𝚌𝚊𝚖𝚎𝚗𝚝𝚎 𝚎𝚖: 10seg\n\n𝐂𝐨𝐧𝐟𝐢𝐫𝐚 𝐬𝐞𝐮 𝐋𝐨𝐠 𝐂𝐡𝐚𝐧𝐧𝐞𝐥\n\n🔗 @twapple\n ╰• 𝚁𝚎𝚜𝚎𝚛𝚟𝚊𝚍𝚘 𝚙𝚊𝚛𝚊 𝚙𝚘𝚜𝚝𝚜 𝚊𝚕𝚎𝚊𝚝ó𝚛𝚒𝚘𝚜 𝚍𝚘 @𝚊𝚙𝚙𝚕𝚕𝚎𝚍",
 )
+CHEC = (
+    "https://telegra.ph/file/b2fda41d76cd798d4c368.gif",
+)
 
 @userge.on_cmd(
     "afkplus",
@@ -41,15 +44,14 @@ if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^afk_extra"))
     async def runtime_info_(_, c_q: CallbackQuery):
+        photo = f"""{random.choice(CHEC)}"""
+        texto = f"{random.choice(PLUS)}"
                 c_q.from_user.id
                 await c_q.answer(
                 "❌ Loading",
                 show_alert=True,
             )
-             
-        msg = await userge.bot.get_messages("inlineApple", 7)
-        f_id = get_file_id(msg)
-        texto = f"{random.choice(PLUS)}"
+        
         buttons = [
             [
                 InlineKeyboardButton('🏷 𝙴𝚗𝚟𝚒𝚊𝚛 𝙿𝙼', url='https://t.me/youcantbot'),
