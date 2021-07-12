@@ -44,9 +44,9 @@ if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^afk_extra"))
     async def runtime_info_(_, c_q: CallbackQuery):
+          c_q.from_user.id
         photo = f"""{random.choice(CHEC)}"""
         texto = f"{random.choice(PLUS)}"
-                c_q.from_user.id
                 await c_q.answer(
                 "❌ Loading",
                 show_alert=True,
