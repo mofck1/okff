@@ -40,13 +40,13 @@ if userge.has_bot:
         u_id = c_q.from_user.id
         if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
             return await c_q.answer(
-                "❌ Você não tem permissão para ver isto...",
+                "❌ Você não tem permissão para ver isto!",
                 show_alert=True,
             )
-        await c_q.answer("Extras", show_alert=True)
+        await c_q.answer("Informações foram carregadas", show_alert=True)
         msg = await userge.bot.get_messages("inlineApple", 6)
         f_id = get_file_id(msg)
-        img_text = "𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯..."
+        texto = "𝐂𝐇𝐄𝐂𝐊 𝐓𝐇𝐈𝐒:\n\n𝐋𝐢𝐤𝐞 𝐓𝐰𝐞𝐞𝐭𝐬\n🔗 @twapple\n𝐁𝐢𝐨\n🔗 @orapple\n ╰• 𝘔𝘰𝘳𝘦 𝘤𝘰𝘮𝘪𝘯𝘨 𝘴𝘰𝘰𝘯..."
         buttons = [
             [
                 InlineKeyboardButton('Enviar PM', url='https://t.me/youcantbot'),
@@ -54,8 +54,9 @@ if userge.has_bot:
         ]
         try:
             await c_q.edit_message_media(
-                media=InputMediaPhoto(media=f_id, caption=img_text),
+                media=InputMediaPhoto(media=f_id, caption=texto),
                 reply_markup=InlineKeyboardMarkup(buttons),
+                del_in=10,
             )
         except MessageNotModified:
             return
