@@ -25,8 +25,6 @@ LOGGER = userge.getLogger(__name__)
 )
 
 async def inine_afk_status(msg):
-    if Config.ALLOW_NSFW.lower() == "true":
-        return False
     bot = await userge.bot.get_me()
     x = await userge.get_inline_bot_results(bot.username, "inline_info_afk")
     await msg.delete()
@@ -41,10 +39,10 @@ if userge.has_bot:
     async def runtime_info_(_, c_q: CallbackQuery):
         u_id = c_q.from_user.id
         if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
-#            return await c_q.answer(
-#                "❌ Você não tem permissão para ver isto...",
-#                show_alert=True,
-#            )
+            return await c_q.answer(
+                "❌ Você não tem permissão para ver isto...",
+                show_alert=True,
+            )
         await c_q.answer("Extras", show_alert=True)
         msg = await userge.bot.get_messages("inlineApple", 6)
         f_id = get_file_id(msg)
