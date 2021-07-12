@@ -40,7 +40,7 @@ async def apple(message: Message):
                          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝙽𝙾𝚃Í𝙲𝙸𝙰𝚂', callback_data="settings_btn"),
+                    InlineKeyboardButton('𝚁𝚄𝙽𝚃𝙸𝙼𝙴', callback_data="settings_btn"),
                     InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', url='https://t.me/twapple'),
                 ]
             ]
