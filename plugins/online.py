@@ -9,7 +9,8 @@ import random
 from userge import Config, Message, userge
 from userge.utils import get_file_id, rand_array
 from pyrogram import filters
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.errors import MessageNotModified
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
 LOGGER = userge.getLogger(__name__)
 
@@ -112,7 +113,7 @@ if userge.has_bot:
                     text="RUNTIME", callback_data="runtime_info"
                 ),
                 InlineKeyboardButton(
-                    text="STATUS", callback_data="settings_btn"
+                    text="STATUS", callback_data="runtime_extra"
                 ),
             ]
         ]
