@@ -46,6 +46,7 @@ if userge.has_bot:
                 "❌ Loading",
                 show_alert=True,
             )
+        await c_q.answer("...", show_alert=False)                
         msg = await userge.bot.get_messages("inlineApple", 7)
         f_id = get_file_id(msg)
         texto = f"{random.choice(PLUS)}"
