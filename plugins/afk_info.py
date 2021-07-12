@@ -33,7 +33,7 @@ async def inine_afk_status(msg):
     x = await userge.get_inline_bot_results(bot.username, "inline_info_afk")
     await msg.delete()
     await userge.send_inline_bot_result(
-        chat_id=msg.chat.id, query_id=x.query_id, result_id=x.results[0].id
+        chat_id=msg.chat.id, query_id=x.query_id, result_id=x.results[0].id 
     )
     return True
 
@@ -41,13 +41,11 @@ if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^afk_extra"))
     async def runtime_info_(_, c_q: CallbackQuery):
-        u_id = c_q.from_user.id
-        if u_id not in Config.OWNER_ID and u_id not in Config.SUDO_USERS:
-            return await c_q.answer(
-                "❌ Você não tem permissão para ver isto!",
+                c_q.from_user.id
+                await c_q.answer(
+                "❌ Loading",
                 show_alert=True,
             )
-        await c_q.answer("Informações foram carregadas", show_alert=True)
         msg = await userge.bot.get_messages("inlineApple", 7)
         f_id = get_file_id(msg)
         texto = f"{random.choice(PLUS)}"
@@ -61,7 +59,6 @@ if userge.has_bot:
             await c_q.edit_message_media(
                 media=InputMediaPhoto(media=f_id, caption=texto),
                 reply_markup=InlineKeyboardMarkup(buttons),
-                del_in=10,
             )
         except MessageNotModified:
             return
