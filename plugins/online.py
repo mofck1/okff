@@ -46,13 +46,13 @@ if userge.has_bot:
                 show_alert=True,
             )
         await c_q.answer("✅ Estou Online e Funcionando!", show_alert=False)
-        msg = await userge.bot.get_messages("orugugu", 61)
+        msg = await userge.bot.get_messages("orugugu", 63)
         f_id = get_file_id(msg)
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="Voltar",
-                    callback_data="voltar_",
+                    text="Extra",
+                    callback_data="runtime_extra",
                 )
             ]
         ]
@@ -76,7 +76,7 @@ if userge.has_bot:
                 show_alert=True,
             )
         await c_q.answer("Extras", show_alert=False)
-        msg = await userge.bot.get_messages("orugugu", 59)
+        msg = await userge.bot.get_messages("orugugu", 64)
         f_id = get_file_id(msg)
         img_text = "Mais informações aqui em breve."
         buttons = [
@@ -104,7 +104,7 @@ if userge.has_bot:
                 show_alert=True,
             )
         await c_q.answer("Online", show_alert=False)
-        msg = await userge.bot.get_messages("orugugu", 52)
+        msg = await userge.bot.get_messages("orugugu", 64)
         f_id = get_file_id(msg)
         img_text = "Seu AppleBot está Online."
         buttons = [
