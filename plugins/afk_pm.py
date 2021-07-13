@@ -31,9 +31,9 @@ if userge.has_bot:
     # Query para resultado do Primeiro Clique + Gerar Mensagem # Início
     @userge.bot.on_callback_query(filters.regex(pattern=r"^pm_afk"))
     async def afk_resultado(_, c_q: CallbackQuery):
-        u_id = c_q.from_user.id
+        c_q.from_user.id #u_id = 
         await c_q.answer("Contato com Apple", show_alert=False)
-        msg = await userge.bot.get_messages("inlineApple", 7)
+        msg = await userge.bot.get_messages("inlineApple", 6)
         f_id = get_file_id(msg)
         mensagem = f"{random.choice(CONTATO)}"
         buttons = [
