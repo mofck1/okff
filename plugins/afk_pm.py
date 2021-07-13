@@ -17,7 +17,17 @@ LOGGER = userge.getLogger(__name__)
 CONTATO = (
   "🏷 | 𝐒𝐓𝐀𝐓𝐔𝐒\n\n ╰• 𝙼𝚎𝚗𝚜𝚊𝚐𝚎𝚖 𝚊𝚞𝚝𝚘𝚖𝚊𝚝𝚒𝚌𝚊\n\n<i>Olá,\n Você pode entrar em contato comigo diretamentepelo meu bot. Para evitar spam, responderei exclusivamente por ele. Em alguns casos, não terei problemas em enviar mensagens no particular.</i>\n\n🔗 @twapple\n ╰• 𝚁𝚎𝚜𝚎𝚛𝚟𝚊𝚍𝚘 𝚙𝚊𝚛𝚊 𝚙𝚘𝚜𝚝𝚜 𝚊𝚕𝚎𝚊𝚝ó𝚛𝚒𝚘𝚜 𝚍𝚘 @applled",
 )
-
+# testar 
+@userge.on_cmd(
+    "afkpm",
+    about={
+        "header": "Módulo teste para o @applled",
+    },
+    del_pre=True,
+    allow_channels=False,
+    allow_via_bot=True,
+)
+# testar
 async def afk_pm(msg):
     bot = await userge.bot.get_me()
     x = await userge.get_inline_bot_results(bot.username, "afk_mensagem")
