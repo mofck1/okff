@@ -35,7 +35,7 @@ async def apple(message: Message):
     texto = "<u>Estou Online</u>, @applled!"
 #   mediag = await userge.bot.get_messages("orugugu", 61) Testar isso depois
 #   media_id = get_file_id(msg) Testar isso depois
-    await message.client.send_animation(
+    await userge.bot.send_animation( # await message.client.send_animation(
 #                        media=media_id,
                          message.chat.id, 
                          animation=photo, 
@@ -43,7 +43,7 @@ async def apple(message: Message):
                          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝚁𝚄𝙽𝚃𝙸𝙼𝙴', callback_data="settings_btn"),
+                    InlineKeyboardButton('𝚁𝚄𝙽𝚃𝙸𝙼𝙴', callback_data="afk_pm_"),
                     InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', url='https://t.me/twapple'),
                 ]
             ]
