@@ -20,7 +20,7 @@ CONTATO = (
 
 async def afk_pm(msg):
     bot = await userge.bot.get_me()
-    x = await userge.get_inline_bot_results(bot.username, "afk_pm_")
+    x = await userge.get_inline_bot_results(bot.username, "afk_mensagem")
     await msg.delete()
     await userge.send_inline_bot_result(
         chat_id=msg.chat.id, query_id=x.query_id, result_id=x.results[0].id
@@ -29,10 +29,10 @@ async def afk_pm(msg):
 
 if userge.has_bot:
     # Query para resultado do Primeiro Clique + Gerar Mensagem # Início
-    @userge.bot.on_callback_query(filters.regex(pattern=r"^pm_afk"))
+    @userge.bot.on_callback_query(filters.regex(pattern=r"^afk_pm_$"))
     async def afk_resultado(_, c_q: CallbackQuery):
         c_q.from_user.id #u_id = 
-        await c_q.answer("Contato com Apple", show_alert=False)
+        await c_q.answer("Contato com Apple", show_alert=True)
         msg = await userge.bot.get_messages("inlineApple", 6)
         f_id = get_file_id(msg)
         mensagem = f"{random.choice(CONTATO)}"
