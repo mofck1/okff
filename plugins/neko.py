@@ -9,7 +9,7 @@ from userge.utils import get_file_id
     "neko",
     about={
         "info": "Obtenha a última versão do NekoX",
-        "como usar": ".msu Clock",
+        "como usar": "neko nexox",
     },
 )
 async def app_neko(message: Message):
@@ -32,7 +32,7 @@ async def app_neko(message: Message):
         )
         return
     if not f_id:
-        await search.edit("Não encontrei foi nada... Tente de novo.", del_in=5)
+        await search.edit("Não encontrei por este termo... Tente de novo com <i>nekox</i>.", del_in=5)
         return
     await userge.send_document(chat_id, f_id)
     await search.delete()
