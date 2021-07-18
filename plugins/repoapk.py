@@ -23,12 +23,12 @@ async def apkapplled(message: Message):
     f_id = ""
     try:
         async for msg in userge.search_messages(
-            "PrimeApk", query=aplicativo, limit=1, filter="document"
+            "Premium_droid", query=aplicativo, limit=1, filter="document"
         ):
             f_id = get_file_id(msg)
     except BadRequest:
         await search.edit(
-            "Obrigatório participar do deste [canal](https://t.me/PrimeApk)."
+            "Talvez você precise participar do deste [canal](https://t.me/Premium_droid)."
         )
         return
     if not f_id:
