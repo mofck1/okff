@@ -7,7 +7,7 @@ from userge import userge, Message
 @userge.on_cmd(
     "ani",
     about={
-        "header": "Módulo criado pelo @applled - Info de Animes",
+        "header": "Módulo criado pelo @applled - Assista Animes Legendados",
         "como usar": "{tr}ani nome da pesquisa",
     },
     del_pre=True,
@@ -28,7 +28,7 @@ async def appled_tweet(message: Message):
         return await message.err("Lembre-se de fazer o comando + pesquisa", del_in=5)
 
     x = await userge.get_inline_bot_results(
-            "@animedb_bot", input_query
+            "@AniCatBot ", input_query
     )
     try:
         await message.delete()
