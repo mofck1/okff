@@ -39,15 +39,14 @@ async def verifica_bot(message: Message):
             member_b.append(mention)
     adm = len(admin_b)
     mem = len(member_b)
-    out = f"🏷 <b>𝚁𝙴𝚂𝚄𝙻𝚃𝙰𝙳𝙾 𝙳𝙰 𝚂𝚄𝙰 𝙿𝙴𝚂𝚀𝚄𝙸𝚂𝙰\n𝙽𝚎𝚜𝚝𝚎 𝙶𝚛𝚞𝚙𝚘 |</b>\ ({message.chat.title})\n"
-    out += f" ╰•  [{total}] Bot(s)\n\n"
-    out += f"<b>𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂:</b> [{adm}]\n"
-    out += f"<b>𝙲𝙾𝙼𝚄𝙽𝚂:</b>\n<i>Total de Bots sem privilégios administrativos.</i>"
-    out += f" ╰•  [{mem}]\n\n"
-    out += "\n▫️".join(admin_b)
+    out = f"🏷 𝚁𝙴𝚂𝚄𝙻𝚃𝙰𝙳𝙾 𝙳𝙰 𝚂𝚄𝙰 𝙿𝙴𝚂𝚀𝚄𝙸𝚂𝙰\n𝙽𝚎𝚜𝚝𝚎 𝙶𝚛𝚞𝚙𝚘 | ({message.chat.title})\n"
+    out += f" ╰•  [{total}] <i>Bot(s)</i>\n\n"
+    out += f"𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂: [{adm}]\n"
+    out += f"𝙲𝙾𝙼𝚄𝙽𝚂: [{mem}]\n<i>Bots sem privilégios administrativos.</i>\n"
+    out += "✅ ADMIN:".join(admin_b)
     out += "\n\n" if admin_b else "\n"
     out += "▫️" if member_b else ""
-    out += "\n▫️".join(member_b)
+    out += "\n❎ COMUNS".join(member_b)
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
