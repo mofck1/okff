@@ -20,14 +20,14 @@ async def purple_func(message):
     purp = f"""{random.choice(CARREGADO)}"""
     gerando = ["Aguarde..."]
     purple = f"""
-      **{(await userge.get_users(message.reply_to_message.from_user.id)).first_name}** 
+      **   {(await userge.get_users(message.reply_to_message.from_user.id)).first_name}** 
       𝚂𝚞𝚊𝚜 𝚌𝚑𝚊𝚗𝚌𝚎𝚜 𝚌𝚘𝚖 𝚊 **Purple**
       ➖➖➖➖➖➖➖➖
       **🤡 Radar da Friendzone:** {random.choice(range(0,1000))}%
       **🥺 Chances de ganhar block:** {random.choice(range(0,10))} de 10
       **🌈 Te acha guei:** {random.choice(range(50,100))}%
       **💜 Suas chances são:** {random.choice(range(0,100))}% 
-      <i>De ser Verdade ou Mentira</i>
+       ╰•  <i>De ser Verdade ou Mentira</i>
       
       ➖➖➖➖➖➖➖➖
       Se não concordou, clique em /kickme
@@ -37,7 +37,7 @@ async def purple_func(message):
     max_ani = len(gerando)
     for i in range(max_ani):
         await asyncio.sleep(1)
-        await message.edit(gerando[i % max_ani])
+        await message.edit(gerando[i % max_ani], del_in=1)
         await message.client.send_animation(
                          message.chat.id, 
                          animation=purp, 
