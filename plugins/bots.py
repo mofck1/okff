@@ -43,10 +43,10 @@ async def verifica_bot(message: Message):
     out += f" ╰•  [{total}] <i>Bot(s)</i>\n\n"
     out += f"𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂: [{adm}]\n"
     out += f"𝙲𝙾𝙼𝚄𝙽𝚂: [{mem}]\n<i>Bots sem privilégios administrativos.</i>\n"
-    out += "✅ ADMIN:".join(admin_b)
+    out += "\n".join(admin_b)
     out += "\n\n" if admin_b else "\n"
     out += "▫️" if member_b else ""
-    out += "\n❎ COMUNS:".join(member_b)
+    out += "\n".join(member_b)
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
