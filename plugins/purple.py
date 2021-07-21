@@ -43,9 +43,8 @@ async def purple_func(message):
       **💜 Suas chances são :** {random.choice(range(0,100))}% de ser verdade/mentira
       ➖➖➖➖➖➖➖➖
       Se não concordou, clique em /kickme
-      🍏 PB - @applled
-      <code>Teste aprovado pela Anatel Astral</code> 
-      <code>Mensagem será apagada em 20 segundos</code>  
+      🍏 PB - @applled | @twapple
+      <code>Teste aprovado pela Anatel Astral</code>  
       """
 )
     max_ani = len(gerando)
@@ -56,6 +55,5 @@ async def purple_func(message):
                          message.chat.id, 
                          animation=purp, 
                          caption=purple,
-                         del_in=20
         )
     
