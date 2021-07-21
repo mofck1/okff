@@ -63,11 +63,8 @@ async def glyrics(message: Message):
     lyr_format += "\n\n**Escrita por: **" + "__" + writers + "__"
     lyr_format += "\n**Fonte: **" + "`" + title[1] + "`"
 
-    if lyr_format:
         await message.client.send_animation(
                          message.chat.id, 
                          animation=letra, 
                          caption=lyr_format,
         )
-    else:
-        await message.edit(f"Não encontrei nada para **{song}**")
