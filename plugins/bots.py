@@ -1,5 +1,6 @@
 """ Verifica quantos bots existem em um grupo - Ideia do Ash adaptado pelo Orange """
 
+import asyncio
 from userge import Message, userge
 from PIL import Image
 import asyncio
