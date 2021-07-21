@@ -25,7 +25,8 @@ async def purple_func(message):
       **🤡 Radar da Friendzone:** {random.choice(range(0,1000))}%
       **🥺 Chances de ganhar block:** {random.choice(range(0,10))} de 10
       **🌈 Te acha guei:** {random.choice(range(50,100))}%
-      **💜 Suas chances são:** {random.choice(range(0,100))}% \nDe ser Verdade ou Mentira
+      **💜 Suas chances são:** {random.choice(range(0,100))}% 
+      <i>De ser Verdade ou Mentira</i>
       
       ➖➖➖➖➖➖➖➖
       Se não concordou, clique em /kickme
