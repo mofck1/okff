@@ -13,24 +13,24 @@ DORMINDO = (
         "𝙸 𝚓𝚞𝚜𝚝 𝚣𝚣𝚣...",
         "𝚣𝚣𝚣...",
         "𝙸'𝚖 𝚝𝚒𝚛𝚎𝚍, 𝚜𝚎𝚎 𝚢𝚊!",
+        "𝙶𝚘 𝚊𝚠𝚊𝚢!",
 )
 OCUPADO = (
         "𝙱𝚄𝚂𝚈!",
         "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠, 𝚜𝚘𝚛𝚛𝚢.",
         "𝚆𝚘𝚛𝚔𝚒𝚗𝚐 𝚘𝚗 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐.",
         "𝙽𝚊 𝚑𝚎𝚛𝚎...",
+
+WORKING = (
+        "𝚆𝚘𝚛𝚔𝚒𝚗𝚐, 𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠.",
 )
+
 NETFLIX = (
         "𝙸'𝚖 𝚠𝚊𝚝𝚌𝚑𝚒𝚗𝚐 𝚘𝚗 𝙽𝚎𝚝𝚏𝚕𝚒𝚡.",
 )
 
-LOKI = (
-#       "𝙷𝚎𝚕𝚕 𝚢𝚊, 𝚗𝚎𝚠 𝚎𝚙𝚒𝚜𝚘𝚍𝚎! 𝙱𝚢𝚎!",
-        "𝙲𝚘𝚖𝚎 𝚘𝚗...",
-)
-#Temporário
 SPOTIFY = (
-        "𝙽𝚊 𝚑𝚎𝚛𝚎!\n𝙰 𝚐𝚘𝚘𝚍 𝙰𝚙𝚙𝚕𝚊𝚢𝚕𝚒𝚜𝚝 𝚒𝚜 𝚌𝚘𝚖𝚒𝚗𝚐 😊\n🎧 https://bit.ly/applefy ",
+        "𝙸'𝚖 𝚘𝚗 𝚂𝚙𝚘𝚝𝚒𝚏𝚢 😊\n🎧 https://bit.ly/applefy ",
 )
 # Ações - Media dos Motivos 
 ASSISTINDOM = (
@@ -38,7 +38,7 @@ ASSISTINDOM = (
         "https://telegra.ph/file/63d10879759183c8eac04.gif",
         "https://telegra.ph/file/19ef9c3c7f1fee430ec9d.gif",
 )
-#Add mais depois
+ 
 DORMINDOM = (
         "https://telegra.ph/file/f59e0827bcb5c20011f7a.gif",
         "https://telegra.ph/file/4f9f9530d28c18f268b14.gif", 
@@ -59,15 +59,11 @@ OCUPADOM = (
 NETFLIXM = (
         "https://telegra.ph/file/d616384d44d96c7e912f7.gif",
 )
-#Temporário
-LOKIM = (
+WORKINGM = (
         "https://telegra.ph/file/71b708eb44b9d2d3c60f6.gif",
-#       "https://telegra.ph/file/b3236ef409f6d8bc69b1b.gif", 
-#       "https://telegra.ph/file/c058c117801315f5af8f1.gif",
 )
-#Temporário
 SPOTIFYM = (
-        "https://telegra.ph/file/16abf23147a363828da13.gif",
+        "https://telegra.ph/file/b26978b00e2ad40c67321.gif",
 )
 @userge.on_cmd(
     "fui",
@@ -78,8 +74,8 @@ SPOTIFYM = (
             "-d": "Dormindo...",
             "-o": "Ocupado....",
             "-n": "Netflix...",
-            "-l": "Loki...",
             "-s": "Spotify...",
+            "-w": "Working...",
         },
         "como usar": "{tr}fui -flag",
         "exemplo": "{tr}fui -a",
@@ -111,13 +107,13 @@ async def escolhas(message: Message):
                 f"!afk {random.choice(NETFLIX)} | {random.choice(NETFLIXM)}",
                 del_in=1
             )
-    if "l" in message.flags:
-            await message.edit(
-                f"!afk {random.choice(LOKI)} | {random.choice(LOKIM)}",
-                del_in=1
-            )
     if "s" in message.flags:
             await message.edit(
                 f"!afk {random.choice(SPOTIFY)} | {random.choice(SPOTIFYM)}",
+                del_in=1
+            )
+    if "w" in message.flags:
+            await message.edit(
+                f"!afk {random.choice(WORKING)} | {random.choice(WORKINGM)}",
                 del_in=1
             )
