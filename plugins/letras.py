@@ -6,6 +6,7 @@ import re
 import asyncio
 import random
 import requests
+import lyricsgenius
 from bs4 import BeautifulSoup
 from googlesearch import search
 from userge import Message, userge
