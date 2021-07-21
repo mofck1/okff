@@ -51,7 +51,7 @@ async def google_voz(message: Message):
         a_len = 0      
         if meta and meta.has("duration"):
             a_len = meta.get("duration").seconds
-        await message.edit("Enviando...")
+        await message.edit("Gravando...")
         await message.client.send_voice(
             chat_id=message.chat.id,
             voice=req_file_name,
