@@ -45,7 +45,7 @@ async def purple_func(message):
       Se não concordou, clique em /kickme
       🍏 PB - @applled
       <code>Teste aprovado pela Anatel Astral</code> 
-      <code>Mensagem será apagada em 25 segundos</code>  
+      <code>Mensagem será apagada em 20 segundos</code>  
       """
 )
     max_ani = len(gerando)
@@ -56,6 +56,6 @@ async def purple_func(message):
                          message.chat.id, 
                          animation=purp, 
                          caption=purple,
-                         del_in=25,
+                         del_in=20
         )
     
