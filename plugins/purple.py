@@ -18,6 +18,7 @@ CARREGADO = (
 async def purple_func(message):
     user = await message.client.get_user_dict(message.from_user.id)
     purp = f"""{random.choice(CARREGADO)}"""
+    gerando = ["Aguarde..."]
     purple = f"""
       **{(await userge.get_users(message.reply_to_message.from_user.id)).first_name}** 
       𝚂𝚞𝚊𝚜 𝚌𝚑𝚊𝚗𝚌𝚎𝚜 𝚌𝚘𝚖 𝚊 **Purple**
@@ -33,6 +34,10 @@ async def purple_func(message):
       🍏 PB - @applled | @twapple
       <code>Teste aprovado pela Anatel Astral</code>  
       """
+    max_ani = len(gerando)
+    for i in range(max_ani):
+        await asyncio.sleep(1)
+        await message.edit(gerando[i % max_ani])
         await message.client.send_animation(
                          message.chat.id, 
                          animation=purp, 
