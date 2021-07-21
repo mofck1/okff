@@ -1,4 +1,4 @@
-""" Verifica quantos bots existem em um grupo - Ideia do Ash adaptado pelo Orange """
+""" Verifica quantos bots existem em um grupo - Ideia do Ash refeito pelo Orange """
 
 import asyncio
 from userge import Message, userge
@@ -10,8 +10,8 @@ from userge.utils import get_file_id, rand_array
 from pyrogram import filters
 
 BOTS = (
-    "https://telegra.ph/file/ac5bbccca2eee5f109c8a.gif",
-    "https://telegra.ph/file/ac5bbccca2eee5f109c8a.gif",
+    "https://telegra.ph/file/6a40587cbf58e1a77eccf.gif",
+    "https://telegra.ph/file/370cad02110707898bdc4.gif",
 )
 
 @userge.on_cmd(
@@ -39,12 +39,11 @@ async def verifica_bot(message: Message):
             member_b.append(mention)
     adm = len(admin_b)
     mem = len(member_b)
-    out = f"🏷 <b>BOTS NESTE GRUPO</b>\n ({message.chat.title})\n"
-    out += f" ╰•    [{total}]\n\n"
-    out += f"<b>ADMINISTRADORES</b>\n"
-    out += f" ╰•    [{adm}]\n\n"
-    out += f"<b>LISTA DE BOTS:</b>\n"
-    out += f" ╰•    [{mem}]\n\n"
+    out = f"🏷 <b>𝚁𝙴𝚂𝚄𝙻𝚃𝙰𝙳𝙾 𝙳𝙰 𝚂𝚄𝙰 𝙿𝙴𝚂𝚀𝚄𝙸𝚂𝙰\n𝙽𝚎𝚜𝚝𝚎 𝙶𝚛𝚞𝚙𝚘 |</b>\ ({message.chat.title})\n"
+    out += f" ╰•  [{total}] Bot(s)\n\n"
+    out += f"<b>𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂:</b> [{adm}]\n"
+    out += f"<b>𝙲𝙾𝙼𝚄𝙽𝚂:</b>\n<i>Total de Bots sem privilégios administrativos.</i>"
+    out += f" ╰•  [{mem}]\n\n"
     out += "\n▫️".join(admin_b)
     out += "\n\n" if admin_b else "\n"
     out += "▫️" if member_b else ""
@@ -54,5 +53,3 @@ async def verifica_bot(message: Message):
                          animation=photo, 
                          caption=out,
     )
-    
-    # Alterar o Out para teste depois #
