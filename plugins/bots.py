@@ -50,6 +50,7 @@ async def verifica_bot(message: Message):
     out += "▫️" if member_b else ""
     out += "\n▫️".join(member_b)
     await message.client.send_animation(
+                         message.chat.id, 
                          animation=photo, 
                          caption=out,
     )
