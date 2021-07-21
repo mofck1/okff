@@ -5,6 +5,9 @@ import random
 from userge import Message, userge
 
 # Motivos 
+ANIMU = (
+        "𝙰𝚗𝚒𝚖𝚞 :3\n🎧 https://www.animu.com.br",
+)
 ASSISTINDO = (
         "𝚆𝚊𝚝𝚌𝚑𝚒𝚗𝚐, 𝙸'𝚕𝚕 𝚋𝚎 𝚋𝚊𝚌𝚔 𝚜𝚘𝚘𝚗.",
         "𝙹𝚞𝚜𝚝 𝚌𝚑𝚎𝚌𝚔 𝚖𝚢 @𝚝𝚠𝚊𝚙𝚙𝚕𝚎",
@@ -38,7 +41,11 @@ ASSISTINDOM = (
         "https://telegra.ph/file/63d10879759183c8eac04.gif",
         "https://telegra.ph/file/19ef9c3c7f1fee430ec9d.gif",
 )
- 
+ANIMUM = (
+        "https://telegra.ph/file/8c2fd1e064ee862a41ecf.gif",
+        "https://telegra.ph/file/57fb5eb07d1e635a9a244.gif",
+)
+
 DORMINDOM = (
         "https://telegra.ph/file/f59e0827bcb5c20011f7a.gif",
         "https://telegra.ph/file/4f9f9530d28c18f268b14.gif", 
@@ -70,6 +77,7 @@ SPOTIFYM = (
     about={
         "header": "Modo Ausente já definido os status/medias",
         "flags": {
+            "-an": "Animu...",
             "-a": "Assistindo...",
             "-d": "Dormindo...",
             "-o": "Ocupado....",
@@ -90,6 +98,11 @@ async def escolhas(message: Message):
     if "a" in message.flags:
             await message.edit(
                 f"!afk {random.choice(ASSISTINDO)} | {random.choice(ASSISTINDOM)}",
+                del_in=1,
+            )
+    if "an" in message.flags:
+            await message.edit(
+                f"!afk {random.choice(ANIMU)} | {random.choice(ANIMUM)}",
                 del_in=1,
             )
     if "d" in message.flags:
