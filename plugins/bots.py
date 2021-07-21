@@ -46,7 +46,7 @@ async def verifica_bot(message: Message):
     out += "✅ ADMIN:".join(admin_b)
     out += "\n\n" if admin_b else "\n"
     out += "▫️" if member_b else ""
-    out += "\n❎ COMUNS".join(member_b)
+    out += "\n❎ COMUNS:".join(member_b)
     await message.client.send_animation(
                          message.chat.id, 
                          animation=photo, 
