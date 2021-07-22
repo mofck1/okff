@@ -14,7 +14,7 @@ import requests
 
 async def teste_(message: Message):
     engine = message.input_str
-    apple = await edit_or_reply(message, engine.get_string("PROCESSANDO"))
+    apple = await edit_or_reply
     laranja = get_text(message)
     if not laranja:
         await apple.edit(
