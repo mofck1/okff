@@ -24,14 +24,11 @@ async def pesquisa_amazon(message: Message):
     if not query:
         await message.edit("`Por favor, digite algo, né?`")
         return
-    product = ""
     amazon_url = f"https://amznsearch.vercel.app/api/?query={query}"
     payload = {"format": "json", "url": amazon_url}
     r = requests.get("http://is.gd/create.php", params=payload)
-
-        product = ""
-        link = products['productLink']
-        name = products['productName']
-        price= products['productPrice']
-        product += f"<a href='{link}'>• {name}\n{price}</a>\n"
+    link = products['productLink']
+    name = products['productName']
+    price= products['productPrice']
+    product += f"<a href='{link}'>• {name}\n{price}</a>\n"
     await message.edit(product, parse_mode="HTML")
