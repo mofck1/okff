@@ -30,7 +30,7 @@ async def pesquisa_amazon(message: Message):
         resp = await session.get(url)
         r = await resp.json()
     if not r:
-        return await message.edit("`Não consegui entrar nada ou estou quebrado. Morto?`")
+        return await message.edit("`Não consegui encontrar nada ou estou quebrado. Morto?`")
     for products in r:
         link = products['productLink']
         name = products['productName']
