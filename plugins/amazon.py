@@ -18,7 +18,7 @@ from userge import userge, Message
     del_pre=True,
     allow_channels=False,
 )
-async def pesquisa_amazon(message: Message):
+async def pesquisar_amazon(message: Message):
     query = message.input_str
     await message.edit("Pesquisando...")
     if not query:
@@ -27,6 +27,7 @@ async def pesquisa_amazon(message: Message):
     amazon_url = f"https://amznsearch.vercel.app/api/?query={query}"
     payload = {"format": "json", "url": amazon_url}
     r = requests.get("http://is.gd/create.php", params=payload)
+    product = ""
     link = products['productLink']
     name = products['productName']
     price= products['productPrice']
