@@ -31,6 +31,7 @@ async def pesquisa_amazon(message: Message):
         if not product:
         await message.edit(f"Não consegui encontrar: `{query}`")
                 return
+        product = ""
         link = products['productLink']
         name = products['productName']
         price= products['productPrice']
