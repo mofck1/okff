@@ -25,13 +25,12 @@ async def pesquisa_amazon(message: Message):
         await message.edit("`Por favor, digite algo, né?`")
         return
     product = ""
-    url = f"https://amznsearch.vercel.app/api/?query={query}"
-    async with aiohttp.ClientSession() as session:
-        resp = await session.get(url)
-        r = await resp.json()
-    if not r:
-        return await message.edit("`Não consegui encontrar nada ou estou quebrado. Morto?`")
-    for products in r:
+    amazon_url = f"https://amznsearch.vercel.app/api/?query={query}"
+    payload = {"format": "json", "url": amazon_url}
+    r = requests.get("http://is.gd/create.php", params=payload)
+        if not product:
+        await message.edit(f"Não consegui encontrar: `{query}`")
+                return
         link = products['productLink']
         name = products['productName']
         price= products['productPrice']
