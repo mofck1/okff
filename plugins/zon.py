@@ -20,19 +20,14 @@ async def pesquisa_amazon(message: Message):
     if not query:
         await message.edit("`Vou pesquisar o vento?!`")
         return
-    query = query.replace(" ", "+")
-    amazon_url = f"https://amznsearch.vercel.app/api/?query={query}"
+    query_encoded = query.replace(" ", "+")
+    amazon_url = f"https://amznsearch.vercel.app/api/?query={query_encoded}"
     payload = {"format": "json", "url": amazon_url}
     r = requests.get("http://is.gd/create.php", params=payload)
     await message.edit(
         f"""
 ✅ **Este é o resultado da Sua Pesquisa:**
-{query}
+🔗 [{query}]({r.json()['shorturl']})
 
 """
     )
-    
-    
-#  🔗 [{query}]({r.json()['shorturl']})
-#  ➖➖➖➖
-#Dev: @applled
