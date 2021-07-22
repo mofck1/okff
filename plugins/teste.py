@@ -30,7 +30,7 @@ async def teste_(message: Message):
             engine.get_string("OBRIGATÓRIO TEXTO").format("Text")
         )
         return
-    photo = "https://telegra.ph/file/376c89b2ef6c6ddbb2fe4.jpg")
+    photo = f"https://telegra.ph/file/376c89b2ef6c6ddbb2fe4.jpg"
     drawing = ImageDraw.Draw(photo)
     blue = (0, 0, 255)
     black = (0, 0, 0)
