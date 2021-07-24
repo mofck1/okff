@@ -24,7 +24,7 @@ RESULTADO = (
 )
 async def foto_falsa(message: Message):
   """ Excelente para não ficar procurando fotos na internet """
-    await message.edit(f"Carregando, aguarde...", del_in=5 )
+    await message.edit(f"Carregando, aguarde...", del_in=5, log=__name__)
     falso = f"""{random.choice(RESULTADO)}{random.choice(range(0,994))}.jpg"""
     texto = f"**Foto Fake Gerada** ✅\n\n**Criado por:** <i>@applled</i>\n<i>Divirta-se ;)</i>"
     await message.client.send_photo(
