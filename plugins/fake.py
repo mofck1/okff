@@ -12,18 +12,18 @@ RESULTADO = (
 )
 
 @userge.on_cmd(
-    "fake2",
+    "fake",
     about={
         "titulo": "Teste",
         "descrição": "Teste",
-        "como usar": "{tr}fake2",
+        "como usar": "{tr}fake",
     },
 )
 async def falso_teste(message: Message):
-    await message.edit(f"Aguarde...", del_in=5, log=__name__)
+    await message.edit(f"Carregando...", del_in=5, log=__name__)
     photo = f"""{random.choice(RESULTADO)}"""
-    texto = f"Foto Fake Gerada\nFonte: ThisPersonDoesntExist.\nDivirta-se ;)"
-    await message.client.send_animation(
+    texto = f"**Foto Fake Gerada** ✅\n**Fonte:** <i>ThisPersonDoesntExist.</i>\n\nDivirta-se ;)"
+    await message.client.send_photo(
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
