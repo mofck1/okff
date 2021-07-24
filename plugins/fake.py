@@ -23,7 +23,7 @@ RESULTADO = (
 async def falso_teste(message: Message):
     await message.edit(f"Carregando...", del_in=5, log=__name__)
     falso = f"""{random.choice(RESULTADO)}{random.choice(range(0,994))}"""
-    texto = f"**Foto Fake Gerada** ✅\n**Fonte:** <i>ThisPersonDoesntExist.</i>\n\nDivirta-se ;)"
+    texto = f"**Foto Fake Gerada** ✅\n**Fonte:** <i>BoredHumans.</i>\n\nDivirta-se ;)"
     await message.client.send_photo(
                          message.chat.id, 
                          photo=falso, 
