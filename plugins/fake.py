@@ -4,11 +4,12 @@ from PIL import Image
 import asyncio
 import random
 from userge import Config, Message, userge
+from random import choice, getrandbits, randint
 from userge.utils import get_file_id, rand_array
 from pyrogram import filters
 
 RESULTADO = (
-    "https://thispersondoesnotexist.com/image",
+    "https://boredhumans.b-cdn.net/faces2/",
 )
 
 @userge.on_cmd(
@@ -21,7 +22,7 @@ RESULTADO = (
 )
 async def falso_teste(message: Message):
     await message.edit(f"Carregando...", del_in=5, log=__name__)
-    falso = f"""{random.choice(RESULTADO)}"""
+    falso = f"""{random.choice(RESULTADO)}{random.choice(range(0,994))}"""
     texto = f"**Foto Fake Gerada** ✅\n**Fonte:** <i>ThisPersonDoesntExist.</i>\n\nDivirta-se ;)"
     await message.client.send_photo(
                          message.chat.id, 
