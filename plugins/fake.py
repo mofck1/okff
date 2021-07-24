@@ -28,3 +28,10 @@ async def falso_teste(message: Message):
                          animation=photo, 
                          caption=texto,
     )
+    
+async def verifica_envia(message: Message, *args, **kwargs):
+    replied = message.reply_to_message
+    if replied:
+        await asyncio.gather(message.delete(), replied.reply(*args, **kwargs))
+    else:
+        await message.edit(*args, **kwargs)
