@@ -8,7 +8,7 @@ from userge.utils import get_file_id, rand_array
 from pyrogram import filters
 
 RESULTADO = (
-    "https://thispersondoesnotexist.com/image",
+    "https://thispersondoesnotexist.com",
 )
 
 @userge.on_cmd(
