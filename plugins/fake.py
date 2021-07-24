@@ -8,7 +8,7 @@ from userge.utils import get_file_id, rand_array
 from pyrogram import filters
 
 RESULTADO = (
-    "https://thispersondoesnotexist.com",
+    "https://thispersondoesnotexist.com/image",
 )
 
 @userge.on_cmd(
@@ -21,7 +21,7 @@ RESULTADO = (
 )
 async def falso_teste(message: Message):
     await message.edit(f"Carregando...", del_in=5, log=__name__)
-    falso = f"""{random.choice(RESULTADO)}"""
+    falso = f"""{random.choice(RESULTADO)}.applebot.jpeg"""
     texto = f"**Foto Fake Gerada** ✅\n**Fonte:** <i>ThisPersonDoesntExist.</i>\n\nDivirta-se ;)"
     await message.client.send_photo(
                          message.chat.id, 
