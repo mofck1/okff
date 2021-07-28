@@ -5,7 +5,7 @@ import random
 from userge import Message, userge
 
 # Motivos 
-AFK_REASONS = (
+AFK_REASONSS = (
     "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠.",
 )   
 ANIMU = (
@@ -151,5 +151,5 @@ async def escolhas(message: Message):
 async def gone(message: Message):
     """ Só vai... """
     await message.edit(
-       f"!afk {random.choice(AFK_REASONS)} | {random.choice(AFK_REASONSM)}", del_in=1,
+       f"!afk {random.choice(AFK_REASONSS)} | {random.choice(AFK_REASONSM)}", del_in=1,
             )                
