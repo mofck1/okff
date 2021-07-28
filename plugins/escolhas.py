@@ -5,6 +5,9 @@ import random
 from userge import Message, userge
 
 # Motivos 
+AFK_REASONS = (
+    "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠.",
+)   
 ANIMU = (
         "𝙰𝚗𝚒𝚖𝚞 :3\n🎧 https://www.animu.com.br",
 )
@@ -72,6 +75,9 @@ WORKINGM = (
 SPOTIFYM = (
         "https://telegra.ph/file/b26978b00e2ad40c67321.gif",
 )
+AFK_REASONSM = (
+    "https://telegra.ph/file/5eb616e8afe7a13fb401a.gif"
+) 
 @userge.on_cmd(
     "fui",
     about={
@@ -130,3 +136,20 @@ async def escolhas(message: Message):
                 f"!afk {random.choice(WORKING)} | {random.choice(WORKINGM)}",
                 del_in=1
             )
+
+@userge.on_cmd(
+    "gone",
+    about={
+        "titulo": "Gone!",
+        "como usar": "{tr}gone",
+        "exemplo": "{tr}gone",
+    },
+    del_pre=True,
+    allow_channels=False,
+)
+
+async def gone(message: Message):
+    """ Só vai... """
+    await message.edit(
+       f"!afk {random.choice(AFK_REASONS)} | {random.choice(AFK_REASONSM)}", del_in=1,
+            )                
