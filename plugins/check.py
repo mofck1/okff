@@ -30,20 +30,19 @@ CHECKS = (
 )
 
 async def apple(message: Message):
+    bot = await userge.bot.get_me()
+    master = await userge.get_me()
     await message.edit("**𝚃𝚎𝚜𝚝𝚎 𝚐𝚎𝚛𝚊𝚍𝚘...**\n𝙰𝚐𝚞𝚊𝚛𝚍𝚎 𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘, 𝙼𝚎𝚜𝚝𝚛𝚎...", del_in=5, log=__name__)
     photo = f"""{random.choice(CHECKS)}"""
-    texto = "<u>Estou Online</u>, @applled!"
-#   mediag = await userge.bot.get_messages("orugugu", 61) Testar isso depois
-#   media_id = get_file_id(msg) Testar isso depois
-    await userge.bot.send_animation( # await message.client.send_animation(
-#                        media=media_id,
+    texto = f"<u>Estou Online</u>, {master.first_name}"
+    await userge.bot.send_animation( 
                          message.chat.id, 
                          animation=photo, 
                          caption=texto,
                          reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝚁𝚄𝙽𝚃𝙸𝙼𝙴', callback_data="afk_pm_"),
+                    InlineKeyboardButton('𝚁𝚄𝙽𝚃𝙸𝙼𝙴', callback_data="settings_btn"),
                     InlineKeyboardButton('𝚃𝚆𝙰𝙿𝙿𝙻𝙴', url='https://t.me/twapple'),
                 ]
             ]
