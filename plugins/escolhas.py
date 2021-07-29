@@ -78,6 +78,10 @@ SPOTIFYM = (
 AFK_REASONSM = (
     "https://telegra.ph/file/5eb616e8afe7a13fb401a.gif"
 ) 
+GIFF = (
+    "https://telegra.ph/file/476963f68667b0e3d0fb3.gif",
+    "https://telegra.ph/file/bb9f5906cfc9f0c5f16c7.gif",
+)
 @userge.on_cmd(
     "fui",
     about={
@@ -160,8 +164,11 @@ async def gone(message: Message):
     await message.edit(
        f"""!afk {random.choice(AFK_REASONSS)} | {random.choice(AFK_REASONSM)}""", 
         del_in=1,
-            )                
-GIFF = (
-    "https://telegra.ph/file/476963f68667b0e3d0fb3.gif",
-    "https://telegra.ph/file/bb9f5906cfc9f0c5f16c7.gif",
-)
+            ) 
+    
+    async def verificar_envia(message: Message, *args, **kwargs):
+    replied = message.reply_to_message
+    if replied:
+        await asyncio.gather(message.delete(), replied.reply(*args, **kwargs))
+    else:
+        await message.edit(*args, **kwargs)
