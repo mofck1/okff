@@ -70,7 +70,7 @@ NETFLIXM = (
         "https://telegra.ph/file/d616384d44d96c7e912f7.gif",
 )
 WORKINGM = (
-        "https://telegra.ph/file/71b708eb44b9d2d3c60f6.gif",
+        "https://telegra.ph/file/ef0fca4861e0b661e5fef.gif",
 )
 SPOTIFYM = (
         "https://telegra.ph/file/b26978b00e2ad40c67321.gif",
@@ -138,18 +138,30 @@ async def escolhas(message: Message):
             )
 
 @userge.on_cmd(
-    "gone",
+    "bye",
     about={
         "titulo": "Gone!",
-        "como usar": "{tr}gone",
-        "exemplo": "{tr}gone",
+        "como usar": "{tr}bye",
+        "exemplo": "{tr}bye",
     },
     del_pre=True,
     allow_channels=False,
 )
 
 async def gone(message: Message):
-    """ Só vai... """
+    gif = f"""{random.choice(GIFF)}"""
+    mensagem = f"<i>I'v to go, bye!</i> :3"
+    await message.client.send_animation(
+                         message.chat.id, 
+                         animation=gif, 
+                         caption=mensagem,
+                         del_in=5
+    )
     await message.edit(
-       f"!afk {random.choice(AFK_REASONSS)} | {random.choice(AFK_REASONSM)}", del_in=1,
+       f"""!afk {random.choice(AFK_REASONSS)} | {random.choice(AFK_REASONSM)}""", 
+        del_in=1,
             )                
+GIFF = (
+    "https://telegra.ph/file/476963f68667b0e3d0fb3.gif",
+    "https://telegra.ph/file/bb9f5906cfc9f0c5f16c7.gif",
+)
