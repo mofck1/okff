@@ -13,7 +13,7 @@ from userge.utils import get_file_id
     },
 )
 async def apkapplled(message: Message):
-    """ Pesquise qualquer APK """
+    """ Pesquise qualquer APK - Mod """
     aplicativo = message.input_str
     if not aplicativo:
         await message.err("Tente usar o nome de um app.", del_in=10)
@@ -23,12 +23,12 @@ async def apkapplled(message: Message):
     f_id = ""
     try:
         async for msg in userge.search_messages(
-            "Premium_droid", query=aplicativo, limit=1, filter="document"
+            "Alexey070315", query=aplicativo, limit=1, filter="document"
         ):
             f_id = get_file_id(msg)
     except BadRequest:
         await search.edit(
-            "Talvez você precise participar do deste [canal](https://t.me/Premium_droid)."
+            "Talvez você precise participar do deste [canal](https://t.me/Alexey070315)."
         )
         return
     if not f_id:
