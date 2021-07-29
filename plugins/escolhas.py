@@ -165,9 +165,3 @@ async def gone(message: Message):
         del_in=1,
             ) 
     
-    async def verificar_envia(message: Message, *args, **kwargs):
-    replied = message.reply_to_message
-    if replied:
-        await asyncio.gather(message.delete(), replied.reply(*args, **kwargs))
-    else:
-        await message.edit(*args, **kwargs)
