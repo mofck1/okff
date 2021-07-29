@@ -159,9 +159,4 @@ async def gone(message: Message):
                          message.chat.id, 
                          animation=gif, 
                          caption=mensagem,
-    )
-    await message.edit(
-       f"""!afk {random.choice(AFK_REASONSS)} | {random.choice(AFK_REASONSM)}""", 
-        del_in=1,
-            ) 
-    
+    )    
