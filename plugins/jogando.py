@@ -27,9 +27,9 @@ from userge import Message, userge
 
 async def jogando(message: Message):
     """Será que é verdade? Lol"""
+    game = " GTA V"
     jogo = (
         "playing",
-        "playing GTA V",
     )
     input_str = message.input_str
     args = input_str.split()
@@ -55,7 +55,7 @@ async def jogando(message: Message):
             await message.delete()
             count = 0
             while count <= tempo_jogo:
-                await message.client.send_chat_action(chat_id, jogando_tg)
+                await message.client.send_chat_action(chat_id, jogando_tg, caption=game)
                 await asyncio.sleep(5)
                 count += 5
     except Exception:
