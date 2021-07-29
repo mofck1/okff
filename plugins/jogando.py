@@ -18,10 +18,10 @@ from userge import Message, userge
     "jogando",
     about={
         "titulo": "Status para Jogando algo no Telegram ;)",
-        "jogos disponíveis": [
+        "ação disponível": [
             "playing",
         ],
-        "como usar": "{tr}jogando 400",
+        "como usar": "{tr}jogando 300",
     },
 )
 
@@ -32,7 +32,7 @@ async def jogando(message: Message):
     )
     input_str = message.input_str
     args = input_str.split()
-    if len(args) == 0:  #  
+    if len(args) == 0:   
         jogando_tg = choice(jogo)
         tempo_jogo = randint(30, 60)
     elif len(args) == 1:  
