@@ -43,3 +43,5 @@ async def purple_func(message):
                          animation=purp, 
                          caption=purple,
         )
+
+        
