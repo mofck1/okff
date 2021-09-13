@@ -1,4 +1,4 @@
-# plugin for USERGE-X made by @Kakashi_HTK(tg)/@ashwinstr(gh) Adaptado or Apple @applled
+# plugin for USERGE-X made by @Kakashi_HTK(tg)/@ashwinstr(gh) Adaptado por Apple @applled
 # v1.3.3
 
 
