@@ -13,7 +13,7 @@ CHANNEL = userge.getCLogger(__name__)
 @userge.on_cmd(
     "rep",
     about={
-        "títuo": "Reportar um usuário por spam",
+        "título": "Reportar um usuário por spam",
         "descrição": "Reporte usuários por spam",
         "como usar": "{tr}rep [spam (padrão)] ou [nsfw (caso seja conteúdo adulto)(opcional)] [só responder uma mensagem com o comando]\n"
     },
