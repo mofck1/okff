@@ -48,9 +48,9 @@ async def reportar(message: Message):
         message=reply_,
     )
     msg_ =  (
-        "⚠️ <b>Usuário Reportado</b> ⚠️\n\n"
-        f"<b>— Quem?</b> {user_.mention}\n\n"
-        f"<b>— Motivo:</b> <i>{for_}</i>"
+        "⚠️ <b>Usuário Reportado</b>\n"
+        f"👤 <b>Quem?</b> {user_.mention}\n\n"
+        f" ╰•  <b>Motivo:</b> <i>{for_}</i>"
     )
     await message.edit(msg_)
     await CHANNEL.log(msg_)
