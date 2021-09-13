@@ -48,8 +48,8 @@ async def reportar(message: Message):
         message=reply_,
     )
     msg_ =  (
-        "⚠️ <b>Usuário Reportado</b>\n"
-        f"👤 <b>Quem?</b> {user_.mention}\n\n"
+        "⚠️ <b>Usuário Reportado</b>\n\n"
+        f"👤 <b>Quem?</b> {user_.mention}\n"
         f" ╰•  <b>Motivo:</b> <i>{for_}</i>"
     )
     await message.edit(msg_)
