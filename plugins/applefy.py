@@ -46,6 +46,6 @@ async def appled_(message: Message):
     "apple$", about={"header": "Comando rápido para o Now Playing"}, trigger="", allow_via_bot=False
 )
 async def ouvindo_(message: Message):
-    await message.edit("!sp /now", del_in=1,)
+    await message.edit(".sp /now", del_in=1,)
     
 
