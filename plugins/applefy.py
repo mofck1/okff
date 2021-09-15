@@ -51,5 +51,5 @@ async def ouvindo_(message: Message):
     @userge.on_cmd(
     "apple$", about={"header": "Comando rápido para o Now Playing"}, trigger="", allow_via_bot=False
 )
-async def ouvindo_(message: Message):
+async def ouvindo_2(message: Message):
     await message.edit(".sp /now", del_in=1,)
