@@ -5,10 +5,10 @@ from userge import userge, Message
 
 
 @userge.on_cmd(
-    "snow",
+    "sp",
     about={
         "header": "Módulo criado pelo @applled que exibe qual música você está ouvindo no Spotify",
-        "como usar": "{tr}snow /now",
+        "como usar": "{tr}sp /now",
     },
     del_pre=True,
     allow_channels=False,
@@ -46,4 +46,10 @@ async def appled_(message: Message):
     "now$", about={"header": "Comando rápido para o Now Playing"}, trigger="", allow_via_bot=False
 )
 async def ouvindo_(message: Message):
-    await message.edit("!snow /now", del_in=1,)
+    await message.edit("!sp /now", del_in=1,)
+    
+    @userge.on_cmd(
+    "apple$", about={"header": "Comando rápido para o Now Playing"}, trigger="", allow_via_bot=False
+)
+async def ouvindo_(message: Message):
+    await message.edit(".sp /now", del_in=1,)
