@@ -17,11 +17,14 @@ RICK = (
     "https://telegra.ph/file/74012d1cbe2a2d26e6a1a.gif",
 )
 
+MENSAGEM = (
+    "Tem vírus...\n<b>PODE INSTALAR TRANQUILO!</b>",
+)
 
 @userge.on_cmd("virus$", about={"header": "Teste de plugin"})
 async def laranja_func(message):
-    user = await message.client.get_user_dict(message.from_user.id)
-    heckerman = user["mention"]
+    photo = f"""{random.choice(RICK)}"""
+    texto = f"""{random.choice(MENSAGEM)}"""
     animation_chars = [
         "<code>Verificando o arquivo...</code>", 
         "<code>Executando análises...</code>", 
@@ -36,14 +39,12 @@ async def laranja_func(message):
         "<code>Obtendo dados...</code>",
         "<code>Pronto... Aguarde o envio da resposta!</code>",
     ]
-    funfou = (
-        f"Tem vírus...\n <b>PODE INSTALAR TRANQUILO!</b>) "
-    )
+
+    
     max_ani = len(animation_chars)
     for i in range(max_ani):
-        await asyncio.sleep(4)
-        await message.edit(animation_chars[i % max_ani])
-        photo = f"""{random.choice(RICK)}"""
+        await asyncio.sleep(3)
+        await message.edit(animation_chars[i % max_ani], del_in=1)
         await message.client.send_animation(
                              message.chat.id, 
                              caption=funfou,
