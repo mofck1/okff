@@ -13,17 +13,17 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 LOGGER = userge.getLogger(__name__)
 
 FBAN = (
-   "!fban You don't have my respect, user. When I'm FBan done, half of humanity will still be alive. I hope they remember you, your shitcoin/spam.",
+   "<i>Já leu as mensagens fixadas? Se tá lendo isso, você não é cego.</i>",
 )
 THANOSSAID = (
-   "<i>Perfectly balanced, as all things should be.</i>",
+   "<i>Perfectly balanced, as all things should be.</i>\nMensagens Importantes: [#1](https://t.me/redminote8br/1879553) / [#2](https://t.me/redminote8br/1869155)",
 )
 THANOS = (
     "https://telegra.ph/file/93a2f322f395bf0f8d66b.gif",
 )
 
 @userge.on_cmd(
-    "fban$", about={"header": "Módulo teste para o @applled"}, trigger="", allow_via_bot=False
+    "leia$", about={"header": "Módulo teste para o @applled"}, trigger="", allow_via_bot=False
 )
 
 async def regras(message: Message):
