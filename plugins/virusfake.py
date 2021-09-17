@@ -1,19 +1,17 @@
-## MÓDULO PARA ZOEIRA @applled(TG)
+""" Módulo de testes para o @applled(TG) com fins de aprendizado """
 
-import asyncio
 import os
-import time
+import asyncio
+from datetime import datetime
+from PIL import Image
+import asyncio
 import random
-from asyncio import sleep
-from collections import deque
-from random import choice, getrandbits, randint
-from re import sub
+from userge import Config, Message, userge
+from userge.utils import get_file_id, rand_array
+from pyrogram import filters
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-import requests
-import wget
-from cowpy import cow
-
-from userge import Message, userge
+LOGGER = userge.getLogger(__name__)
 
 RICK = (
     "https://telegra.ph/file/74012d1cbe2a2d26e6a1a.gif",
@@ -47,6 +45,7 @@ async def laranja_func(message):
         await message.edit(animation_chars[i % max_ani])
         photo = f"""{random.choice(RICK)}"""
         await message.client.send_animation(
+                             message.chat.id, 
                              caption=funfou,
                              animation=photo,
         )
