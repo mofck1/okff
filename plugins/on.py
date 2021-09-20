@@ -19,7 +19,7 @@ CHECKS = (
     },
     del_pre=True,
     allow_channels=False,
-    allow_via_bot=True,
+    allow_via_bot=False,
 )
 async def apple(message: Message):
     await userge.bot.get_me()
