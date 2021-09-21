@@ -5,6 +5,10 @@ import random
 from userge import Message, userge
 
 # Motivos 
+
+PURPLE = (
+    "Go away, I'm busy!",
+)
 AFK_REASONSS = (
     "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠.",
 )   
@@ -82,6 +86,9 @@ GIFF = (
     "https://telegra.ph/file/476963f68667b0e3d0fb3.gif",
     "https://telegra.ph/file/bb9f5906cfc9f0c5f16c7.gif",
 )
+PURP = (
+    "https://telegra.ph/file/270775fff117922330729.gif",
+)
 @userge.on_cmd(
     "fui",
     about={
@@ -94,6 +101,7 @@ GIFF = (
             "-n": "Netflix...",
             "-s": "Spotify...",
             "-w": "Working...",
+            "-p": "Working...",
         },
         "como usar": "{tr}fui -flag",
         "exemplo": "{tr}fui -a",
@@ -138,6 +146,11 @@ async def escolhas(message: Message):
     if "w" in message.flags:
             await message.edit(
                 f"!afk {random.choice(WORKING)} | {random.choice(WORKINGM)}",
+                del_in=1
+            )
+    if "p" in message.flags:
+            await message.edit(
+                f"!afk {random.choice(PURPLE)} | {random.choice(PURP)}",
                 del_in=1
             )
 
