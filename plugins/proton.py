@@ -15,7 +15,7 @@ async def proton_msg(message: Message):
         "**-.-. --- -- . -. - .-. .. --- / .--. .-. . -- .. ..- --", del_in=2, log=__name__
     )
     texto = f"ⓘ <i>Essa mensagem está disponível apenas para usuários da ProtonAOSP Premium.</i> <u>[Saiba mais](https://bit.ly/protonpremium)</u>"
-    await message.edite(
+    await message.edit(
         message.chat.id,
         animation=photo,
         caption=texto,
