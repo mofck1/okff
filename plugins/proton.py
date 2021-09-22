@@ -3,13 +3,8 @@
 import asyncio
 import random
 from userge import Message, userge
-@userge.on_cmd(
-    "pro",
-    about={
-        "título": "Tu sabe o que é :D",
-        "como usar": "{tr}só mandar reply",
-    },
-)
+
+@userge.on_cmd("pro$", about={"título": "Tu sabe o que é :D"}, trigger="", allow_via_bot=False)
 async def proton_msg(message: Message):
     await message.edit(
         "**-.-. --- -- . -. - .-. .. --- / .--. .-. . -- .. ..- --", del_in=2, log=__name__
