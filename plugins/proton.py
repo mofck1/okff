@@ -11,12 +11,13 @@ from userge import Message, userge
     },
 )
 async def proton_msg(message: Message):
-    mensagem = f"ⓘ <i>Essa mensagem está disponível apenas para usuários da ProtonAOSP Premium.</i> <u>[Saiba mais](https://bit.ly/protonpremium)</u>"
-  await message.edit(
-              caption=mensagem,
-              disable_web_page_preview=True,
+    await message.edit(
+        "**-.-. --- -- . -. - .-. .. --- / .--. .-. . -- .. ..- --", del_in=2, log=__name__
     )
-  
-  
-  
-  
+    texto = f"ⓘ <i>Essa mensagem está disponível apenas para usuários da ProtonAOSP Premium.</i> <u>[Saiba mais](https://bit.ly/protonpremium)</u>"
+    await message.edite(
+        message.chat.id,
+        animation=photo,
+        caption=texto,
+        disable_web_page_preview=True,
+    )
