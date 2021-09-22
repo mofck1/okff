@@ -17,7 +17,6 @@ async def proton_msg(message: Message):
     texto = f"ⓘ <i>Essa mensagem está disponível apenas para usuários da ProtonAOSP Premium.</i> <u>[Saiba mais](https://bit.ly/protonpremium)</u>"
     await message.edit(
         message.chat.id,
-        animation=photo,
         caption=texto,
         disable_web_page_preview=True,
     )
