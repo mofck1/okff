@@ -13,7 +13,7 @@ from userge import Message, userge
 async def proton_msg(message: Message):
     mensagem = f"ⓘ <i>Essa mensagem está disponível apenas para usuários da ProtonAOSP Premium.</i> <u>[Saiba mais](https://bit.ly/protonpremium)</u>"
   await message.edit(
-              text=mensagem,
+              caption=mensagem,
               disable_web_page_preview=True,
     )
   
