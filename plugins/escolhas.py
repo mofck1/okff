@@ -10,7 +10,7 @@ PURPLE = (
     "Go away, I'm busy!",
 )
 AFK_REASONSS = (
-    "𝙸 𝚌𝚊𝚗'𝚝 𝚝𝚊𝚕𝚔 𝚛𝚒𝚐𝚑𝚝 𝚗𝚘𝚠.",
+    "Sorry, I'm busy right now. I'll be back later!",
 )   
 ANIMU = (
         "𝙰𝚗𝚒𝚖𝚞 :3\n🎧 https://www.animu.com.br",
@@ -37,6 +37,9 @@ WORKING = (
 
 NETFLIX = (
         "𝙸'𝚖 𝚠𝚊𝚝𝚌𝚑𝚒𝚗𝚐 𝚘𝚗 𝙽𝚎𝚝𝚏𝚕𝚒𝚡.",
+)
+DISNEYPLUS = (
+        "𝙸'𝚖 𝚠𝚊𝚝𝚌𝚑𝚒𝚗𝚐 𝚘𝚗 Disney+.",
 )
 
 SPOTIFY = (
@@ -73,6 +76,9 @@ OCUPADOM = (
 NETFLIXM = (
         "https://telegra.ph/file/d616384d44d96c7e912f7.gif",
 )
+DISNEYPLUSM = (
+        "https://telegra.ph/file/1d69b302fdb833f8c85ba.gif",
+)
 WORKINGM = (
         "https://telegra.ph/file/ef0fca4861e0b661e5fef.gif",
 )
@@ -102,6 +108,7 @@ PURP = (
             "-s": "Spotify...",
             "-w": "Working...",
             "-p": "Working...",
+            "-dd": "Disney+...",
         },
         "como usar": "{tr}fui -flag",
         "exemplo": "{tr}fui -a",
@@ -151,6 +158,11 @@ async def escolhas(message: Message):
     if "p" in message.flags:
             await message.edit(
                 f"!afk {random.choice(PURPLE)} | {random.choice(PURP)}",
+                del_in=1
+            )
+    if "dd" in message.flags:
+            await message.edit(
+                f"!afk {random.choice(DISNEYPLUS)} | {random.choice(DISNEYPLUSM)}",
                 del_in=1
             )
 
