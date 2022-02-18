@@ -88,3 +88,17 @@ async def geek(message: Message):
         await message.err(
             "@XiaomiGeeksBot ficou sem resposta.\nTente novamente.", del_in=5
         )
+        
+@userge.on_cmd(
+    "of$",
+    about={
+        "título": "teste."
+    },
+    trigger="",
+    allow_via_bot=False,
+)
+async def of_(message: Message):
+    await message.edit(
+        "!of /of",
+        del_in=1,
+    )        
