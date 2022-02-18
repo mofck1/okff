@@ -95,7 +95,7 @@ async def geek(message: Message):
         "título": "teste."
     },
     trigger="",
-    allow_via_bot=False,
+    allow_via_bot=True,
 )
 async def of_(message: Message):
     await message.edit(
