@@ -8,7 +8,7 @@ from userge import Message, userge
 
 LOGGER = userge.getLogger(__name__)
 CHECKS = (
-    "https://t.me/orugugu/59",
+    "https://telegra.ph/file/2b2799c01445dcc56a5bc.gif",
 )
 
 
